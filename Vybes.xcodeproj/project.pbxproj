@@ -1,0 +1,363 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 48;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		3DB7DC581F7C9B9B00370A1B /* FancyBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DB7DC571F7C9B9B00370A1B /* FancyBar.swift */; };
+		3DC075FF1F7B031700D1016F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DC075FE1F7B031700D1016F /* AppDelegate.swift */; };
+		3DC076011F7B031700D1016F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DC076001F7B031700D1016F /* ViewController.swift */; };
+		3DC076041F7B031700D1016F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3DC076021F7B031700D1016F /* Main.storyboard */; };
+		3DC076061F7B031700D1016F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3DC076051F7B031700D1016F /* Assets.xcassets */; };
+		3DC076091F7B031700D1016F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3DC076071F7B031700D1016F /* LaunchScreen.storyboard */; };
+		3DCA7ADC1F7BE86E000B0106 /* Vyber.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DCA7ADB1F7BE86E000B0106 /* Vyber.swift */; };
+		3DCA7ADF1F7BE928000B0106 /* VyberCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DCA7ADE1F7BE928000B0106 /* VyberCell.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		3DB7DC571F7C9B9B00370A1B /* FancyBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FancyBar.swift; sourceTree = "<group>"; };
+		3DC075FB1F7B031700D1016F /* Vybes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Vybes.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		3DC075FE1F7B031700D1016F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		3DC076001F7B031700D1016F /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		3DC076031F7B031700D1016F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		3DC076051F7B031700D1016F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		3DC076081F7B031700D1016F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		3DC0760A1F7B031700D1016F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3DCA7ADB1F7BE86E000B0106 /* Vyber.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Vyber.swift; sourceTree = "<group>"; };
+		3DCA7ADE1F7BE928000B0106 /* VyberCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VyberCell.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		3DC075F81F7B031700D1016F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		3DC075F21F7B031700D1016F = {
+			isa = PBXGroup;
+			children = (
+				3DC075FD1F7B031700D1016F /* Vybes */,
+				3DC075FC1F7B031700D1016F /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		3DC075FC1F7B031700D1016F /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				3DC075FB1F7B031700D1016F /* Vybes.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		3DC075FD1F7B031700D1016F /* Vybes */ = {
+			isa = PBXGroup;
+			children = (
+				3DCA7ADD1F7BE904000B0106 /* Views */,
+				3DCA7ADA1F7BE7F3000B0106 /* Models */,
+				3DCA7AD91F7BE6AD000B0106 /* Controllers */,
+				3DC075FE1F7B031700D1016F /* AppDelegate.swift */,
+				3DC076021F7B031700D1016F /* Main.storyboard */,
+				3DC076051F7B031700D1016F /* Assets.xcassets */,
+				3DC076071F7B031700D1016F /* LaunchScreen.storyboard */,
+				3DC0760A1F7B031700D1016F /* Info.plist */,
+			);
+			path = Vybes;
+			sourceTree = "<group>";
+		};
+		3DCA7AD91F7BE6AD000B0106 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				3DC076001F7B031700D1016F /* ViewController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		3DCA7ADA1F7BE7F3000B0106 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				3DCA7ADB1F7BE86E000B0106 /* Vyber.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		3DCA7ADD1F7BE904000B0106 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				3DCA7ADE1F7BE928000B0106 /* VyberCell.swift */,
+				3DB7DC571F7C9B9B00370A1B /* FancyBar.swift */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		3DC075FA1F7B031700D1016F /* Vybes */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3DC0760D1F7B031700D1016F /* Build configuration list for PBXNativeTarget "Vybes" */;
+			buildPhases = (
+				3DC075F71F7B031700D1016F /* Sources */,
+				3DC075F81F7B031700D1016F /* Frameworks */,
+				3DC075F91F7B031700D1016F /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Vybes;
+			productName = Vibes;
+			productReference = 3DC075FB1F7B031700D1016F /* Vybes.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		3DC075F31F7B031700D1016F /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0900;
+				LastUpgradeCheck = 0900;
+				ORGANIZATIONNAME = "Willie Johnson";
+				TargetAttributes = {
+					3DC075FA1F7B031700D1016F = {
+						CreatedOnToolsVersion = 9.0;
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = 3DC075F61F7B031700D1016F /* Build configuration list for PBXProject "Vybes" */;
+			compatibilityVersion = "Xcode 8.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 3DC075F21F7B031700D1016F;
+			productRefGroup = 3DC075FC1F7B031700D1016F /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				3DC075FA1F7B031700D1016F /* Vybes */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		3DC075F91F7B031700D1016F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3DC076091F7B031700D1016F /* LaunchScreen.storyboard in Resources */,
+				3DC076061F7B031700D1016F /* Assets.xcassets in Resources */,
+				3DC076041F7B031700D1016F /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		3DC075F71F7B031700D1016F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3DCA7ADF1F7BE928000B0106 /* VyberCell.swift in Sources */,
+				3DC076011F7B031700D1016F /* ViewController.swift in Sources */,
+				3DCA7ADC1F7BE86E000B0106 /* Vyber.swift in Sources */,
+				3DC075FF1F7B031700D1016F /* AppDelegate.swift in Sources */,
+				3DB7DC581F7C9B9B00370A1B /* FancyBar.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		3DC076021F7B031700D1016F /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				3DC076031F7B031700D1016F /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		3DC076071F7B031700D1016F /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				3DC076081F7B031700D1016F /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		3DC0760B1F7B031700D1016F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		3DC0760C1F7B031700D1016F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		3DC0760E1F7B031700D1016F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = RFQY6T2L4D;
+				INFOPLIST_FILE = "$(SRCROOT)/Vybes/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.vybe.vybes;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		3DC0760F1F7B031700D1016F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = RFQY6T2L4D;
+				INFOPLIST_FILE = "$(SRCROOT)/Vybes/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.vybe.vybes;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		3DC075F61F7B031700D1016F /* Build configuration list for PBXProject "Vybes" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3DC0760B1F7B031700D1016F /* Debug */,
+				3DC0760C1F7B031700D1016F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		3DC0760D1F7B031700D1016F /* Build configuration list for PBXNativeTarget "Vybes" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3DC0760E1F7B031700D1016F /* Debug */,
+				3DC0760F1F7B031700D1016F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 3DC075F31F7B031700D1016F /* Project object */;
+}

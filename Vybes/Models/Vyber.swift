@@ -2,7 +2,11 @@ import Foundation
 
 struct Vyber: Codable {
     let name: String
-    let vybe: String
+    var vybe: String
+    
+    mutating func setVybe(_ vybe: String) {
+        self.vybe = vybe
+    }
 }
 
 extension Vyber: CustomStringConvertible {

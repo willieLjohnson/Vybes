@@ -1,6 +1,6 @@
 import UIKit
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, EmojiViewDelegate {
     
     @IBOutlet weak var emojiView: EmojiView!
     @IBOutlet weak var vyberTableView: TableViewWithCoreAnimations!
@@ -12,6 +12,7 @@ class ViewController: UIViewController {
     //    private var currentVyberInformation: [VyberInformation]?
     
     private var vybers: [Vyber]?
+    private var selectedVyberIndex: Int?
     
     @IBOutlet weak var addVyberView: UIView!
     @IBOutlet weak var vyberName: UITextField!
@@ -50,6 +51,8 @@ class ViewController: UIViewController {
         addVyberButton.isHidden = true
         setEditModeButton.isHidden = true
         vyberTableView.isEditing = false
+        
+        emojiView.delegate = self
         
         addVyberView.layer.cornerRadius = 5
         let frost = UIVisualEffectView(effect: UIBlurEffect(style: .light))
@@ -105,7 +108,7 @@ class ViewController: UIViewController {
             addVyberButton.isHidden = false
             setEditModeButton.isHidden = false
             
-            let newVyber = Vyber(name: vyberName.text!, vybe: vyberSegmentedSelector.titleForSegment(at: vyberSegmentedSelector.selectedSegmentIndex)!)
+            let newVyber = Vyber(name: vyberName.text!, vybe: vyberSegmentedSelector.titleForSegment(at: vyberSegmentedSelector.selectedSegmentIndex)!, delegate: emojiView)
             
             if vybers != nil {
                 vybers?.append(newVyber)
@@ -128,6 +131,18 @@ class ViewController: UIViewController {
     
     @IBAction func setEditMode(_ sender: UIButton) {
         vyberTableView.isEditing = !vyberTableView.isEditing
+    }
+    
+    func getSelectedVyberIndex() -> Int? {
+        return selectedVyberIndex
+    }
+    
+    func getVyberList() -> [Vyber]? {
+        return vybers
+    }
+    
+    func reloadData() {
+        vyberTableView.reloadData()
     }
 }
 
@@ -154,10 +169,11 @@ extension ViewController: UITableViewDataSource {
 
 extension ViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        emojiView.selectVyber(vybers: vybers!, index: indexPath.row)
         emojiView.isHidden = false
         addVyberButton.isHidden = true
         setEditModeButton.isHidden = true
+        
+        selectedVyberIndex = indexPath.row
     }
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {

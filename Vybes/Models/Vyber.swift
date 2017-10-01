@@ -1,11 +1,20 @@
 import Foundation
 
-struct Vyber: Codable {
+struct Vyber {
     let name: String
     var vybe: String
+    var delegate: VyberDelegate?
     
     mutating func setVybe(_ vybe: String) {
         self.vybe = vybe
+    }
+    
+    mutating func setVybeToDelegate() {
+        if let vybe = delegate?.getSelectedVybe() {
+            self.vybe = vybe
+        } else {
+            print("ERROR: Failed to communicate with delegate")
+        }
     }
 }
 

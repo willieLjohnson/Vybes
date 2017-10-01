@@ -1,7 +1,7 @@
 import UIKit
 
-class EmojiView: UIStackView {
-    
+class EmojiView: UIStackView, VyberDelegate {
+
     @IBOutlet var contentView: UIStackView!
     
     var selectedVyberIndex: Int?
@@ -10,6 +10,9 @@ class EmojiView: UIStackView {
     @IBOutlet weak var goodVybeButton: UIButton!
     @IBOutlet weak var mediumVybeButton: UIButton!
     @IBOutlet weak var badVybeButton: UIButton!
+    
+    public var delegate: EmojiViewDelegate?
+    public var selectedVybe: String?
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -33,22 +36,39 @@ class EmojiView: UIStackView {
         badVybeButton.layer.cornerRadius = 5
     }
     
-    public func selectVyber(vybers: [Vyber], index: Int) {
-        selectedVyberIndex = index
-        copyOfVyberList = vybers
-    }
-    
+//    public func selectVyber(vybers: [Vyber], index: Int) {
+//        selectedVyberIndex = index
+//        copyOfVyberList = vybers
+//    }
+//
     @IBAction func setVybe(_ sender: UIButton) {
         let emoji = sender.titleLabel!.text
-        
-        if var vybers = copyOfVyberList {
-            vybers[selectedVyberIndex!].setVybe(emoji!)
+    
+        if let index = delegate?.getSelectedVyberIndex(), var vybers = delegate?.getVyberList()  {
+            let vyber = vybers[index]
+            vybers[index] = Vyber(name: vyber.name, vybe: emoji!, delegate: vyber.delegate)
             self.isHidden = true
             
             NotificationCenter.default.post(name: .UpdateVyberList, object: self, userInfo: ["vybers" : vybers])
         } else {
-            print("ERROR: VYBER NOT DEFINED")
+            print("ERROR: nil vyber")
             return
         }
+        
+//        if var vybers = copyOfVyberList {
+//            vybers[selectedVyberIndex!].setVybe(emoji!)
+//            self.isHidden = true
+//
+//            NotificationCenter.default.post(name: .UpdateVyberList, object: self, userInfo: ["vybers" : vybers])
+//        } else {
+//            print("ERROR: VYBER NOT DEFINED")
+//            return
+//        }
     }
+    
+    func getSelectedVybe() -> String? {
+        return selectedVybe
+    }
+    
+    
 }

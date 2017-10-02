@@ -4,13 +4,26 @@ class MoodViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
     
-    var moodList: [Mood] = [Mood(name: "Anxious", details: "It was a wild time, believe me"), Mood(name: "Scared", details: nil), Mood(name: "Scared", details: nil), Mood(name: "Scared", details: nil), Mood(name: "Scared", details: nil)]
+    var moodList: [Mood] = [Mood(name: "Anxious", details: "It was a wild time, believe me", date: Date()), Mood(name: "Scared", details: "Spooky day! I can't fall asleep!", date: Date()), Mood(name: "Scared", details: nil, date: Date()), Mood(name: "Scared", details: nil, date: Date()), Mood(name: "Scared", details: nil, date: Date())]
     
     override func viewDidLoad() {
         tableView.dataSource = self
         tableView.delegate = self
         
         tableView.reloadData()
+    }
+    
+    private func formatDate(date: Date) -> String {
+        let timeInterval = date.timeIntervalSince1970
+        let dateFormatter = DateFormatter()
+        dateFormatter.locale = Locale (identifier: "en_US")
+        dateFormatter.setLocalizedDateFormatFromTemplate("EdMMMyyy")
+        
+        if Calendar.current.startOfDay(for: date).timeIntervalSince1970 == Calendar.current.startOfDay(for: Date()).timeIntervalSince1970 {
+            return "Today"
+        }
+        
+        return dateFormatter.string(from: Date(timeIntervalSince1970: timeInterval))
     }
 }
 
@@ -34,8 +47,11 @@ extension MoodViewController: UITableViewDataSource {
             moodCell.details.text = nil
         }
         
+        moodCell.date.text = formatDate(date: mood.date)
+        
         return moodCell
     }
+
 }
 
 // MARK: Delegate

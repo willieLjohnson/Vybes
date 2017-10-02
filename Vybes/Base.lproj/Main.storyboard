@@ -4,7 +4,9 @@
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -42,13 +44,19 @@
                                                     <color key="backgroundColor" red="0.48960977157360408" green="0.25858300470053536" blue="0.24941305449470658" alpha="0.5451359160958904" colorSpace="custom" customColorSpace="sRGB"/>
                                                 </view>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Mood" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="ZCs-UK-zFJ">
-                                                    <rect key="frame" x="0.0" y="0.0" width="414" height="200"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="414" height="160"/>
                                                     <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="50"/>
                                                     <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="28th Monday" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="afb-i9-o7y">
+                                                    <rect key="frame" x="8" y="168" width="107" height="23"/>
+                                                    <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="17"/>
+                                                    <color key="textColor" red="0.96153062501966813" green="0.97376196030704254" blue="1" alpha="0.55000000000000004" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Today I felt awful because I didnt want to go to the park" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kJU-is-tPS">
-                                                    <rect key="frame" x="135.33333333333331" y="130" width="143.33333333333331" height="21"/>
+                                                    <rect key="frame" x="136" y="107" width="143.33333333333331" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" red="0.96153062501966813" green="0.97376196030704254" blue="1" alpha="0.55000000000000004" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
@@ -59,21 +67,25 @@
                                                 <constraint firstItem="ZCs-UK-zFJ" firstAttribute="centerX" secondItem="SZG-QO-sl4" secondAttribute="centerX" id="2lO-0e-Umf"/>
                                                 <constraint firstItem="kJU-is-tPS" firstAttribute="width" secondItem="SZG-QO-sl4" secondAttribute="width" multiplier="130/375" id="8Lm-xZ-x2a"/>
                                                 <constraint firstItem="K9g-88-Ldm" firstAttribute="width" secondItem="SZG-QO-sl4" secondAttribute="width" id="8m8-O8-3vP"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="afb-i9-o7y" secondAttribute="bottom" constant="1" id="EHG-lQ-lhO"/>
                                                 <constraint firstItem="K9g-88-Ldm" firstAttribute="centerY" secondItem="SZG-QO-sl4" secondAttribute="centerY" id="Hf1-4p-GmY"/>
                                                 <constraint firstItem="K9g-88-Ldm" firstAttribute="height" secondItem="SZG-QO-sl4" secondAttribute="height" id="IU0-77-KsN"/>
-                                                <constraint firstAttribute="bottom" secondItem="kJU-is-tPS" secondAttribute="bottom" constant="49" id="Xbj-sH-6zY"/>
+                                                <constraint firstItem="afb-i9-o7y" firstAttribute="leading" secondItem="SZG-QO-sl4" secondAttribute="leadingMargin" id="KLc-9m-6bJ"/>
+                                                <constraint firstAttribute="bottom" secondItem="kJU-is-tPS" secondAttribute="bottom" constant="72" id="Xbj-sH-6zY"/>
+                                                <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="afb-i9-o7y" secondAttribute="trailingMargin" id="aud-Gq-2jo"/>
                                                 <constraint firstItem="sm0-cG-Bsa" firstAttribute="centerX" secondItem="SZG-QO-sl4" secondAttribute="centerX" id="cPg-p7-nWQ"/>
                                                 <constraint firstItem="ZCs-UK-zFJ" firstAttribute="width" secondItem="SZG-QO-sl4" secondAttribute="width" id="ecG-L5-qv5"/>
-                                                <constraint firstItem="ZCs-UK-zFJ" firstAttribute="height" secondItem="SZG-QO-sl4" secondAttribute="height" id="ehg-CJ-rv9"/>
+                                                <constraint firstItem="ZCs-UK-zFJ" firstAttribute="height" secondItem="SZG-QO-sl4" secondAttribute="height" constant="-40" id="ehg-CJ-rv9"/>
                                                 <constraint firstItem="K9g-88-Ldm" firstAttribute="centerX" secondItem="SZG-QO-sl4" secondAttribute="centerX" id="jG9-vT-t2j"/>
                                                 <constraint firstItem="kJU-is-tPS" firstAttribute="centerX" secondItem="SZG-QO-sl4" secondAttribute="centerX" id="lcq-bi-rdR"/>
                                                 <constraint firstItem="sm0-cG-Bsa" firstAttribute="centerY" secondItem="SZG-QO-sl4" secondAttribute="centerY" id="nTG-vC-DUC"/>
-                                                <constraint firstItem="ZCs-UK-zFJ" firstAttribute="centerY" secondItem="SZG-QO-sl4" secondAttribute="centerY" id="vKe-aj-cka"/>
+                                                <constraint firstItem="ZCs-UK-zFJ" firstAttribute="centerY" secondItem="SZG-QO-sl4" secondAttribute="centerY" constant="-20" id="vKe-aj-cka"/>
                                                 <constraint firstItem="sm0-cG-Bsa" firstAttribute="width" secondItem="SZG-QO-sl4" secondAttribute="width" id="vik-ju-e59"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="background" destination="sm0-cG-Bsa" id="ZMx-24-rwd"/>
+                                            <outlet property="date" destination="afb-i9-o7y" id="qoR-BI-toH"/>
                                             <outlet property="details" destination="kJU-is-tPS" id="1dT-Lp-XoL"/>
                                             <outlet property="name" destination="ZCs-UK-zFJ" id="R1Y-8e-ov5"/>
                                         </connections>
@@ -93,11 +105,42 @@
                     <tabBarItem key="tabBarItem" title="Mood Diary" id="9iH-nW-7Ka"/>
                     <connections>
                         <outlet property="tableView" destination="XEd-db-LyP" id="CaN-1m-O9l"/>
+                        <segue destination="H13-BO-xgD" kind="show" id="VVB-Ze-NvT"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="997.60000000000002" y="31.934032983508249"/>
+            <point key="canvasLocation" x="997.10144927536237" y="31.793478260869566"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="OXy-Zr-r9t">
+            <objects>
+                <viewController id="H13-BO-xgD" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8OZ-nb-JQk">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="S7M-9H-e01">
+                                <rect key="frame" x="20" y="20" width="374" height="654"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3f2-vf-UIp">
+                                <rect key="frame" x="20" y="686" width="46" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <viewLayoutGuide key="safeArea" id="Qb0-A2-thZ"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="eJ5-lx-yek" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1731.8840579710147" y="31.793478260869566"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="PQr-Tl-Y2r">

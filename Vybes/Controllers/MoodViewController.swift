@@ -4,7 +4,7 @@ class MoodViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
     
-    var moodList: [Mood] = [Mood(name: "Anxious"), Mood(name: "Scared"), Mood(name: "Scared"), Mood(name: "Scared"), Mood(name: "Scared")]
+    var moodList: [Mood] = [Mood(name: "Anxious", details: "It was a wild time, believe me"), Mood(name: "Scared", details: nil), Mood(name: "Scared", details: nil), Mood(name: "Scared", details: nil), Mood(name: "Scared", details: nil)]
     
     override func viewDidLoad() {
         tableView.dataSource = self
@@ -27,6 +27,12 @@ extension MoodViewController: UITableViewDataSource {
         
         moodCell.name.text = mood.name
         moodCell.background.image = UIImage(named: "dog")
+        
+        if let details = mood.details {
+            moodCell.details.text = details
+        } else {
+            moodCell.details.text = nil
+        }
         
         return moodCell
     }

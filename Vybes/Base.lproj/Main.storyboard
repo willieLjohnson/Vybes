@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="PgL-wG-PGs">
-    <device id="retina4_7" orientation="portrait">
+    <device id="retina5_5" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -19,44 +20,53 @@
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="MoodViewController" customModule="Vybes" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="200" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="XEd-db-LyP">
-                                <rect key="frame" x="0.0" y="-14.5" width="375" height="667"/>
+                                <rect key="frame" x="0.0" y="-14.666666666666686" width="414" height="736.33333333333326"/>
                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="MoodCell" rowHeight="200" id="0tD-Eb-Lew" customClass="MoodCell" customModule="Vybes" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="375" height="200"/>
+                                        <rect key="frame" x="0.0" y="28" width="414" height="200"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="0tD-Eb-Lew" id="SZG-QO-sl4">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="200"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="200"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="dog" translatesAutoresizingMaskIntoConstraints="NO" id="sm0-cG-Bsa">
-                                                    <rect key="frame" x="0.0" y="0.0" width="375" height="200"/>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="dog" translatesAutoresizingMaskIntoConstraints="NO" id="sm0-cG-Bsa">
+                                                    <rect key="frame" x="0.0" y="0.0" width="414" height="200"/>
                                                 </imageView>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="K9g-88-Ldm">
-                                                    <rect key="frame" x="0.0" y="0.0" width="375" height="200"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="414" height="200"/>
                                                     <color key="backgroundColor" red="0.48960977157360408" green="0.25858300470053536" blue="0.24941305449470658" alpha="0.5451359160958904" colorSpace="custom" customColorSpace="sRGB"/>
                                                 </view>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Mood" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="ZCs-UK-zFJ">
-                                                    <rect key="frame" x="0.0" y="0.0" width="375" height="200"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="414" height="200"/>
                                                     <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="50"/>
                                                     <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Today I felt awful because I didnt want to go to the park" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kJU-is-tPS">
+                                                    <rect key="frame" x="135.33333333333331" y="130" width="143.33333333333331" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" red="0.96153062501966813" green="0.97376196030704254" blue="1" alpha="0.55000000000000004" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="sm0-cG-Bsa" firstAttribute="height" secondItem="SZG-QO-sl4" secondAttribute="height" id="1KU-iu-3q2"/>
                                                 <constraint firstItem="ZCs-UK-zFJ" firstAttribute="centerX" secondItem="SZG-QO-sl4" secondAttribute="centerX" id="2lO-0e-Umf"/>
+                                                <constraint firstItem="kJU-is-tPS" firstAttribute="width" secondItem="SZG-QO-sl4" secondAttribute="width" multiplier="130/375" id="8Lm-xZ-x2a"/>
                                                 <constraint firstItem="K9g-88-Ldm" firstAttribute="width" secondItem="SZG-QO-sl4" secondAttribute="width" id="8m8-O8-3vP"/>
                                                 <constraint firstItem="K9g-88-Ldm" firstAttribute="centerY" secondItem="SZG-QO-sl4" secondAttribute="centerY" id="Hf1-4p-GmY"/>
                                                 <constraint firstItem="K9g-88-Ldm" firstAttribute="height" secondItem="SZG-QO-sl4" secondAttribute="height" id="IU0-77-KsN"/>
+                                                <constraint firstAttribute="bottom" secondItem="kJU-is-tPS" secondAttribute="bottom" constant="49" id="Xbj-sH-6zY"/>
                                                 <constraint firstItem="sm0-cG-Bsa" firstAttribute="centerX" secondItem="SZG-QO-sl4" secondAttribute="centerX" id="cPg-p7-nWQ"/>
                                                 <constraint firstItem="ZCs-UK-zFJ" firstAttribute="width" secondItem="SZG-QO-sl4" secondAttribute="width" id="ecG-L5-qv5"/>
                                                 <constraint firstItem="ZCs-UK-zFJ" firstAttribute="height" secondItem="SZG-QO-sl4" secondAttribute="height" id="ehg-CJ-rv9"/>
                                                 <constraint firstItem="K9g-88-Ldm" firstAttribute="centerX" secondItem="SZG-QO-sl4" secondAttribute="centerX" id="jG9-vT-t2j"/>
+                                                <constraint firstItem="kJU-is-tPS" firstAttribute="centerX" secondItem="SZG-QO-sl4" secondAttribute="centerX" id="lcq-bi-rdR"/>
                                                 <constraint firstItem="sm0-cG-Bsa" firstAttribute="centerY" secondItem="SZG-QO-sl4" secondAttribute="centerY" id="nTG-vC-DUC"/>
                                                 <constraint firstItem="ZCs-UK-zFJ" firstAttribute="centerY" secondItem="SZG-QO-sl4" secondAttribute="centerY" id="vKe-aj-cka"/>
                                                 <constraint firstItem="sm0-cG-Bsa" firstAttribute="width" secondItem="SZG-QO-sl4" secondAttribute="width" id="vik-ju-e59"/>
@@ -64,6 +74,7 @@
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="background" destination="sm0-cG-Bsa" id="ZMx-24-rwd"/>
+                                            <outlet property="details" destination="kJU-is-tPS" id="1dT-Lp-XoL"/>
                                             <outlet property="name" destination="ZCs-UK-zFJ" id="R1Y-8e-ov5"/>
                                         </connections>
                                     </tableViewCell>

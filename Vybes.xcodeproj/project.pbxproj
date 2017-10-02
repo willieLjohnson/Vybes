@@ -7,37 +7,27 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		3DB7DC5A1F7D618400370A1B /* TableViewWithCoreAnimations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DB7DC591F7D618400370A1B /* TableViewWithCoreAnimations.swift */; };
-		3DB7DC5E1F7D6F6100370A1B /* EmojiView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3DB7DC5D1F7D6F6100370A1B /* EmojiView.xib */; };
-		3DB7DC601F7D728300370A1B /* EmojiView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DB7DC5F1F7D728300370A1B /* EmojiView.swift */; };
-		3DB7DC631F7DE89400370A1B /* Notification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DB7DC621F7DE89400370A1B /* Notification.swift */; };
-		3DB7DC6B1F8187E300370A1B /* EmojiViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DB7DC6A1F8187E300370A1B /* EmojiViewDelegate.swift */; };
-		3DB7DC6D1F818AD400370A1B /* VyberDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DB7DC6C1F818AD400370A1B /* VyberDelegate.swift */; };
+		3D65134A1F826B84000E9135 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3D6513491F826AB0000E9135 /* Assets.xcassets */; };
+		3D65134C1F827403000E9135 /* ImageTint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D65134B1F827403000E9135 /* ImageTint.swift */; };
+		3DB4A4E71F822A91005C1C90 /* MoodCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DB4A4E61F822A91005C1C90 /* MoodCell.swift */; };
+		3DB4A4E91F822FC1005C1C90 /* Mood.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DB4A4E81F822FC1005C1C90 /* Mood.swift */; };
 		3DC075FF1F7B031700D1016F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DC075FE1F7B031700D1016F /* AppDelegate.swift */; };
-		3DC076011F7B031700D1016F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DC076001F7B031700D1016F /* ViewController.swift */; };
+		3DC076011F7B031700D1016F /* MoodViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DC076001F7B031700D1016F /* MoodViewController.swift */; };
 		3DC076041F7B031700D1016F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3DC076021F7B031700D1016F /* Main.storyboard */; };
-		3DC076061F7B031700D1016F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3DC076051F7B031700D1016F /* Assets.xcassets */; };
 		3DC076091F7B031700D1016F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3DC076071F7B031700D1016F /* LaunchScreen.storyboard */; };
-		3DCA7ADC1F7BE86E000B0106 /* Vyber.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DCA7ADB1F7BE86E000B0106 /* Vyber.swift */; };
-		3DCA7ADF1F7BE928000B0106 /* VyberCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DCA7ADE1F7BE928000B0106 /* VyberCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		3DB7DC591F7D618400370A1B /* TableViewWithCoreAnimations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewWithCoreAnimations.swift; sourceTree = "<group>"; };
-		3DB7DC5D1F7D6F6100370A1B /* EmojiView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EmojiView.xib; sourceTree = "<group>"; };
-		3DB7DC5F1F7D728300370A1B /* EmojiView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmojiView.swift; sourceTree = "<group>"; };
-		3DB7DC621F7DE89400370A1B /* Notification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notification.swift; sourceTree = "<group>"; };
-		3DB7DC6A1F8187E300370A1B /* EmojiViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmojiViewDelegate.swift; sourceTree = "<group>"; };
-		3DB7DC6C1F818AD400370A1B /* VyberDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VyberDelegate.swift; sourceTree = "<group>"; };
+		3D6513491F826AB0000E9135 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		3D65134B1F827403000E9135 /* ImageTint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageTint.swift; sourceTree = "<group>"; };
+		3DB4A4E61F822A91005C1C90 /* MoodCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoodCell.swift; sourceTree = "<group>"; };
+		3DB4A4E81F822FC1005C1C90 /* Mood.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mood.swift; sourceTree = "<group>"; };
 		3DC075FB1F7B031700D1016F /* Vybes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Vybes.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3DC075FE1F7B031700D1016F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		3DC076001F7B031700D1016F /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		3DC076001F7B031700D1016F /* MoodViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoodViewController.swift; sourceTree = "<group>"; };
 		3DC076031F7B031700D1016F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		3DC076051F7B031700D1016F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3DC076081F7B031700D1016F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3DC0760A1F7B031700D1016F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		3DCA7ADB1F7BE86E000B0106 /* Vyber.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Vyber.swift; sourceTree = "<group>"; };
-		3DCA7ADE1F7BE928000B0106 /* VyberCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VyberCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,7 +44,7 @@
 		3DB7DC611F7DE88400370A1B /* Extension */ = {
 			isa = PBXGroup;
 			children = (
-				3DB7DC621F7DE89400370A1B /* Notification.swift */,
+				3D65134B1F827403000E9135 /* ImageTint.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -62,8 +52,6 @@
 		3DB7DC691F8187CD00370A1B /* Protocols */ = {
 			isa = PBXGroup;
 			children = (
-				3DB7DC6A1F8187E300370A1B /* EmojiViewDelegate.swift */,
-				3DB7DC6C1F818AD400370A1B /* VyberDelegate.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -94,9 +82,9 @@
 				3DCA7AD91F7BE6AD000B0106 /* Controllers */,
 				3DC075FE1F7B031700D1016F /* AppDelegate.swift */,
 				3DC076021F7B031700D1016F /* Main.storyboard */,
-				3DC076051F7B031700D1016F /* Assets.xcassets */,
 				3DC076071F7B031700D1016F /* LaunchScreen.storyboard */,
 				3DC0760A1F7B031700D1016F /* Info.plist */,
+				3D6513491F826AB0000E9135 /* Assets.xcassets */,
 			);
 			path = Vybes;
 			sourceTree = "<group>";
@@ -104,7 +92,7 @@
 		3DCA7AD91F7BE6AD000B0106 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				3DC076001F7B031700D1016F /* ViewController.swift */,
+				3DC076001F7B031700D1016F /* MoodViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -112,7 +100,8 @@
 		3DCA7ADA1F7BE7F3000B0106 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				3DCA7ADB1F7BE86E000B0106 /* Vyber.swift */,
+				3DB4A4E61F822A91005C1C90 /* MoodCell.swift */,
+				3DB4A4E81F822FC1005C1C90 /* Mood.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -120,10 +109,6 @@
 		3DCA7ADD1F7BE904000B0106 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				3DCA7ADE1F7BE928000B0106 /* VyberCell.swift */,
-				3DB7DC591F7D618400370A1B /* TableViewWithCoreAnimations.swift */,
-				3DB7DC5D1F7D6F6100370A1B /* EmojiView.xib */,
-				3DB7DC5F1F7D728300370A1B /* EmojiView.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -188,8 +173,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3DC076091F7B031700D1016F /* LaunchScreen.storyboard in Resources */,
-				3DB7DC5E1F7D6F6100370A1B /* EmojiView.xib in Resources */,
-				3DC076061F7B031700D1016F /* Assets.xcassets in Resources */,
+				3D65134A1F826B84000E9135 /* Assets.xcassets in Resources */,
 				3DC076041F7B031700D1016F /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -201,15 +185,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3DCA7ADF1F7BE928000B0106 /* VyberCell.swift in Sources */,
-				3DB7DC6B1F8187E300370A1B /* EmojiViewDelegate.swift in Sources */,
-				3DB7DC5A1F7D618400370A1B /* TableViewWithCoreAnimations.swift in Sources */,
-				3DC076011F7B031700D1016F /* ViewController.swift in Sources */,
-				3DB7DC601F7D728300370A1B /* EmojiView.swift in Sources */,
-				3DCA7ADC1F7BE86E000B0106 /* Vyber.swift in Sources */,
-				3DB7DC6D1F818AD400370A1B /* VyberDelegate.swift in Sources */,
-				3DB7DC631F7DE89400370A1B /* Notification.swift in Sources */,
+				3DC076011F7B031700D1016F /* MoodViewController.swift in Sources */,
 				3DC075FF1F7B031700D1016F /* AppDelegate.swift in Sources */,
+				3DB4A4E71F822A91005C1C90 /* MoodCell.swift in Sources */,
+				3D65134C1F827403000E9135 /* ImageTint.swift in Sources */,
+				3DB4A4E91F822FC1005C1C90 /* Mood.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

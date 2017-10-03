@@ -3,6 +3,7 @@ import UIKit
 class MoodDetailsViewController: UIViewController {
     
     @IBOutlet var popupDetailsView: UIView!
+    @IBOutlet weak var finishEditingButton: UIButton!
     
     @IBOutlet weak var textView: UITextView!
     var scrollView: UIScrollView! {
@@ -45,6 +46,10 @@ class MoodDetailsViewController: UIViewController {
         self.isEditing = false
         dismiss(animated: true, completion: nil)
     }
+    
+    @IBAction func finishEditing(_ sender: Any) {
+        textView.endEditing(true)
+    }
 }
 
 extension MoodDetailsViewController: UITextViewDelegate {
@@ -84,6 +89,8 @@ extension MoodDetailsViewController: UITextViewDelegate {
             self.oldContentInset = self.scrollView.contentInset
             self.oldIndicatorInset = self.scrollView.scrollIndicatorInsets
             self.oldOffset = self.scrollView.contentOffset
+            
+            finishEditingButton.isHidden = false
         }
 
         if let newRect = rect {
@@ -100,6 +107,8 @@ extension MoodDetailsViewController: UITextViewDelegate {
         if state == .exiting {
             self.scrollView.scrollIndicatorInsets = self.oldIndicatorInset
             self.scrollView.contentInset = self.oldContentInset
+            
+            finishEditingButton.isHidden = true
         }
     }
 }

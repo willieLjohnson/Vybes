@@ -152,6 +152,15 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="m5M-x9-PkE">
+                                <rect key="frame" x="317" y="124" width="77" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="17"/>
+                                <state key="normal" title="Done"/>
+                                <connections>
+                                    <action selector="finishEditing:" destination="H13-BO-xgD" eventType="touchUpInside" id="5JV-xo-b9J"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.94999999999999996" colorSpace="calibratedRGB"/>
                         <constraints>
@@ -172,6 +181,7 @@
                     </view>
                     <nil key="simulatedBottomBarMetrics"/>
                     <connections>
+                        <outlet property="finishEditingButton" destination="m5M-x9-PkE" id="vfd-dN-QZN"/>
                         <outlet property="popupDetailsView" destination="8OZ-nb-JQk" id="aYF-Bv-2Bs"/>
                         <outlet property="textView" destination="S7M-9H-e01" id="LJv-4u-wCb"/>
                     </connections>

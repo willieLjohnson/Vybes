@@ -6,6 +6,8 @@ class MoodViewController: UIViewController {
     
     var moodList: [Mood] = [Mood(name: "Anxious", details: "It was a wild time, believe me", date: Date()), Mood(name: "Scared", details: "Spooky day! I can't fall asleep!", date: Date()), Mood(name: "Scared", details: nil, date: Date()), Mood(name: "Scared", details: nil, date: Date()), Mood(name: "Scared", details: nil, date: Date())]
     
+    var dataForSegue = [String: String?]()
+    
     override func viewDidLoad() {
         tableView.dataSource = self
         tableView.delegate = self
@@ -58,19 +60,18 @@ extension MoodViewController: UITableViewDataSource {
 extension MoodViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let mood = moodList[indexPath.row]
+        
+        dataForSegue = ["mood": mood.name, "date": formatDate(date: mood.date), "details": mood.details]
+        
         self.performSegue(withIdentifier: "showMoodDetailsView", sender: self)
     }
     
-//
-//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-//
-//        // get a reference to the second view controller
-//        let secondViewController = segue.destination as! SecondViewController
-//
-//        // set a variable in the second view controller with the data to pass
-//        secondViewController.receivedData = "hello"
-//    }
-//
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let destination = segue.destination as! MoodDetailsViewController
+        destination.recievedData = dataForSegue
+    }
+
 }
 
 

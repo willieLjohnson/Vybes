@@ -181,7 +181,9 @@
                     </view>
                     <nil key="simulatedBottomBarMetrics"/>
                     <connections>
+                        <outlet property="dateLabel" destination="XV0-SY-a4T" id="EVC-NY-jEK"/>
                         <outlet property="finishEditingButton" destination="m5M-x9-PkE" id="vfd-dN-QZN"/>
+                        <outlet property="moodLabel" destination="zH5-VF-M3U" id="owX-4E-whb"/>
                         <outlet property="popupDetailsView" destination="8OZ-nb-JQk" id="aYF-Bv-2Bs"/>
                         <outlet property="textView" destination="S7M-9H-e01" id="LJv-4u-wCb"/>
                     </connections>

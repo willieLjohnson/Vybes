@@ -5,6 +5,9 @@ class MoodDetailsViewController: UIViewController {
     @IBOutlet var popupDetailsView: UIView!
     @IBOutlet weak var finishEditingButton: UIButton!
     
+    @IBOutlet weak var dateLabel: UILabel!
+    @IBOutlet weak var moodLabel: UILabel!
+    
     @IBOutlet weak var textView: UITextView!
     var scrollView: UIScrollView! {
         return self.textView
@@ -20,6 +23,8 @@ class MoodDetailsViewController: UIViewController {
         case exiting
     }
     
+    var recievedData = [String: String?]()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -27,6 +32,10 @@ class MoodDetailsViewController: UIViewController {
         
         popupDetailsView.layer.cornerRadius = 15
         popupDetailsView.layer.masksToBounds = true
+        
+        textView.text = recievedData["details"] ?? ""
+        dateLabel.text = recievedData["date"]!
+        moodLabel.text = recievedData["mood"]!
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -53,7 +62,6 @@ class MoodDetailsViewController: UIViewController {
 }
 
 extension MoodDetailsViewController: UITextViewDelegate {
-    
     func keyboardState(for keyboardInfo:[AnyHashable:Any], in view:UIView?) -> (KeyboardState, CGRect?) {
         var oldRect = keyboardInfo[UIKeyboardFrameBeginUserInfoKey] as! CGRect
         var rect = keyboardInfo[UIKeyboardFrameEndUserInfoKey] as! CGRect

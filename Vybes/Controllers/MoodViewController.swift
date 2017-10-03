@@ -57,6 +57,20 @@ extension MoodViewController: UITableViewDataSource {
 // MARK: Delegate
 extension MoodViewController: UITableViewDelegate {
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        self.performSegue(withIdentifier: "showMoodDetailsView", sender: self)
+    }
+    
+//
+//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+//
+//        // get a reference to the second view controller
+//        let secondViewController = segue.destination as! SecondViewController
+//
+//        // set a variable in the second view controller with the data to pass
+//        secondViewController.receivedData = "hello"
+//    }
+//
 }
 
 

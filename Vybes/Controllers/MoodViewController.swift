@@ -4,13 +4,21 @@ class MoodViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
     
-    var moodList: [Mood] = [Mood(name: "Anxious", details: "It was a wild time, believe me", date: Date()), Mood(name: "Scared", details: "Spooky day! I can't fall asleep!", date: Date()), Mood(name: "Scared", details: nil, date: Date()), Mood(name: "Scared", details: nil, date: Date()), Mood(name: "Scared", details: nil, date: Date())]
+    var moodList: [Mood]?
     
     var dataForSegue = [String: String?]()
     
     override func viewDidLoad() {
         tableView.dataSource = self
         tableView.delegate = self
+        
+        moodList = [
+            Mood(name: "Happy", details: "It was a wild time, believe me", date: Date()),
+            Mood(name: "Scared", details: "Spooky day! I can't fall asleep!", date: Date()),
+            Mood(name: "Scared", details: nil, date: Date()),
+            Mood(name: "Scared", details: nil, date: Date()),
+            Mood(name: "Scared", details: nil, date: Date())
+        ]
         
         tableView.reloadData()
     }
@@ -32,46 +40,57 @@ class MoodViewController: UIViewController {
 // MARK: Data Source
 extension MoodViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return moodList.count
+        if let moodList = moodList {
+            return moodList.count
+        } else {
+            print("ERROR: MOODLIST IS NIL")
+            return 1
+        }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let moodCell = tableView.dequeueReusableCell(withIdentifier: "MoodCell", for: indexPath) as! MoodCell
         
-        let mood = moodList[indexPath.row]
-        
-        moodCell.name.text = mood.name
-        moodCell.background.image = UIImage(named: "dog")
-        
-        if let details = mood.details {
-            moodCell.details.text = details
+        if let moodList = moodList {
+            let mood = moodList[indexPath.row]
+            
+            moodCell.name.text = mood.name
+            moodCell.background.image = UIImage(named: "dog")
+            
+            if let details = mood.details {
+                moodCell.details.text = details
+            } else {
+                moodCell.details.text = nil
+            }
+            
+            moodCell.date.text = formatDate(date: mood.date)
         } else {
-            moodCell.details.text = nil
+            print("ERROR: MOODLIST NIL")
+            return UITableViewCell()
         }
-        
-        moodCell.date.text = formatDate(date: mood.date)
-        
         return moodCell
     }
-
 }
 
 // MARK: Delegate
 extension MoodViewController: UITableViewDelegate {
-    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let mood = moodList[indexPath.row]
-        
-        dataForSegue = ["mood": mood.name, "date": formatDate(date: mood.date), "details": mood.details]
-        
-        self.performSegue(withIdentifier: "showMoodDetailsView", sender: self)
+        if let moodList = moodList {
+            let mood = moodList[indexPath.row]
+            
+            dataForSegue = ["mood": mood.name, "date": formatDate(date: mood.date), "details": mood.details]
+            
+            self.performSegue(withIdentifier: "showMoodDetailsView", sender: self)
+        } else {
+            print("ERROR: MOODLIST NIL")
+            return
+        }
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let destination = segue.destination as! MoodDetailsViewController
         destination.recievedData = dataForSegue
     }
-
 }
 
 

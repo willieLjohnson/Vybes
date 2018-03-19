@@ -22,7 +22,7 @@
                                 <rect key="frame" x="-0.5" y="-14.5" width="375" height="667"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="7uh-Ds-bea">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="entryCell" id="7uh-Ds-bea">
                                         <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="7uh-Ds-bea" id="ZKJ-Pn-eVV">
@@ -44,6 +44,9 @@
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="88t-I2-cMv">
                                         <rect key="frame" x="288.5" y="0.0" width="49" height="30"/>
                                         <state key="normal" title="Submit"/>
+                                        <connections>
+                                            <action selector="submitButtonPressed:" destination="Ikq-Gb-zlY" eventType="touchUpInside" id="9PY-TQ-bcU"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                             </stackView>
@@ -62,6 +65,7 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="Item" id="W65-rE-ZLS"/>
                     <connections>
+                        <outlet property="entriesTableView" destination="vVV-wP-7fq" id="wWF-oz-4bj"/>
                         <outlet property="entryTextField" destination="VaW-BM-1UL" id="N0e-Ms-doR"/>
                     </connections>
                 </viewController>
@@ -75,6 +79,7 @@
                 <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="K9V-W7-VYN" sceneMemberID="viewController">
                     <toolbarItems/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="1w7-rk-moJ">
+                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>

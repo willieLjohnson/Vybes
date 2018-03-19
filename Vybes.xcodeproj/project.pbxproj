@@ -7,35 +7,21 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		3DB7DC581F7C9B9B00370A1B /* FancyBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DB7DC571F7C9B9B00370A1B /* FancyBar.swift */; };
-		3DB7DC5A1F7D618400370A1B /* TableViewWithCoreAnimations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DB7DC591F7D618400370A1B /* TableViewWithCoreAnimations.swift */; };
-		3DB7DC5E1F7D6F6100370A1B /* EmojiView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3DB7DC5D1F7D6F6100370A1B /* EmojiView.xib */; };
-		3DB7DC601F7D728300370A1B /* EmojiView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DB7DC5F1F7D728300370A1B /* EmojiView.swift */; };
-		3DB7DC631F7DE89400370A1B /* File.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DB7DC621F7DE89400370A1B /* File.swift */; };
+		3D94E61420606F00009C694C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3D94E61320606F00009C694C /* Main.storyboard */; };
 		3DC075FF1F7B031700D1016F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DC075FE1F7B031700D1016F /* AppDelegate.swift */; };
 		3DC076011F7B031700D1016F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DC076001F7B031700D1016F /* ViewController.swift */; };
-		3DC076041F7B031700D1016F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3DC076021F7B031700D1016F /* Main.storyboard */; };
 		3DC076061F7B031700D1016F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3DC076051F7B031700D1016F /* Assets.xcassets */; };
 		3DC076091F7B031700D1016F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3DC076071F7B031700D1016F /* LaunchScreen.storyboard */; };
-		3DCA7ADC1F7BE86E000B0106 /* Vyber.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DCA7ADB1F7BE86E000B0106 /* Vyber.swift */; };
-		3DCA7ADF1F7BE928000B0106 /* VyberCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DCA7ADE1F7BE928000B0106 /* VyberCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		3DB7DC571F7C9B9B00370A1B /* FancyBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FancyBar.swift; sourceTree = "<group>"; };
-		3DB7DC591F7D618400370A1B /* TableViewWithCoreAnimations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewWithCoreAnimations.swift; sourceTree = "<group>"; };
-		3DB7DC5D1F7D6F6100370A1B /* EmojiView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EmojiView.xib; sourceTree = "<group>"; };
-		3DB7DC5F1F7D728300370A1B /* EmojiView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmojiView.swift; sourceTree = "<group>"; };
-		3DB7DC621F7DE89400370A1B /* File.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = File.swift; sourceTree = "<group>"; };
+		3D94E61320606F00009C694C /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		3DC075FB1F7B031700D1016F /* Vybes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Vybes.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3DC075FE1F7B031700D1016F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3DC076001F7B031700D1016F /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		3DC076031F7B031700D1016F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		3DC076051F7B031700D1016F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3DC076081F7B031700D1016F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3DC0760A1F7B031700D1016F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		3DCA7ADB1F7BE86E000B0106 /* Vyber.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Vyber.swift; sourceTree = "<group>"; };
-		3DCA7ADE1F7BE928000B0106 /* VyberCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VyberCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -49,14 +35,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		3DB7DC611F7DE88400370A1B /* Extension */ = {
-			isa = PBXGroup;
-			children = (
-				3DB7DC621F7DE89400370A1B /* File.swift */,
-			);
-			path = Extension;
-			sourceTree = "<group>";
-		};
 		3DC075F21F7B031700D1016F = {
 			isa = PBXGroup;
 			children = (
@@ -76,45 +54,14 @@
 		3DC075FD1F7B031700D1016F /* Vybes */ = {
 			isa = PBXGroup;
 			children = (
-				3DB7DC611F7DE88400370A1B /* Extension */,
-				3DCA7ADD1F7BE904000B0106 /* Views */,
-				3DCA7ADA1F7BE7F3000B0106 /* Models */,
-				3DCA7AD91F7BE6AD000B0106 /* Controllers */,
+				3DC076001F7B031700D1016F /* ViewController.swift */,
 				3DC075FE1F7B031700D1016F /* AppDelegate.swift */,
-				3DC076021F7B031700D1016F /* Main.storyboard */,
 				3DC076051F7B031700D1016F /* Assets.xcassets */,
 				3DC076071F7B031700D1016F /* LaunchScreen.storyboard */,
 				3DC0760A1F7B031700D1016F /* Info.plist */,
+				3D94E61320606F00009C694C /* Main.storyboard */,
 			);
 			path = Vybes;
-			sourceTree = "<group>";
-		};
-		3DCA7AD91F7BE6AD000B0106 /* Controllers */ = {
-			isa = PBXGroup;
-			children = (
-				3DC076001F7B031700D1016F /* ViewController.swift */,
-			);
-			path = Controllers;
-			sourceTree = "<group>";
-		};
-		3DCA7ADA1F7BE7F3000B0106 /* Models */ = {
-			isa = PBXGroup;
-			children = (
-				3DCA7ADB1F7BE86E000B0106 /* Vyber.swift */,
-			);
-			path = Models;
-			sourceTree = "<group>";
-		};
-		3DCA7ADD1F7BE904000B0106 /* Views */ = {
-			isa = PBXGroup;
-			children = (
-				3DCA7ADE1F7BE928000B0106 /* VyberCell.swift */,
-				3DB7DC571F7C9B9B00370A1B /* FancyBar.swift */,
-				3DB7DC591F7D618400370A1B /* TableViewWithCoreAnimations.swift */,
-				3DB7DC5D1F7D6F6100370A1B /* EmojiView.xib */,
-				3DB7DC5F1F7D728300370A1B /* EmojiView.swift */,
-			);
-			name = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -176,10 +123,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3D94E61420606F00009C694C /* Main.storyboard in Resources */,
 				3DC076091F7B031700D1016F /* LaunchScreen.storyboard in Resources */,
-				3DB7DC5E1F7D6F6100370A1B /* EmojiView.xib in Resources */,
 				3DC076061F7B031700D1016F /* Assets.xcassets in Resources */,
-				3DC076041F7B031700D1016F /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -190,28 +136,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3DCA7ADF1F7BE928000B0106 /* VyberCell.swift in Sources */,
-				3DB7DC5A1F7D618400370A1B /* TableViewWithCoreAnimations.swift in Sources */,
 				3DC076011F7B031700D1016F /* ViewController.swift in Sources */,
-				3DB7DC601F7D728300370A1B /* EmojiView.swift in Sources */,
-				3DCA7ADC1F7BE86E000B0106 /* Vyber.swift in Sources */,
-				3DB7DC631F7DE89400370A1B /* File.swift in Sources */,
 				3DC075FF1F7B031700D1016F /* AppDelegate.swift in Sources */,
-				3DB7DC581F7C9B9B00370A1B /* FancyBar.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		3DC076021F7B031700D1016F /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				3DC076031F7B031700D1016F /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		3DC076071F7B031700D1016F /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (

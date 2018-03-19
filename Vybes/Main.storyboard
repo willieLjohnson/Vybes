@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="K9V-W7-VYN">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Item-->
+        <scene sceneID="Ynx-jp-AYT">
+            <objects>
+                <viewController id="Ikq-Gb-zlY" customClass="ViewController" customModule="Vybes" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="kHE-qH-KY2">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="vVV-wP-7fq">
+                                <rect key="frame" x="-0.5" y="-14.5" width="375" height="667"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="7uh-Ds-bea">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="7uh-Ds-bea" id="ZKJ-Pn-eVV">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                            <stackView opaque="NO" contentMode="scaleToFill" spacing="11" translatesAutoresizingMaskIntoConstraints="NO" id="O6Z-kK-oti">
+                                <rect key="frame" x="19.5" y="574" width="337.5" height="30"/>
+                                <subviews>
+                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="VaW-BM-1UL">
+                                        <rect key="frame" x="0.0" y="0.0" width="277.5" height="30"/>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="88t-I2-cMv">
+                                        <rect key="frame" x="288.5" y="0.0" width="49" height="30"/>
+                                        <state key="normal" title="Submit"/>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="vVV-wP-7fq" firstAttribute="centerX" secondItem="E6w-Un-Wzl" secondAttribute="centerX" id="GZb-S5-gAy"/>
+                            <constraint firstItem="O6Z-kK-oti" firstAttribute="width" secondItem="kHE-qH-KY2" secondAttribute="width" multiplier="0.9" id="GyK-f2-RqT"/>
+                            <constraint firstItem="O6Z-kK-oti" firstAttribute="centerX" secondItem="E6w-Un-Wzl" secondAttribute="centerX" id="J6D-uE-6R8"/>
+                            <constraint firstItem="vVV-wP-7fq" firstAttribute="height" secondItem="kHE-qH-KY2" secondAttribute="height" id="Yee-nP-7FE"/>
+                            <constraint firstItem="vVV-wP-7fq" firstAttribute="width" secondItem="kHE-qH-KY2" secondAttribute="width" id="lbG-V6-2ZZ"/>
+                            <constraint firstItem="E6w-Un-Wzl" firstAttribute="bottom" secondItem="O6Z-kK-oti" secondAttribute="bottom" constant="14" id="vYa-0C-fZb"/>
+                            <constraint firstItem="vVV-wP-7fq" firstAttribute="centerY" secondItem="E6w-Un-Wzl" secondAttribute="centerY" id="xuC-Ix-qhv"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="E6w-Un-Wzl"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Item" id="W65-rE-ZLS"/>
+                    <connections>
+                        <outlet property="entryTextField" destination="VaW-BM-1UL" id="N0e-Ms-doR"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ctH-Fc-PfS" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="365.60000000000002" y="-36.431784107946029"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="B8u-a0-JXP">
+            <objects>
+                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="K9V-W7-VYN" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="1w7-rk-moJ">
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="Ikq-Gb-zlY" kind="relationship" relationship="viewControllers" id="GSm-MX-RoR"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Drs-Z1-T91" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-510" y="-35"/>
+        </scene>
+    </scenes>
+</document>

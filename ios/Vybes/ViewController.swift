@@ -30,6 +30,7 @@ class ViewController: UIViewController {
     let newEntry = Entry(body: "\(entryText)", date: Date())
     entries.append(newEntry)
     entriesTableView.reloadData()
+    scrollToBottom()
     entryTextField.text = ""
     view.endEditing(true)
   }
@@ -61,7 +62,8 @@ private extension ViewController {
     if view.frame.origin.y == 0 {
       UIView.animate(withDuration: 0.1, animations: { () -> Void in
         self.view.frame.origin.y -= keyboardSize.height
-        self.entriesTableView.contentInset = UIEdgeInsetsMake(50 + keyboardSize.height, 0, 0, 0)
+        let offset = self.entriesTableView.contentOffset
+        self.entriesTableView.contentInset = UIEdgeInsetsMake(70 + keyboardSize.height, 0, 70 + keyboardSize.height, 0)
       })
     }
   }
@@ -71,7 +73,18 @@ private extension ViewController {
     let keyboardSize: CGSize = (userInfo[UIKeyboardFrameBeginUserInfoKey]! as AnyObject).cgRectValue.size
     UIView.animate(withDuration: 0.1, animations: { () -> Void in
       self.view.frame.origin.y = 0
-      self.entriesTableView.contentInset = UIEdgeInsetsMake(50, 0, 0, 0)
+      self.entriesTableView.contentInset = UIEdgeInsetsMake(70, 0, 70, 0)
     })
+  }
+}
+
+// MARK: Helper methods
+private extension ViewController {
+  /// Scroll the tableview to the bottom of the view.
+  func scrollToBottom() {
+    DispatchQueue.main.async {
+      let indexPath = IndexPath(row: self.entries.count - 1, section: 0)
+      self.entriesTableView.scrollToRow(at: indexPath, at: .bottom, animated: true)
+    }
   }
 }

@@ -2,9 +2,55 @@ require 'rails_helper'
 
 RSpec.describe "UserControllers", type: :request do
   describe "GET /user_controllers" do
-    it "works! (now write some real specs)" do
-      get user_controllers_path
-      expect(response).to have_http_status(200)
+    context "unauthorized" do
+      before {
+        get "/users"
+      }
+
+      it "fails when there is no authentication" do
+        expect(response).to_not be_success
+      end
+    end
+    context "authorized" do
+      before {
+        user = User.new(
+          name: "Willie",
+          email: "willie@mail.com",
+          password: "mail"
+        )
+
+        user.save
+
+        full_token = "Token token=#{user.token}"
+
+        get "/users", headers: { 'Authorization' => full_token }
+      }
+      it "succeeds when there is authentication" do
+        expect(response).to be_success
+      end
+    end
+  end
+
+  describe "POST /user_controllers" do
+    context "valid params" do
+      before {
+        valid_params = {name: "Willie", email: "willie@mail.com", password: "testpassword"}
+        post "/users", params: valid_params
+      }
+
+      it "creates and sends success of creating a user with valid params" do
+        expect(response).to be_success
+      end
+    end
+    context "invalid params" do
+      before {
+        invalid_params = {email: "willie@mail.com", password: "testpassword"}
+        post "/users", params: invalid_params
+      }
+
+      it "should fail and send 400" do
+        expect(response).to_not be_success
+      end
     end
   end
 end

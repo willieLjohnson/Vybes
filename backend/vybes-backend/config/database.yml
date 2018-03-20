@@ -1,0 +1,24 @@
+development:
+  adapter: postgresql
+  encoding: unicode
+  database: vybes_development
+  pool: 5
+  username: williejohnson
+  password: vybes_development
+
+test:
+  adapter: postgresql
+  encoding: unicode
+  database: vybes_test
+  pool: 5
+  username: williejohnson
+  password: vybes_test
+
+
+production:
+  adapter: postgresql
+  encoding: unicode
+  database: vybes_production
+  pool: 5
+  username: williejohnson
+  password: vybes_production

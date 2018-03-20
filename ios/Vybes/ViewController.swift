@@ -17,7 +17,9 @@ class ViewController: UIViewController {
     // Observe behavior of keyboard
     NotificationCenter.default.addObserver(self, selector: #selector(ViewController.keyboardWillShow), name: .UIKeyboardWillShow, object: view.window)
     NotificationCenter.default.addObserver(self, selector: #selector(ViewController.keyboardWillHide), name: .UIKeyboardWillHide, object: view.window)
-    view.addGestureRecognizer(UITapGestureRecognizer(target: view, action: #selector(UIView.endEditing(_:))))
+    let tapToDismissGesture = UITapGestureRecognizer(target: view, action: #selector(UIView.endEditing(_:)))
+    tapToDismissGesture.cancelsTouchesInView = false
+    view.addGestureRecognizer(tapToDismissGesture)
   }
 
   override func viewWillDisappear(_ animated: Bool) {
@@ -60,18 +62,15 @@ private extension ViewController {
     let keyboardSize: CGSize = (userInfo[UIKeyboardFrameBeginUserInfoKey]! as AnyObject).cgRectValue.size
 
     if view.frame.origin.y == 0 {
-      UIView.animate(withDuration: 0.1, animations: { () -> Void in
+      UIView.animate(withDuration: 0.5, animations: { () -> Void in
         self.view.frame.origin.y -= keyboardSize.height
-        let offset = self.entriesTableView.contentOffset
         self.entriesTableView.contentInset = UIEdgeInsetsMake(70 + keyboardSize.height, 0, 70 + keyboardSize.height, 0)
       })
     }
   }
 
   @objc func keyboardWillHide(notification: NSNotification) {
-    let userInfo = notification.userInfo!
-    let keyboardSize: CGSize = (userInfo[UIKeyboardFrameBeginUserInfoKey]! as AnyObject).cgRectValue.size
-    UIView.animate(withDuration: 0.1, animations: { () -> Void in
+    UIView.animate(withDuration: 0.5, animations: { () -> Void in
       self.view.frame.origin.y = 0
       self.entriesTableView.contentInset = UIEdgeInsetsMake(70, 0, 70, 0)
     })

@@ -16,6 +16,7 @@ class EntriesController < ApplicationController
   # POST /entries
   def create
     @entry = Entry.new(entry_params)
+    @entry.user = current_user
 
     if @entry.save
       render json: @entry, status: :created, location: @entry

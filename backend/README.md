@@ -6,7 +6,7 @@ The backend of Vybes written using Rails
 
 ```sh
 git clone https://github.com/SlickJohnson/Vybes.git
-cd Vybes/backend/vybes-backend
+cd Vybes/vybes-backend
 ```
 
 ## Getting Started

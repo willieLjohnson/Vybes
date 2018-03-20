@@ -1,5 +1,5 @@
 //
-//  JournalEntry.swift
+//  Entry.swift
 //  Vybes
 //
 //  Created by Willie Johnson on 3/19/18.
@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct JournalEntry {
+struct Entry {
   /// The text that was entered by the user.
   var body: String
   /// The date the entry was entered.

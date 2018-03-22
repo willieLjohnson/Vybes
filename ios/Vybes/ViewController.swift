@@ -8,12 +8,15 @@ class ViewController: UIViewController {
   @IBOutlet weak var entriesTableView: UITableView!
   /// Keep track of all JournalEntry's that user has created.
   var entries: [Entry]!
+  @IBOutlet weak var entryTextFieldHeightConstraint: NSLayoutConstraint!
 
   override func viewDidLoad() {
     super.viewDidLoad()
     entries = [Entry]()
     entriesTableView.dataSource = self
+    entriesTableView.delegate = self
     entriesTableView.contentInset = UIEdgeInsetsMake(50, 0, 0, 0)
+    entriesTableView.estimatedRowHeight = 80
     // Observe behavior of keyboard
     NotificationCenter.default.addObserver(self, selector: #selector(ViewController.keyboardWillShow), name: .UIKeyboardWillShow, object: view.window)
     NotificationCenter.default.addObserver(self, selector: #selector(ViewController.keyboardWillHide), name: .UIKeyboardWillHide, object: view.window)
@@ -54,16 +57,26 @@ extension ViewController: UITableViewDataSource {
   }
 }
 
+// MARK: UITableViewDelegate
+extension ViewController: UITableViewDelegate {
+  func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+    return UITableViewAutomaticDimension
+  }
+
+  func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    print("🤥")
+  }
+}
+
 // MARK: Keyboard notification
 private extension ViewController {
   @objc func keyboardWillShow(notification: NSNotification) {
     let userInfo = notification.userInfo!
 
-    let keyboardSize: CGSize = (userInfo[UIKeyboardFrameBeginUserInfoKey]! as AnyObject).cgRectValue.size
-
+    let keyboardSize: CGSize = (userInfo[UIKeyboardFrameEndUserInfoKey]! as AnyObject).cgRectValue.size
     if view.frame.origin.y == 0 {
       UIView.animate(withDuration: 0.5, animations: { () -> Void in
-        self.view.frame.origin.y -= keyboardSize.height
+        self.view.frame.origin.y -= keyboardSize.height - self.entryTextField.frame.size.height
         self.entriesTableView.contentInset = UIEdgeInsetsMake(70 + keyboardSize.height, 0, 70 + keyboardSize.height, 0)
       })
     }
@@ -85,5 +98,11 @@ private extension ViewController {
       let indexPath = IndexPath(row: self.entries.count - 1, section: 0)
       self.entriesTableView.scrollToRow(at: indexPath, at: .bottom, animated: true)
     }
+  }
+}
+
+extension ViewController: UITextFieldDelegate {
+  func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+    return true
   }
 }

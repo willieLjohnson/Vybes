@@ -3,7 +3,9 @@ import UIKit
 /// Main View of the app
 class ViewController: UIViewController {
   /// Textfield for entry input.
-  @IBOutlet weak var entryTextField: UITextField!
+  @IBOutlet weak var entryTextView: UITextView!
+  /// The original frame of the entryTextView. Needed for resetting the size when done editing.
+  var entryTextViewFrame: CGRect!
   /// TableView for displaying entries.
   @IBOutlet weak var entriesTableView: UITableView!
   /// Keep track of all JournalEntry's that user has created.
@@ -17,6 +19,9 @@ class ViewController: UIViewController {
     entriesTableView.delegate = self
     entriesTableView.contentInset = UIEdgeInsetsMake(50, 0, 0, 0)
     entriesTableView.estimatedRowHeight = 80
+
+    entryTextView.layer.cornerRadius = entryTextView.frame.height / 4
+    entryTextViewFrame = entryTextView.frame
     // Observe behavior of keyboard
     NotificationCenter.default.addObserver(self, selector: #selector(ViewController.keyboardWillShow), name: .UIKeyboardWillShow, object: view.window)
     NotificationCenter.default.addObserver(self, selector: #selector(ViewController.keyboardWillHide), name: .UIKeyboardWillHide, object: view.window)
@@ -31,13 +36,16 @@ class ViewController: UIViewController {
   }
 
   @IBAction func submitButtonPressed(_ sender: Any) {
-    guard let entryText = entryTextField.text else { return }
+    guard let entryText = entryTextView.text else { return }
     let newEntry = Entry(body: "\(entryText)", date: Date())
     entries.append(newEntry)
     entriesTableView.reloadData()
     scrollToBottom()
-    entryTextField.text = ""
+    entryTextView.text = ""
     view.endEditing(true)
+    UIView.animate(withDuration: 0.25, animations: { () -> Void in
+      self.entryTextView.frame = self.entryTextViewFrame
+    })
   }
 }
 
@@ -76,8 +84,13 @@ private extension ViewController {
     let keyboardSize: CGSize = (userInfo[UIKeyboardFrameEndUserInfoKey]! as AnyObject).cgRectValue.size
     if view.frame.origin.y == 0 {
       UIView.animate(withDuration: 0.5, animations: { () -> Void in
-        self.view.frame.origin.y -= keyboardSize.height - self.entryTextField.frame.size.height
+        self.view.frame.origin.y -= keyboardSize.height - self.entryTextView.frame.size.height
         self.entriesTableView.contentInset = UIEdgeInsetsMake(70 + keyboardSize.height, 0, 70 + keyboardSize.height, 0)
+        let frame = self.entryTextView.frame
+        self.entryTextView.frame = CGRect(x: frame.origin.x,
+                                          y: frame.origin.y - keyboardSize.height,
+                                          width: frame.width,
+                                          height: frame.height + keyboardSize.height)
       })
     }
   }

@@ -60,17 +60,16 @@
                                 </prototypes>
                             </tableView>
                             <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="O6Z-kK-oti">
-                                <rect key="frame" x="10" y="560" width="356.5" height="44"/>
+                                <rect key="frame" x="10" y="549" width="356.5" height="55"/>
                                 <subviews>
-                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="a dsfasdfadsfa sdfasdfadsfasjdfk asdlkfj aksdjfkalsdjfkasdf" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="VaW-BM-1UL">
-                                        <rect key="frame" x="0.0" y="0.0" width="303" height="44"/>
-                                        <color key="backgroundColor" red="0.80000000000000004" green="0.80000000000000004" blue="0.80000000000000004" alpha="0.94999999999999996" colorSpace="calibratedRGB"/>
-                                        <nil key="textColor"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                        <textInputTraits key="textInputTraits"/>
-                                    </textField>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="YL8-SI-kbe">
+                                        <rect key="frame" x="0.0" y="0.0" width="303" height="55"/>
+                                        <color key="backgroundColor" red="0.9517568210659898" green="0.9517568210659898" blue="0.9517568210659898" alpha="0.94861408390410962" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="16"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                    </textView>
                                     <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" horizontalCompressionResistancePriority="751" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="88t-I2-cMv">
-                                        <rect key="frame" x="303" y="0.0" width="53.5" height="44"/>
+                                        <rect key="frame" x="303" y="0.0" width="53.5" height="55"/>
                                         <color key="backgroundColor" red="0.80000000000000004" green="0.80000000000000004" blue="0.80000000000000004" alpha="0.0" colorSpace="calibratedRGB"/>
                                         <state key="normal" title="Done"/>
                                         <connections>
@@ -99,8 +98,8 @@
                     <tabBarItem key="tabBarItem" title="Journal" id="W65-rE-ZLS"/>
                     <connections>
                         <outlet property="entriesTableView" destination="vVV-wP-7fq" id="wWF-oz-4bj"/>
-                        <outlet property="entryTextField" destination="VaW-BM-1UL" id="N0e-Ms-doR"/>
                         <outlet property="entryTextFieldHeightConstraint" destination="83B-IS-K9I" id="MIG-ej-xfv"/>
+                        <outlet property="entryTextView" destination="YL8-SI-kbe" id="Hfa-FO-kb3"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ctH-Fc-PfS" userLabel="First Responder" sceneMemberID="firstResponder"/>

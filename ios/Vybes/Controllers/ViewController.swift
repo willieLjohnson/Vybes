@@ -25,9 +25,7 @@ class ViewController: UIViewController {
     // Observe behavior of keyboard
     NotificationCenter.default.addObserver(self, selector: #selector(ViewController.keyboardWillShow), name: .UIKeyboardWillShow, object: view.window)
     NotificationCenter.default.addObserver(self, selector: #selector(ViewController.keyboardWillHide), name: .UIKeyboardWillHide, object: view.window)
-    let tapToDismissGesture = UITapGestureRecognizer(target: view, action: #selector(UIView.endEditing(_:)))
-    tapToDismissGesture.cancelsTouchesInView = false
-    view.addGestureRecognizer(tapToDismissGesture)
+    view.addTapToDismissKeyboardGesture()
   }
 
   override func viewWillDisappear(_ animated: Bool) {
@@ -43,9 +41,6 @@ class ViewController: UIViewController {
     scrollToBottom()
     entryTextView.text = ""
     view.endEditing(true)
-    UIView.animate(withDuration: 0.25, animations: { () -> Void in
-      self.entryTextView.frame = self.entryTextViewFrame
-    })
   }
 }
 
@@ -99,6 +94,7 @@ private extension ViewController {
     UIView.animate(withDuration: 0.5, animations: { () -> Void in
       self.view.frame.origin.y = 0
       self.entriesTableView.contentInset = UIEdgeInsetsMake(70, 0, 70, 0)
+      self.entryTextView.frame = self.entryTextViewFrame
     })
   }
 }

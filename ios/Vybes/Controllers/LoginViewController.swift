@@ -25,8 +25,24 @@ class LoginViewController: UIViewController {
   }
 
   @IBAction func loginButtonPressed(_ sender: UIButton) {
-    let storyBoard = UIStoryboard(name: "Main", bundle: nil)
-    let viewController = storyBoard.instantiateViewController(withIdentifier: "ViewController")
-    present(viewController, animated: true, completion: nil)
+    guard let email = emailTextField.text, let password = passwordTextField.text else { return }
+    let resource = UserResource.signup(name: "test", email: email, password: password)
+    NetworkManager.shared.request(with: resource) { (result) in
+      switch result {
+      case let .success(user):
+        NetworkManager.shared.user = user as? User
+
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let viewController = storyboard.instantiateViewController(withIdentifier: "ViewController")
+
+        DispatchQueue.main.async {
+          self.present(viewController, animated: true, completion: nil)
+          UserDefaults.standard.set(email, forKey: "email")
+          UserDefaults.standard.set(password, forKey: "password")
+        }
+      case let .failure(error):
+        dump(error)
+      }
+    }
   }
 }

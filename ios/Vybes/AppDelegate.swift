@@ -16,9 +16,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     let storyBoard = UIStoryboard(name: "Main", bundle: nil)
     var initialViewController = storyBoard.instantiateInitialViewController()
     // Check to see if a user is logged in
-    if email == nil || password == nil {
+//    if email == nil || password == nil {
       initialViewController = storyBoard.instantiateViewController(withIdentifier: "LoginViewController")
-    }
+//    }
     // Present window with view controller
     window?.rootViewController = initialViewController
     window?.makeKeyAndVisible()

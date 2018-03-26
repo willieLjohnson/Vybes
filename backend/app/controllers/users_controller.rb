@@ -15,11 +15,10 @@ class UsersController < ApplicationController
   end
 
   def login
-    byebug
     email = user_params[:email]
     password = user_params[:password]
-    user = User.authenticate(email, password)
-    if user
+    @user = User.authenticate(email, password)
+    if @user
       render json: @user, status: :ok
     else
       render status: :unauthorized

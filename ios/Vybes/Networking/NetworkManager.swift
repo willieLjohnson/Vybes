@@ -12,7 +12,7 @@ class NetworkManager {
   /// The URLSession to be used by the client.
   let urlSession = URLSession.shared
   /// The baseURL of the server.
-  let baseURL = ""
+  let baseURL = "http://localhost:3000/"
   /// Shared instance of Client.
   static let shared = NetworkManager()
   /// The User that's currently logged into the app
@@ -64,7 +64,7 @@ private extension NetworkManager {
    - Returns: An URLRequest used to interact with the Resource of interest.
    */
   func getURLRequest(for resource: Resource, with email: String? = nil) -> URLRequest {
-    let params = resource.getParams(email: email ?? "")
+    let params = resource.getParams()
 
     print("\(resource.getPath())?\(resource.stringFrom(params))")
     let fullURL = URL(string: baseURL.appending("\(resource.getPath())?\(resource.stringFrom(params))"))!

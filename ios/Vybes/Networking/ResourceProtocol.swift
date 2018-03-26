@@ -1,6 +1,6 @@
 import Foundation
 
-/// [TRIPS] Resource protocol
+/// Resource protocol
 protocol Resource {
   /**
    Determines the HTTPMethod requried based on the set case of a UserResource.
@@ -22,10 +22,8 @@ protocol Resource {
 
   /**
    Determines what parameters the request will need based on the current case.
-
-   - Parameter objectID: The ID of the document.
    */
-  func getParams(email: String) -> [String: String]
+  func getParams() -> [String: String]
 
   /**
    Converts the given param's in [String: String] format into a joined string.

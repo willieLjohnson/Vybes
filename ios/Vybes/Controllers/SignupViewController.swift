@@ -1,32 +1,35 @@
 //
-//  LoginViewController.swift
+//  SignupViewController.swift
 //  Vybes
 //
-//  Created by Willie Johnson on 3/25/18.
+//  Created by Willie Johnson on 3/26/18.
 //  Copyright © 2018 Willie Johnson. All rights reserved.
 //
 
 import UIKit
 
-/// Handles user signup and login
-class LoginViewController: UIViewController {
+class SignupViewController: UIViewController {
+  /// The new user's name
+  @IBOutlet weak var nameTextField: UITextField!
+  /// The new user's account email
   @IBOutlet weak var emailTextField: UITextField!
+  /// The new user's account password
   @IBOutlet weak var passwordTextField: UITextField!
-
+  
   override func viewDidLoad() {
     super.viewDidLoad()
-    view.addTapToDismissKeyboardGesture()
-    emailTextField.addDoneButtonOnKeyboard()
-    passwordTextField.addDoneButtonOnKeyboard()
+    
+    // Do any additional setup after loading the view.
   }
-
+  
   override func didReceiveMemoryWarning() {
     super.didReceiveMemoryWarning()
+    // Dispose of any resources that can be recreated.
   }
 
-  @IBAction func loginButtonPressed(_ sender: UIButton) {
+  @IBAction func signupButtonPressed(_ sender: UIButton) {
     guard let email = emailTextField.text, let password = passwordTextField.text else { return }
-    let resource = UserResource.login(email: email, password: password)
+    let resource = UserResource.signup(name: "signup", email: email, password: password)
 
     NetworkManager.shared.request(with: resource) { (result) in
       switch result {
@@ -38,8 +41,8 @@ class LoginViewController: UIViewController {
 
         DispatchQueue.main.async {
           self.present(viewController, animated: true, completion: nil)
-          UserDefaults.standard.set(email, forKey: "email")
-          UserDefaults.standard.set(password, forKey: "password")
+//          UserDefaults.standard.set(email, forKey: "email")
+//          UserDefaults.standard.set(password, forKey: "password")
         }
       case let .failure(error):
         dump(error)

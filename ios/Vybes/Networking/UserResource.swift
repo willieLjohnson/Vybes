@@ -43,24 +43,18 @@ enum UserResource: Resource {
   }
 
   func getHeaders() -> [String: String] {
-    switch self {
-    case let .login(email, password), let .update(email, password), let .delete(email, password):
-      let loginString = "\(email):\(password)"
-      let loginData = loginString.data(using: String.Encoding.utf8)!
-      let base64LoginString = loginData.base64EncodedString()
-
-      return [
-        "Accept": "application/json",
-        "Content-Type": "application/json",
-        "Authorization": "Basic \(base64LoginString)",
-      ]
-    default:
-      return ["":""]
-    }
+    return ["":""]
   }
 
-  func getParams(email: String) -> [String: String] {
-    return ["email": email]
+  func getParams() -> [String: String] {
+    switch self {
+    case let .signup(name, email, password):
+      return ["name": name, "email": email, "password": password]
+    case let .login(email, password):
+      return ["email": email, "password": password]
+    default:
+      return [:]
+    }
   }
 
   /// Joins the list of parameters into a single string using "&" as the seperator.
@@ -74,7 +68,12 @@ enum UserResource: Resource {
 
   /// Get the path to the resource's route.
   func getPath() -> String {
-    return "user"
+    switch self {
+    case .login:
+      return "users/login"
+    default:
+      return "users"
+    }
   }
 
   /// Get the necessary data to send for the request.

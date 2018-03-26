@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
-  before_action :set_user, only: [:show, :update, :destroy]
-  skip_before_action :require_login, only: [:create], raise: false
+  before_action :set_user, only: [:update, :destroy]
+  skip_before_action :require_login, only: [:create, :login], raise: false
 
   # GET /users
   def index
@@ -11,7 +11,19 @@ class UsersController < ApplicationController
 
   # GET /users/1
   def show
-    render json: @user
+    render json: current_user
+  end
+
+  def login
+    byebug
+    email = user_params[:email]
+    password = user_params[:password]
+    user = User.authenticate(email, password)
+    if user
+      render json: @user, status: :ok
+    else
+      render status: :unauthorized
+    end
   end
 
   # POST /users

@@ -12,7 +12,7 @@ class NetworkManager {
   /// The URLSession to be used by the client.
   let urlSession = URLSession.shared
   /// The baseURL of the server.
-  let baseURL = "http://localhost:3000/"
+  let baseURL = "https://vybes-api.herokuapp.com/"
   /// Shared instance of Client.
   static let shared = NetworkManager()
   /// The User that's currently logged into the app

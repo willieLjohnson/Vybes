@@ -43,7 +43,10 @@ enum UserResource: Resource {
   }
 
   func getHeaders() -> [String: String] {
-    return ["":""]
+    return [
+      "Accept": "application/json",
+      "Content-Type": "application/json",
+    ]
   }
 
   func getParams() -> [String: String] {

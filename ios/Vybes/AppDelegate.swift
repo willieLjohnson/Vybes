@@ -8,17 +8,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
   func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
     window = UIWindow(frame: UIScreen.main.bounds)
-    // Grab user info from UserDefaults
-    let defaults = UserDefaults.standard
-    let email = defaults.string(forKey: "email")
-    let password = defaults.string(forKey: "password")
+    // Grab previous user login info UserDefaults
+    let email = UserDefaults.standard.string(forKey: "email")
+    let password = UserDefaults.standard.string(forKey: "password")
     // Grab the initial view controller
     let storyBoard = UIStoryboard(name: "Main", bundle: nil)
     var initialViewController = storyBoard.instantiateInitialViewController()
     // Check to see if a user is logged in
-//    if email == nil || password == nil {
+    if email == nil || password == nil {
       initialViewController = storyBoard.instantiateViewController(withIdentifier: "LoginViewController")
-//    }
+    }
     // Present window with view controller
     window?.rootViewController = initialViewController
     window?.makeKeyAndVisible()

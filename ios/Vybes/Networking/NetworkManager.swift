@@ -17,10 +17,6 @@ class NetworkManager {
   static let shared = NetworkManager()
   /// The User that's currently logged into the app
   var user: User?
-
-  init() {
-    print("init")
-  }
 }
 
 // MARK: - Requests
@@ -36,19 +32,19 @@ extension NetworkManager {
     let urlRequest = getURLRequest(for: resource)
     urlSession.dataTask(with: urlRequest) { data, response, error in
       if let error = error {
-        return completion(Result.failure(error))
+        return completion(.failure(error))
       }
 
       guard let data = data else {
-        return completion(Result.failure(ResourceError.noData))
+        return completion(.failure(ResourceError.noData))
       }
 
       if let result = try? JSONDecoder().decode(User.self, from: data) {
         print("Result: \(result)")
-        return completion(Result.success(result))
+        return completion(.success(result))
       }
 
-      return completion(Result.failure(ResourceError.couldNotParse))
+      return completion(.failure(ResourceError.couldNotParse))
       }.resume()
   }
 }
@@ -73,27 +69,7 @@ private extension NetworkManager {
     request.httpMethod = resource.getHTTPMethod().rawValue
     request.allHTTPHeaderFields = resource.getHeaders()
     request.httpBody = resource.getBody()
-
+  
     return request
   }
 }
-
-/**
-
- */
-enum Result<T> {
-  case success(T)
-  case failure(Error)
-}
-
-/**
- Error cases that will be handled by the Client.
-
- - couldNotParse: Error occurs when that data retrieved can't be converted into a swift model.
- - noData: Error occurs when there is no response data.
- */
-enum ResourceError: Error {
-  case couldNotParse
-  case noData
-}
-

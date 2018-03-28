@@ -32,14 +32,14 @@ class LoginViewController: UIViewController {
       switch result {
       case let .success(user):
         NetworkManager.shared.user = user as? User
-
+        // Save login info
+        UserDefaults.standard.set(email, forKey: "email")
+        UserDefaults.standard.set(password, forKey: "password")
+        // Present app
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let viewController = storyboard.instantiateViewController(withIdentifier: "ViewController")
-
         DispatchQueue.main.async {
           self.present(viewController, animated: true, completion: nil)
-          UserDefaults.standard.set(email, forKey: "email")
-          UserDefaults.standard.set(password, forKey: "password")
         }
       case let .failure(error):
         dump(error)
@@ -53,3 +53,4 @@ class LoginViewController: UIViewController {
     present(signupViewController, animated: true, completion: nil)
   }
 }
+

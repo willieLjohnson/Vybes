@@ -46,4 +46,10 @@ class LoginViewController: UIViewController {
       }
     }
   }
+
+  @IBAction func createAccountButtonPressed(_ sender: UIButton) {
+    let storyboard = UIStoryboard(name: "Main", bundle: nil)
+    let signupViewController = storyboard.instantiateViewController(withIdentifier: "SignupViewController")
+    present(signupViewController, animated: true, completion: nil)
+  }
 }

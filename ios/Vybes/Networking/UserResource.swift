@@ -80,7 +80,11 @@ enum UserResource: Resource {
   func getBody() -> Data? {
     switch self {
     case let .signup(name, email, password):
-      let user = User(name: name, email: email, password: password)
+      let user = [
+        "name": name,
+        "email": email,
+        "password": password,
+      ]
       return try? JSONEncoder().encode(user)
     default:
     return nil

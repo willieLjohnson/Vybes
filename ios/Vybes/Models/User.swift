@@ -13,6 +13,4 @@ struct User: Codable {
   var name: String
   /// The email of the user used for login
   var email: String
-  /// The password used to signin
-  var password: String
 }

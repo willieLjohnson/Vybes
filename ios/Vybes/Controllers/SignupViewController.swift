@@ -28,8 +28,8 @@ class SignupViewController: UIViewController {
   }
 
   @IBAction func signupButtonPressed(_ sender: UIButton) {
-    guard let email = emailTextField.text, let password = passwordTextField.text else { return }
-    let resource = UserResource.signup(name: "signup", email: email, password: password)
+    guard let name = nameTextField.text, let email = emailTextField.text, let password = passwordTextField.text else { return }
+    let resource = UserResource.signup(name: name, email: email, password: password)
 
     NetworkManager.shared.request(with: resource) { (result) in
       switch result {

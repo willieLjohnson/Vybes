@@ -33,7 +33,8 @@ extension NetworkManager {
    - completion: The completion handler used to access the data in the response.
    */
   func request(with resource: Resource, completion: @escaping (Result<Any>) -> Void) {
-    urlSession.dataTask(with: getURLRequest(for: resource)) { data, response, error in
+    let urlRequest = getURLRequest(for: resource)
+    urlSession.dataTask(with: urlRequest) { data, response, error in
       if let error = error {
         return completion(Result.failure(error))
       }
@@ -41,9 +42,9 @@ extension NetworkManager {
       guard let data = data else {
         return completion(Result.failure(ResourceError.noData))
       }
-      print(response)
 
       if let result = try? JSONDecoder().decode(User.self, from: data) {
+        print("Result: \(result)")
         return completion(Result.success(result))
       }
 
@@ -65,15 +66,13 @@ private extension NetworkManager {
    */
   func getURLRequest(for resource: Resource, with email: String? = nil) -> URLRequest {
     let params = resource.getParams()
-
-    print("\(resource.getPath())?\(resource.stringFrom(params))")
-    let fullURL = URL(string: baseURL.appending("\(resource.getPath())?\(resource.stringFrom(params))"))!
+    let urlString = baseURL.appending("\(resource.getPath())?\(resource.stringFrom(params))")
+    let fullURL = URL(string: urlString)!
 
     var request = URLRequest(url: fullURL)
     request.httpMethod = resource.getHTTPMethod().rawValue
     request.allHTTPHeaderFields = resource.getHeaders()
     request.httpBody = resource.getBody()
-    print(request.httpBody)
 
     return request
   }

@@ -1,8 +1,16 @@
+//
+//  UserResource.swift
+//  Vybes
+//
+//  Created by Willie Johnson on 3/28/18.
+//  Copyright © 2018 Willie Johnson. All rights reserved.
+//
+
 import Foundation
 
 /**
  HTTP methods used in this app.
- 
+
  - get: An HTTP GET request.
  - post: An HTTP POST request.
  - patch: An HTTP PATCH request.
@@ -17,7 +25,7 @@ enum HTTPMethod: String {
 
 /**
  Used to construct the HTTP request for the User resource.
- 
+
  - login: A GET request that checks to see if there is a matching user.
  - signup: A POST request that creates a new user document in the database.
  - update: A PATCH request that updates the user's information (email, password, etc.)
@@ -87,10 +95,11 @@ enum UserResource: Resource {
         "name": name,
         "email": email,
         "password": password,
-      ]
+        ]
       return try? JSONEncoder().encode(user)
     default:
-    return nil
+      return nil
     }
   }
 }
+

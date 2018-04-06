@@ -35,8 +35,11 @@ class ViewController: UIViewController {
 
   @IBAction func submitButtonPressed(_ sender: Any) {
     guard let entryText = entryTextView.text else { return }
+    guard let user = NetworkManager.shared.user else { return }
     let newEntry = Entry(body: "\(entryText)", date: Date())
+
     entries.append(newEntry)
+    user.post(entry: newEntry)
     entriesTableView.reloadData()
     scrollToBottom()
     entryTextView.text = ""

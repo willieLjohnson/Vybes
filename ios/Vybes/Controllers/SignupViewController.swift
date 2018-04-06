@@ -29,23 +29,18 @@ class SignupViewController: UIViewController {
 
   @IBAction func signupButtonPressed(_ sender: UIButton) {
     guard let name = nameTextField.text, let email = emailTextField.text, let password = passwordTextField.text else { return }
-    let resource = UserResource.signup(name: name, email: email, password: password)
-
-    NetworkManager.shared.request(with: resource) { (result) in
-      switch result {
-      case let .success(user):
-        NetworkManager.shared.user = user as? User
-
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let viewController = storyboard.instantiateViewController(withIdentifier: "ViewController")
-
-        DispatchQueue.main.async {
-          self.present(viewController, animated: true, completion: nil)
-//          UserDefaults.standard.set(email, forKey: "email")
-//          UserDefaults.standard.set(password, forKey: "password")
+    NetworkManager.shared.signup(name: name, email: email, password: password) { boolResult in
+      switch boolResult {
+      case let .success(isSuccess):
+        if isSuccess {
+          let storyboard = UIStoryboard(name: "Main", bundle: nil)
+          let viewController = storyboard.instantiateViewController(withIdentifier: "ViewController")
+          DispatchQueue.main.async {
+            self.present(viewController, animated: true, completion: nil)
+          }
         }
-      case let .failure(error):
-        dump(error)
+      default:
+        return
       }
     }
   }

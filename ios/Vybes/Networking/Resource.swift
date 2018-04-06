@@ -1,14 +1,6 @@
 import Foundation
 
 /**
-
- */
-enum Result<T> {
-  case success(T)
-  case failure(Error)
-}
-
-/**
  Error cases that will be handled by the Client.
 
  - couldNotParse: Error occurs when that data retrieved can't be converted into a swift model.

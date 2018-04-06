@@ -8,6 +8,7 @@
 
 import Foundation
 
+
 class NetworkManager {
   /// The URLSession to be used by the client.
   let urlSession = URLSession.shared
@@ -17,19 +18,17 @@ class NetworkManager {
   static let shared = NetworkManager()
   /// The User that's currently logged into the app
   var user: User?
-}
-
-// MARK: - Requests
-extension NetworkManager {
+  
   /**
-   Sends an HTTP request to the server.
+   Sends an HTTP request for User resource.
 
    Parameters:
+   - type: The Codable that will be used to decode the json data received
    - resource: A Resource object used to construct the HTTP request.
    - completion: The completion handler used to access the data in the response.
    */
-  func request(with resource: Resource, completion: @escaping (Result<Any>) -> Void) {
-    let urlRequest = getURLRequest(for: resource)
+  func request<T: Codable>(_ type: T.Type, from resource: Resource, completion: @escaping AnyResult) {
+    let urlRequest = getURLRequest(forResource: resource)
     urlSession.dataTask(with: urlRequest) { data, response, error in
       if let error = error {
         return completion(.failure(error))
@@ -39,8 +38,7 @@ extension NetworkManager {
         return completion(.failure(ResourceError.noData))
       }
 
-      if let result = try? JSONDecoder().decode(User.self, from: data) {
-        print("Result: \(result)")
+      if let result = try? JSONDecoder().decode(type, from: data) {
         return completion(.success(result))
       }
 
@@ -49,7 +47,7 @@ extension NetworkManager {
   }
 }
 
-// MARK: - Helper functions.
+// MARK: - Helper methods.
 private extension NetworkManager {
   /**
    Constructs an HTTP request using the given resource object.
@@ -60,7 +58,7 @@ private extension NetworkManager {
 
    - Returns: An URLRequest used to interact with the Resource of interest.
    */
-  func getURLRequest(for resource: Resource, with email: String? = nil) -> URLRequest {
+  func getURLRequest(forResource resource: Resource) -> URLRequest {
     let params = resource.getParams()
     let urlString = baseURL.appending("\(resource.getPath())?\(resource.stringFrom(params))")
     let fullURL = URL(string: urlString)!
@@ -69,7 +67,7 @@ private extension NetworkManager {
     request.httpMethod = resource.getHTTPMethod().rawValue
     request.allHTTPHeaderFields = resource.getHeaders()
     request.httpBody = resource.getBody()
-  
+
     return request
   }
 }

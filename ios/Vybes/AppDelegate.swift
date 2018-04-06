@@ -2,23 +2,22 @@ import UIKit
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
-
   var window: UIWindow?
-
 
   func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
     window = UIWindow(frame: UIScreen.main.bounds)
-    // Grab previous user login info UserDefaults
-    let email = UserDefaults.standard.string(forKey: "email")
-    let password = UserDefaults.standard.string(forKey: "password")
-    // Grab the initial view controller
+    // Grab the initial view controller.
     let storyBoard = UIStoryboard(name: "Main", bundle: nil)
     var initialViewController = storyBoard.instantiateInitialViewController()
-    // Check to see if a user is logged in
-    if email == nil || password == nil {
-      initialViewController = storyBoard.instantiateViewController(withIdentifier: "LoginViewController")
+    // If there is login info for a user.
+    if let email = UserDefaults.standard.string(forKey: "email"),
+      let password = UserDefaults.standard.string(forKey: "password") {
+      // Make a login request and skip login screen
+      NetworkManager.shared.login(email: email, password: password, completion: nil)
+      initialViewController = storyBoard.instantiateViewController(withIdentifier: "ViewController")
     }
-    // Present window with view controller
+
+    // Present window with appropriate view controller
     window?.rootViewController = initialViewController
     window?.makeKeyAndVisible()
 

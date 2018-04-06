@@ -11,17 +11,20 @@
 		3D806925206787830052D422 /* UIView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D806924206787830052D422 /* UIView+Extensions.swift */; };
 		3D806927206789820052D422 /* UITextField+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D806926206789820052D422 /* UITextField+Extensions.swift */; };
 		3D80692A20678A7C0052D422 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D80692920678A7C0052D422 /* LoginViewController.swift */; };
-		3D8069312067C12A0052D422 /* UserResource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D80692E2067C12A0052D422 /* UserResource.swift */; };
 		3D8069322067C12A0052D422 /* Resource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D80692F2067C12A0052D422 /* Resource.swift */; };
 		3D8069352067C1540052D422 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D8069342067C1540052D422 /* NetworkManager.swift */; };
 		3D8069382067C2720052D422 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D8069372067C2720052D422 /* User.swift */; };
 		3D94E61420606F00009C694C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3D94E61320606F00009C694C /* Main.storyboard */; };
+		3DA97C0B206C4D3D0012F444 /* UserResource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DA97C0A206C4D3D0012F444 /* UserResource.swift */; };
+		3DA97C0D206C4DC20012F444 /* EntryResource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DA97C0C206C4DC20012F444 /* EntryResource.swift */; };
+		3DA97C0F206CB5460012F444 /* User+NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DA97C0E206CB5460012F444 /* User+NetworkManager.swift */; };
 		3DAF8D9520699ED700F7EFF1 /* SignupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DAF8D9420699ED700F7EFF1 /* SignupViewController.swift */; };
 		3DBB853E20619390006A5F9C /* EntryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DBB853D20619390006A5F9C /* EntryTableViewCell.swift */; };
 		3DC075FF1F7B031700D1016F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DC075FE1F7B031700D1016F /* AppDelegate.swift */; };
 		3DC076011F7B031700D1016F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DC076001F7B031700D1016F /* ViewController.swift */; };
 		3DC076061F7B031700D1016F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3DC076051F7B031700D1016F /* Assets.xcassets */; };
 		3DC076091F7B031700D1016F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3DC076071F7B031700D1016F /* LaunchScreen.storyboard */; };
+		3DC6D8F72077FF6500C9F6A9 /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DC6D8F62077FF6500C9F6A9 /* Result.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,11 +32,13 @@
 		3D806924206787830052D422 /* UIView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extensions.swift"; sourceTree = "<group>"; };
 		3D806926206789820052D422 /* UITextField+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField+Extensions.swift"; sourceTree = "<group>"; };
 		3D80692920678A7C0052D422 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
-		3D80692E2067C12A0052D422 /* UserResource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserResource.swift; sourceTree = "<group>"; };
 		3D80692F2067C12A0052D422 /* Resource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Resource.swift; sourceTree = "<group>"; };
 		3D8069342067C1540052D422 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		3D8069372067C2720052D422 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		3D94E61320606F00009C694C /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		3DA97C0A206C4D3D0012F444 /* UserResource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserResource.swift; sourceTree = "<group>"; };
+		3DA97C0C206C4DC20012F444 /* EntryResource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryResource.swift; sourceTree = "<group>"; };
+		3DA97C0E206CB5460012F444 /* User+NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "User+NetworkManager.swift"; sourceTree = "<group>"; };
 		3DAF8D9420699ED700F7EFF1 /* SignupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupViewController.swift; sourceTree = "<group>"; };
 		3DBB853D20619390006A5F9C /* EntryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryTableViewCell.swift; sourceTree = "<group>"; };
 		3DC075FB1F7B031700D1016F /* Vybes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Vybes.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -42,6 +47,7 @@
 		3DC076051F7B031700D1016F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3DC076081F7B031700D1016F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3DC0760A1F7B031700D1016F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3DC6D8F62077FF6500C9F6A9 /* Result.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Result.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +66,7 @@
 			children = (
 				3D806924206787830052D422 /* UIView+Extensions.swift */,
 				3D806926206789820052D422 /* UITextField+Extensions.swift */,
+				3DA97C0E206CB5460012F444 /* User+NetworkManager.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -77,9 +84,11 @@
 		3D80692D2067C12A0052D422 /* Networking */ = {
 			isa = PBXGroup;
 			children = (
-				3D80692E2067C12A0052D422 /* UserResource.swift */,
 				3D80692F2067C12A0052D422 /* Resource.swift */,
 				3D8069342067C1540052D422 /* NetworkManager.swift */,
+				3DA97C0A206C4D3D0012F444 /* UserResource.swift */,
+				3DA97C0C206C4DC20012F444 /* EntryResource.swift */,
+				3DC6D8F62077FF6500C9F6A9 /* Result.swift */,
 			);
 			path = Networking;
 			sourceTree = "<group>";
@@ -112,10 +121,10 @@
 		3DC075FD1F7B031700D1016F /* Vybes */ = {
 			isa = PBXGroup;
 			children = (
-				3D80692D2067C12A0052D422 /* Networking */,
-				3D8069362067C23D0052D422 /* Models */,
 				3D80692820678A670052D422 /* Controllers */,
 				3D806923206785490052D422 /* Extensions */,
+				3D8069362067C23D0052D422 /* Models */,
+				3D80692D2067C12A0052D422 /* Networking */,
 				3DC075FE1F7B031700D1016F /* AppDelegate.swift */,
 				3DC076051F7B031700D1016F /* Assets.xcassets */,
 				3DC076071F7B031700D1016F /* LaunchScreen.storyboard */,
@@ -153,7 +162,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0900;
-				LastUpgradeCheck = 0900;
+				LastUpgradeCheck = 0930;
 				ORGANIZATIONNAME = "Willie Johnson";
 				TargetAttributes = {
 					3DC075FA1F7B031700D1016F = {
@@ -200,12 +209,15 @@
 			files = (
 				3D80692A20678A7C0052D422 /* LoginViewController.swift in Sources */,
 				3D8069322067C12A0052D422 /* Resource.swift in Sources */,
-				3D8069312067C12A0052D422 /* UserResource.swift in Sources */,
 				3D63FD712060781F0029F21F /* Entry.swift in Sources */,
 				3D8069352067C1540052D422 /* NetworkManager.swift in Sources */,
+				3DA97C0B206C4D3D0012F444 /* UserResource.swift in Sources */,
 				3DC076011F7B031700D1016F /* ViewController.swift in Sources */,
+				3DC6D8F72077FF6500C9F6A9 /* Result.swift in Sources */,
 				3DAF8D9520699ED700F7EFF1 /* SignupViewController.swift in Sources */,
+				3DA97C0D206C4DC20012F444 /* EntryResource.swift in Sources */,
 				3D806925206787830052D422 /* UIView+Extensions.swift in Sources */,
+				3DA97C0F206CB5460012F444 /* User+NetworkManager.swift in Sources */,
 				3D806927206789820052D422 /* UITextField+Extensions.swift in Sources */,
 				3DBB853E20619390006A5F9C /* EntryTableViewCell.swift in Sources */,
 				3DC075FF1F7B031700D1016F /* AppDelegate.swift in Sources */,
@@ -241,6 +253,7 @@
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
@@ -248,6 +261,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
@@ -298,6 +312,7 @@
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
@@ -305,6 +320,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;

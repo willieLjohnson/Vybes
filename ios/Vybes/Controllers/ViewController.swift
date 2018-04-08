@@ -8,13 +8,16 @@ class ViewController: UIViewController {
   var entryTextViewFrame: CGRect!
   /// TableView for displaying entries.
   @IBOutlet weak var entriesTableView: UITableView!
-  /// Keep track of all JournalEntry's that user has created.
-  var entries: [Entry]!
   @IBOutlet weak var entryTextFieldHeightConstraint: NSLayoutConstraint!
+  /// Keep track of all JournalEntry's that user has created.
+  var entries = [Entry]() {
+    didSet {
+      entriesTableView.reloadData()
+    }
+  }
 
   override func viewDidLoad() {
     super.viewDidLoad()
-    entries = [Entry]()
     entriesTableView.dataSource = self
     entriesTableView.delegate = self
     entriesTableView.contentInset = UIEdgeInsetsMake(50, 0, 0, 0)
@@ -26,6 +29,7 @@ class ViewController: UIViewController {
     NotificationCenter.default.addObserver(self, selector: #selector(ViewController.keyboardWillShow), name: .UIKeyboardWillShow, object: view.window)
     NotificationCenter.default.addObserver(self, selector: #selector(ViewController.keyboardWillHide), name: .UIKeyboardWillHide, object: view.window)
     view.addTapToDismissKeyboardGesture()
+    getEntries()
   }
 
   override func viewWillDisappear(_ animated: Bool) {
@@ -36,7 +40,13 @@ class ViewController: UIViewController {
   @IBAction func submitButtonPressed(_ sender: Any) {
     guard let entryText = entryTextView.text else { return }
     guard let user = NetworkManager.shared.user else { return }
-    let newEntry = Entry(body: "\(entryText)", date: Date())
+
+    let date = Date()
+
+    let dateFormatter = DateFormatter()
+    dateFormatter.dateFormat = "yyyy-mm-dd"
+    let today = dateFormatter.string(from: date)
+    let newEntry = Entry(date: today, body: entryText)
 
     entries.append(newEntry)
     user.post(entry: newEntry)
@@ -44,6 +54,25 @@ class ViewController: UIViewController {
     scrollToBottom()
     entryTextView.text = ""
     view.endEditing(true)
+  }
+
+  func getEntries() {
+    guard let user = NetworkManager.shared.user else {
+      tryAgainAfterLogin()
+      return
+    }
+    user.getEntries() { [unowned self] entries in
+      self.entries = entries
+    }
+  }
+
+  private func tryAgainAfterLogin() {
+    if let email = UserDefaults.standard.string(forKey: "email"),
+      let password = UserDefaults.standard.string(forKey: "password") {
+      NetworkManager.shared.login(email: email, password: password) { [unowned self] _ in
+        self.getEntries()
+      }
+    }
   }
 }
 

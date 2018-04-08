@@ -18,7 +18,6 @@ class NetworkManager {
   static let shared = NetworkManager()
   /// The User that's currently logged into the app
   var user: User?
-  
   /**
    Sends an HTTP request for User resource.
 
@@ -27,9 +26,10 @@ class NetworkManager {
    - resource: A Resource object used to construct the HTTP request.
    - completion: The completion handler used to access the data in the response.
    */
-  func request<T: Codable>(_ type: T.Type, from resource: Resource, completion: @escaping AnyResult) {
+  func request<T: Codable>(_ type: T.Type, from resource: Resource, completion: AnyResult?) {
     let urlRequest = getURLRequest(forResource: resource)
     urlSession.dataTask(with: urlRequest) { data, response, error in
+      guard let completion = completion else { return }
       if let error = error {
         return completion(.failure(error))
       }

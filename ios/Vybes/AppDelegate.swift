@@ -13,7 +13,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     if let email = UserDefaults.standard.string(forKey: "email"),
       let password = UserDefaults.standard.string(forKey: "password") {
       // Make a login request and skip login screen
-      NetworkManager.shared.login(email: email, password: password, completion: nil)
       initialViewController = storyBoard.instantiateViewController(withIdentifier: "ViewController")
     }
 

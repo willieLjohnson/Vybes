@@ -17,4 +17,4 @@ enum Result<T> {
 typealias AnyResult = (Result<Any>) -> Void
 typealias BoolResult = (Result<Bool>) -> Void
 typealias UserResult = (Result<User>) -> Void
-
+typealias EntriesResult = (Result<[Entry]>) -> Void

@@ -36,21 +36,16 @@ enum EntryResource: Resource {
   }
 
   func getHeaders() -> [String: String] {
-    switch self {
-    default:
-      return [
-        "Accept": "application/json",
-        "Content-Type": "application/json",
-        "Autherization": "Bearer \(NetworkManager.shared.user!.token)"
-      ]
-    }
+    guard let user = NetworkManager.shared.user else { return[:]}
+    return [
+      "Accept": "application/json",
+      "Content-Type": "application/json",
+      "Authorization": "Bearer \(user.token)"
+    ]
   }
 
   func getParams() -> [String: String] {
-    switch self {
-    default:
-      return [:]
-    }
+    return [:]
   }
 
   /// Joins the list of parameters into a single string using "&" as the seperator.
@@ -64,10 +59,7 @@ enum EntryResource: Resource {
 
   /// Get the path to the resource's route.
   func getPath() -> String {
-    switch self {
-    default:
-      return "entries"
-    }
+    return "entries"
   }
 
   /// Get the necessary data to send for the request.

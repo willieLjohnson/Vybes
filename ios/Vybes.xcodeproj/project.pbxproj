@@ -84,10 +84,8 @@
 		3D80692D2067C12A0052D422 /* Networking */ = {
 			isa = PBXGroup;
 			children = (
-				3D80692F2067C12A0052D422 /* Resource.swift */,
+				3DC6D8F82078425C00C9F6A9 /* Resources */,
 				3D8069342067C1540052D422 /* NetworkManager.swift */,
-				3DA97C0A206C4D3D0012F444 /* UserResource.swift */,
-				3DA97C0C206C4DC20012F444 /* EntryResource.swift */,
 				3DC6D8F62077FF6500C9F6A9 /* Result.swift */,
 			);
 			path = Networking;
@@ -133,6 +131,16 @@
 				3DBB853D20619390006A5F9C /* EntryTableViewCell.swift */,
 			);
 			path = Vybes;
+			sourceTree = "<group>";
+		};
+		3DC6D8F82078425C00C9F6A9 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				3D80692F2067C12A0052D422 /* Resource.swift */,
+				3DA97C0A206C4D3D0012F444 /* UserResource.swift */,
+				3DA97C0C206C4DC20012F444 /* EntryResource.swift */,
+			);
+			path = Resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

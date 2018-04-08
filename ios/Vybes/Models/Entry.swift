@@ -9,8 +9,8 @@
 import Foundation
 
 struct Entry: Codable {
+  /// The date the entry was entered.
+  var date: String
   /// The text that was entered by the user.
   var body: String
-  /// The date the entry was entered.
-  var date: Date
 }

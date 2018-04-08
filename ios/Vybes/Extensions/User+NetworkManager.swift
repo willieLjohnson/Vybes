@@ -8,6 +8,43 @@
 
 import Foundation
 
+
+// MARK: - Entries
+extension User {
+  func requestEntries(_ resource: EntryResource, completion: @escaping EntriesResult) {
+    // Handle request
+    NetworkManager.shared.request([Entry].self, from: resource) { anyResult in
+      switch anyResult {
+      case let .success(entries):
+        guard let entries = entries as? [Entry] else { return }
+        completion(Result<[Entry]>.success(entries))
+      case let .failure(error): break
+        //        completion(Result<User>.failure(error))
+      }
+    }
+  }
+
+  /// Returns the entries created by this user.
+  func getEntries(_ completion: @escaping ([Entry]) -> Void) {
+    let resource = EntryResource.getAll
+    requestEntries(resource) { entriesResult in
+      switch entriesResult {
+      case let .success(entries):
+        completion(entries)
+      case .failure: break
+      }
+    }
+  }
+
+  /// Sends network request to POST a new entry
+  func post(entry: Entry) {
+    let resource = EntryResource.post(entry: entry)
+    NetworkManager.shared.request(Entry.self, from: resource) { (result) in
+    }
+  }
+}
+
+// MARK: - Signup flow
 extension NetworkManager {
   /// Sends a get requst to the server for retrieve user with given email and password.
   ///
@@ -16,7 +53,7 @@ extension NetworkManager {
   ///     - password: The password to access the account.
   func requestUser(_ resource: UserResource, completion: @escaping UserResult) {
     // Handle request
-    NetworkManager.shared.request(User.self, from: resource) { anyResult in
+    request(User.self, from: resource) { anyResult in
       switch anyResult {
       case let .success(user):
         guard let user = user as? User else { return }
@@ -54,7 +91,7 @@ extension NetworkManager {
   func signup(name: String, email: String, password: String, completion: BoolResult?) {
     // Setup resource for user signup
     let resource = UserResource.signup(name: name, email: email, password: password)
-    requestUser(resource) { userResult in
+    requestUser(resource) { [unowned self] userResult in
       let isSuccess = self.handle(userResult: userResult)
       if isSuccess {
         // Save user info
@@ -69,7 +106,7 @@ extension NetworkManager {
   func handle(userResult: Result<User>) -> Bool {
     switch userResult {
     case let .success(user):
-      NetworkManager.shared.user = user
+      self.user = user
       return true
     case let .failure(error):
       dump(error)

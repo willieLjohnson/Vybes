@@ -17,6 +17,8 @@ class ViewController: UIViewController {
       }
     }
   }
+  /// Holds the most recent entry that was edited by the user.
+  private var indexOfEditedEntry: Int?
 
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -48,9 +50,13 @@ class ViewController: UIViewController {
     dateFormatter.dateFormat = "yyyy-MM-dd"
     let today = dateFormatter.string(from: date)
     let newEntry = Entry(date: today, body: entryText)
-
-    entries.append(newEntry)
-    user.post(entry: newEntry)
+    if let index = indexOfEditedEntry {
+      entries[index] = newEntry
+      indexOfEditedEntry = nil
+    } else {
+      entries.append(newEntry)
+      user.post(entry: newEntry)
+    }
     entriesTableView.reloadData()
     scrollToBottom()
     entryTextView.text = ""
@@ -109,19 +115,21 @@ extension ViewController: UITableViewDelegate {
   }
 
   func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
-    let editCell = UITableViewRowAction(style: .normal, title: "edit") { [unowned self] (action, index) in
+    let editCellAction = UITableViewRowAction(style: .normal, title: "edit") { [unowned self] (action, index) in
+      let entry = self.entries[indexPath.row]
       self.entryTextView.becomeFirstResponder()
-      self.entryTextView.text = self.entries[indexPath.row].body
+      self.entryTextView.text = entry.body
+      self.indexOfEditedEntry = indexPath.row
     }
 
-    let deleteCell = UITableViewRowAction(style: .destructive, title: "delete") { [unowned self] (action, index) in
+    let deleteCellAction = UITableViewRowAction(style: .destructive, title: "delete") { [unowned self] (action, index) in
       guard let user = NetworkManager.shared.user else { return }
       user.delete(entry: self.entries[indexPath.row])
       self.entries.remove(at: indexPath.row)
       tableView.deleteRows(at: [indexPath], with: .automatic)
     }
 
-    return [deleteCell, editCell]
+    return [deleteCellAction, editCellAction]
   }
 }
 

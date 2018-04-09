@@ -12,7 +12,9 @@ class ViewController: UIViewController {
   /// Keep track of all JournalEntry's that user has created.
   var entries = [Entry]() {
     didSet {
-      entriesTableView.reloadData()
+      DispatchQueue.main.async { 
+        self.entriesTableView.reloadData()
+      }
     }
   }
 
@@ -100,6 +102,25 @@ extension ViewController: UITableViewDelegate {
 
   func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
     print("🤥")
+  }
+
+
+  func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+    return true
+  }
+
+  func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
+    let editCell = UITableViewRowAction(style: .normal, title: "edit") { [unowned self] (action, index) in
+      self.entryTextView.becomeFirstResponder()
+      self.entryTextView.text = self.entries[indexPath.row].body
+    }
+
+    let deleteCell = UITableViewRowAction(style: .destructive, title: "delete") { [unowned self] (action, index) in
+      self.entries.remove(at: indexPath.row)
+      tableView.deleteRows(at: [indexPath], with: .automatic)
+    }
+
+    return [deleteCell, editCell]
   }
 }
 

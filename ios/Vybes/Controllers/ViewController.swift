@@ -43,9 +43,10 @@ class ViewController: UIViewController {
     guard let entryText = entryTextView.text else { return }
     guard let user = NetworkManager.shared.user else { return }
 
+    let date = Date()
     let dateFormatter = DateFormatter()
-    dateFormatter.dateFormat = "yyyy-mm-dd"
-    let today = dateFormatter.string(from: Date())
+    dateFormatter.dateFormat = "yyyy-MM-dd"
+    let today = dateFormatter.string(from: date)
     let newEntry = Entry(date: today, body: entryText)
 
     entries.append(newEntry)

@@ -59,13 +59,23 @@ enum EntryResource: Resource {
 
   /// Get the path to the resource's route.
   func getPath() -> String {
-    return "entries"
+    switch self {
+    case let .delete(entry):
+      guard let id = entry.id else { return "" }
+      return "entries/\(id)"
+    default:
+      return "entries"
+    }
   }
 
   /// Get the necessary data to send for the request.
   func getBody() -> Data? {
     switch self {
-    case let .post(entry), let .delete(entry):
+    case let .post(entry):
+      let newEntry = [
+        "date": entry.date,
+        "body": entry.body
+      ]
       return try? JSONEncoder().encode(entry)
     default:
       return nil

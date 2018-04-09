@@ -65,7 +65,7 @@ enum EntryResource: Resource {
   /// Get the necessary data to send for the request.
   func getBody() -> Data? {
     switch self {
-    case let .post(entry):
+    case let .post(entry), let .delete(entry):
       return try? JSONEncoder().encode(entry)
     default:
       return nil

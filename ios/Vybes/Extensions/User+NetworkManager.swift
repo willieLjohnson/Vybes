@@ -42,6 +42,13 @@ extension User {
     NetworkManager.shared.request(Entry.self, from: resource) { (result) in
     }
   }
+
+  /// Deletes the given entry.
+  func delete(entry: Entry) {
+    let resource = EntryResource.delete(entry: entry)
+    NetworkManager.shared.request(Entry.self, from: resource) { (result) in
+    }
+  }
 }
 
 // MARK: - Signup flow

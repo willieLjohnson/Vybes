@@ -9,8 +9,15 @@
 import Foundation
 
 struct Entry: Codable {
+  /// The id of the entry
+  var id: Int?
   /// The date the entry was entered.
   var date: String
   /// The text that was entered by the user.
   var body: String
+
+  init(date: String, body: String) {
+    self.date = date
+    self.body = body
+  }
 }

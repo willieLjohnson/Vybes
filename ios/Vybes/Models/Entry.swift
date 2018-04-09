@@ -20,4 +20,9 @@ struct Entry: Codable {
     self.date = date
     self.body = body
   }
+
+  init(entry: Entry, body: String) {
+    self = entry
+    self.body = body
+  }
 }

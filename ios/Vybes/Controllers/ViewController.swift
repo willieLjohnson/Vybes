@@ -45,15 +45,18 @@ class ViewController: UIViewController {
     guard let entryText = entryTextView.text else { return }
     guard let user = NetworkManager.shared.user else { return }
 
-    let date = Date()
-    let dateFormatter = DateFormatter()
-    dateFormatter.dateFormat = "yyyy-MM-dd"
-    let today = dateFormatter.string(from: date)
-    let newEntry = Entry(date: today, body: entryText)
     if let index = indexOfEditedEntry {
-      entries[index] = newEntry
+      let editedEntry = Entry(entry: entries[index], body: entryText)
+      entries[index] = editedEntry
       indexOfEditedEntry = nil
+      user.edit(entry: editedEntry)
     } else {
+      let date = Date()
+      let dateFormatter = DateFormatter()
+      dateFormatter.dateFormat = "yyyy-MM-dd"
+      let today = dateFormatter.string(from: date)
+      let newEntry = Entry(date: today, body: entryText)
+
       entries.append(newEntry)
       user.post(entry: newEntry)
     }

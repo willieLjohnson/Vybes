@@ -49,6 +49,13 @@ extension User {
     NetworkManager.shared.request(Entry.self, from: resource) { (result) in
     }
   }
+
+  /// Updates the body of the entry.
+  func edit(entry: Entry) {
+    let resource = EntryResource.edit(entry: entry)
+    NetworkManager.shared.request(Entry.self, from: resource) { (result) in
+    }
+  }
 }
 
 // MARK: - Signup flow

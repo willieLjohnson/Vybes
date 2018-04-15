@@ -2,13 +2,8 @@ import UIKit
 
 /// Main View of the app
 class ViewController: UIViewController {
-  /// Textfield for entry input.
-  @IBOutlet weak var entryTextView: UITextView!
-  /// The original frame of the entryTextView. Needed for resetting the size when done editing.
-  var entryTextViewFrame: CGRect!
   /// TableView for displaying entries.
   @IBOutlet weak var entriesTableView: UITableView!
-  @IBOutlet weak var entryTextFieldHeightConstraint: NSLayoutConstraint!
   /// Keep track of all JournalEntry's that user has created.
   var entries = [Entry]() {
     didSet {
@@ -25,45 +20,10 @@ class ViewController: UIViewController {
     entriesTableView.dataSource = self
     entriesTableView.delegate = self
     entriesTableView.contentInset = UIEdgeInsetsMake(50, 0, 0, 0)
-    entriesTableView.estimatedRowHeight = 80
+    entriesTableView.estimatedRowHeight = 65
+    entriesTableView.rowHeight = UITableViewAutomaticDimension
 
-    entryTextView.layer.cornerRadius = entryTextView.frame.height / 4
-    entryTextViewFrame = entryTextView.frame
-    // Observe behavior of keyboard
-    NotificationCenter.default.addObserver(self, selector: #selector(ViewController.keyboardWillShow), name: .UIKeyboardWillShow, object: view.window)
-    NotificationCenter.default.addObserver(self, selector: #selector(ViewController.keyboardWillHide), name: .UIKeyboardWillHide, object: view.window)
-    view.addTapToDismissKeyboardGesture()
     getEntries()
-  }
-
-  override func viewWillDisappear(_ animated: Bool) {
-    NotificationCenter.default.removeObserver(self, name: .UIKeyboardWillShow, object: nil)
-    NotificationCenter.default.removeObserver(self, name: .UIKeyboardWillHide, object: nil)
-  }
-
-  @IBAction func submitButtonPressed(_ sender: Any) {
-    guard let entryText = entryTextView.text else { return }
-    guard let user = NetworkManager.shared.user else { return }
-
-    if let index = indexOfEditedEntry {
-      let editedEntry = Entry(entry: entries[index], body: entryText)
-      entries[index] = editedEntry
-      indexOfEditedEntry = nil
-      user.edit(entry: editedEntry)
-    } else {
-      let date = Date()
-      let dateFormatter = DateFormatter()
-      dateFormatter.dateFormat = "yyyy-MM-dd"
-      let today = dateFormatter.string(from: date)
-      let newEntry = Entry(date: today, body: entryText)
-
-      entries.append(newEntry)
-      user.post(entry: newEntry)
-    }
-    entriesTableView.reloadData()
-    scrollToBottom()
-    entryTextView.text = ""
-    view.endEditing(true)
   }
 
   func getEntries() {
@@ -98,20 +58,20 @@ extension ViewController: UITableViewDataSource {
     }
     let entry = entries[indexPath.row]
     cell.entry = entry
+    cell.dateLabel.text = "12:30 pm"
     return cell
   }
 }
 
 // MARK: UITableViewDelegate
 extension ViewController: UITableViewDelegate {
-  func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-    return UITableViewAutomaticDimension
-  }
+//  func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+//    return UITableViewAutomaticDimension
+//  }
 
   func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
     print("🤥")
   }
-
 
   func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
     return true
@@ -120,8 +80,6 @@ extension ViewController: UITableViewDelegate {
   func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
     let editCellAction = UITableViewRowAction(style: .normal, title: "edit") { [unowned self] (action, index) in
       let entry = self.entries[indexPath.row]
-      self.entryTextView.becomeFirstResponder()
-      self.entryTextView.text = entry.body
       self.indexOfEditedEntry = indexPath.row
     }
 
@@ -133,34 +91,6 @@ extension ViewController: UITableViewDelegate {
     }
 
     return [deleteCellAction, editCellAction]
-  }
-}
-
-// MARK: Keyboard notification
-private extension ViewController {
-  @objc func keyboardWillShow(notification: NSNotification) {
-    let userInfo = notification.userInfo!
-
-    let keyboardSize: CGSize = (userInfo[UIKeyboardFrameEndUserInfoKey]! as AnyObject).cgRectValue.size
-    if view.frame.origin.y == 0 {
-      UIView.animate(withDuration: 0.5, animations: { () -> Void in
-        self.view.frame.origin.y -= keyboardSize.height - self.entryTextView.frame.size.height
-        self.entriesTableView.contentInset = UIEdgeInsetsMake(70 + keyboardSize.height, 0, 70 + keyboardSize.height, 0)
-        let frame = self.entryTextView.frame
-        self.entryTextView.frame = CGRect(x: frame.origin.x,
-                                          y: frame.origin.y - keyboardSize.height,
-                                          width: frame.width,
-                                          height: frame.height + keyboardSize.height)
-      })
-    }
-  }
-
-  @objc func keyboardWillHide(notification: NSNotification) {
-    UIView.animate(withDuration: 0.5, animations: { () -> Void in
-      self.view.frame.origin.y = 0
-      self.entriesTableView.contentInset = UIEdgeInsetsMake(70, 0, 70, 0)
-      self.entryTextView.frame = self.entryTextViewFrame
-    })
   }
 }
 

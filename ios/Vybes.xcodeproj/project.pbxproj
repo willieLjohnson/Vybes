@@ -15,6 +15,7 @@
 		3D8069352067C1540052D422 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D8069342067C1540052D422 /* NetworkManager.swift */; };
 		3D8069382067C2720052D422 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D8069372067C2720052D422 /* User.swift */; };
 		3D94E61420606F00009C694C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3D94E61320606F00009C694C /* Main.storyboard */; };
+		3DA725722083F4070021F741 /* EditEntryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DA725712083F4070021F741 /* EditEntryViewController.swift */; };
 		3DA97C0B206C4D3D0012F444 /* UserResource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DA97C0A206C4D3D0012F444 /* UserResource.swift */; };
 		3DA97C0D206C4DC20012F444 /* EntryResource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DA97C0C206C4DC20012F444 /* EntryResource.swift */; };
 		3DA97C0F206CB5460012F444 /* User+NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DA97C0E206CB5460012F444 /* User+NetworkManager.swift */; };
@@ -36,6 +37,7 @@
 		3D8069342067C1540052D422 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		3D8069372067C2720052D422 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		3D94E61320606F00009C694C /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		3DA725712083F4070021F741 /* EditEntryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditEntryViewController.swift; sourceTree = "<group>"; };
 		3DA97C0A206C4D3D0012F444 /* UserResource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserResource.swift; sourceTree = "<group>"; };
 		3DA97C0C206C4DC20012F444 /* EntryResource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryResource.swift; sourceTree = "<group>"; };
 		3DA97C0E206CB5460012F444 /* User+NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "User+NetworkManager.swift"; sourceTree = "<group>"; };
@@ -77,6 +79,7 @@
 				3D80692920678A7C0052D422 /* LoginViewController.swift */,
 				3DC076001F7B031700D1016F /* ViewController.swift */,
 				3DAF8D9420699ED700F7EFF1 /* SignupViewController.swift */,
+				3DA725712083F4070021F741 /* EditEntryViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -230,6 +233,7 @@
 				3DBB853E20619390006A5F9C /* EntryTableViewCell.swift in Sources */,
 				3DC075FF1F7B031700D1016F /* AppDelegate.swift in Sources */,
 				3D8069382067C2720052D422 /* User.swift in Sources */,
+				3DA725722083F4070021F741 /* EditEntryViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

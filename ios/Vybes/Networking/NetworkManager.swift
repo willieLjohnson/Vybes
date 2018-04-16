@@ -45,6 +45,16 @@ class NetworkManager {
       return completion(.failure(ResourceError.couldNotParse))
       }.resume()
   }
+
+  /// Runs the given closure if the user is able to login.
+  func tryAgainAfterLogin(_ closure: @escaping () -> Void) {
+    if let email = UserDefaults.standard.string(forKey: "email"),
+      let password = UserDefaults.standard.string(forKey: "password") {
+      NetworkManager.shared.login(email: email, password: password) { _ in
+        closure()
+      }
+    }
+  }
 }
 
 // MARK: - Helper methods.

@@ -14,7 +14,6 @@ extension UIView {
   /// Add the tap to dismiss gesture to the current view
   func addTapToDismissKeyboardGesture() {
     let tapToDismissGesture = UITapGestureRecognizer(target: self, action: #selector(endEditing(_:)))
-    tapToDismissGesture.cancelsTouchesInView = false
     addGestureRecognizer(tapToDismissGesture)
   }
 }

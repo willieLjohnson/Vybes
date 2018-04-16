@@ -5,6 +5,7 @@
     </device>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -12,7 +13,7 @@
         <!--ViewController-->
         <scene sceneID="Ynx-jp-AYT">
             <objects>
-                <viewController storyboardIdentifier="ViewController" title="ViewController" id="Ikq-Gb-zlY" customClass="ViewController" customModule="Vybes" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ViewController" title="ViewController" id="Ikq-Gb-zlY" customClass="JournalViewController" customModule="Vybes" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="kHE-qH-KY2">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -21,39 +22,53 @@
                                 <rect key="frame" x="0.0" y="20" width="375" height="603"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="entryCell" rowHeight="65" id="7uh-Ds-bea" customClass="EntryTableViewCell" customModule="Vybes" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="375" height="65"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="entryCell" rowHeight="93" id="7uh-Ds-bea" customClass="EntryTableViewCell" customModule="Vybes" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="93"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="7uh-Ds-bea" id="ZKJ-Pn-eVV">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="65"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="93"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="12:00 pm" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fez-zu-EsY">
-                                                    <rect key="frame" x="16" y="11" width="351" height="21"/>
-                                                    <fontDescription key="fontDescription" name="KohinoorDevanagari-Semibold" family="Kohinoor Devanagari" pointSize="15"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalCompressionResistancePriority="751" text="Labelq" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FZg-JH-Asn">
-                                                    <rect key="frame" x="16" y="29" width="343" height="27"/>
-                                                    <fontDescription key="fontDescription" name="KohinoorTelugu-Light" family="Kohinoor Telugu" pointSize="18"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xD1-F3-1Gg">
+                                                    <rect key="frame" x="12" y="5" width="351" height="83"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="12:00 pm" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fez-zu-EsY">
+                                                            <rect key="frame" x="16" y="5" width="334" height="24"/>
+                                                            <fontDescription key="fontDescription" name="KohinoorDevanagari-Semibold" family="Kohinoor Devanagari" pointSize="17"/>
+                                                            <color key="textColor" red="0.34901960784313724" green="0.34509803921568627" blue="0.45098039215686275" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalCompressionResistancePriority="751" text="Labelq" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FZg-JH-Asn">
+                                                            <rect key="frame" x="16" y="29" width="335" height="48"/>
+                                                            <fontDescription key="fontDescription" name="KohinoorTelugu-Light" family="Kohinoor Telugu" pointSize="17"/>
+                                                            <color key="textColor" red="0.34901960784313724" green="0.34509803921568627" blue="0.45098039215686275" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <constraints>
+                                                        <constraint firstItem="Fez-zu-EsY" firstAttribute="top" secondItem="xD1-F3-1Gg" secondAttribute="top" constant="5" id="2Fe-8z-2Ke"/>
+                                                        <constraint firstItem="FZg-JH-Asn" firstAttribute="top" secondItem="Fez-zu-EsY" secondAttribute="bottom" id="2w2-Lk-250"/>
+                                                        <constraint firstItem="FZg-JH-Asn" firstAttribute="top" secondItem="Fez-zu-EsY" secondAttribute="bottom" id="8xr-rK-yWl"/>
+                                                        <constraint firstAttribute="trailing" secondItem="Fez-zu-EsY" secondAttribute="trailing" constant="1" id="HRj-9d-kYA"/>
+                                                        <constraint firstItem="Fez-zu-EsY" firstAttribute="leading" secondItem="xD1-F3-1Gg" secondAttribute="leading" constant="16" id="Rmq-GO-2lF"/>
+                                                        <constraint firstAttribute="bottom" secondItem="FZg-JH-Asn" secondAttribute="bottom" constant="6" id="gfv-5B-UCW"/>
+                                                        <constraint firstItem="FZg-JH-Asn" firstAttribute="leading" secondItem="xD1-F3-1Gg" secondAttribute="leading" constant="16" id="pRy-lI-R0T"/>
+                                                        <constraint firstAttribute="trailing" secondItem="FZg-JH-Asn" secondAttribute="trailing" id="uic-4l-dII"/>
+                                                    </constraints>
+                                                </view>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstAttribute="trailing" secondItem="Fez-zu-EsY" secondAttribute="trailing" constant="8.5" id="Bbc-lw-Edp"/>
-                                                <constraint firstAttribute="bottom" secondItem="FZg-JH-Asn" secondAttribute="bottom" constant="9" id="Y68-Ud-arH"/>
-                                                <constraint firstItem="Fez-zu-EsY" firstAttribute="leading" secondItem="ZKJ-Pn-eVV" secondAttribute="leading" constant="16" id="i7x-SG-Zza"/>
-                                                <constraint firstAttribute="trailing" secondItem="FZg-JH-Asn" secondAttribute="trailing" constant="16" id="lRk-hX-9al"/>
-                                                <constraint firstItem="Fez-zu-EsY" firstAttribute="top" secondItem="ZKJ-Pn-eVV" secondAttribute="top" constant="11" id="omz-MK-Iot"/>
-                                                <constraint firstItem="FZg-JH-Asn" firstAttribute="leading" secondItem="ZKJ-Pn-eVV" secondAttribute="leading" constant="16" id="v9F-10-XBa"/>
-                                                <constraint firstItem="FZg-JH-Asn" firstAttribute="top" secondItem="Fez-zu-EsY" secondAttribute="bottom" constant="-3" id="xYT-bg-wcu"/>
+                                                <constraint firstItem="xD1-F3-1Gg" firstAttribute="leading" secondItem="ZKJ-Pn-eVV" secondAttribute="leading" constant="12" id="9ng-EW-yCJ"/>
+                                                <constraint firstAttribute="bottom" secondItem="xD1-F3-1Gg" secondAttribute="bottom" constant="5" id="GCF-kf-gyF"/>
+                                                <constraint firstItem="xD1-F3-1Gg" firstAttribute="top" secondItem="ZKJ-Pn-eVV" secondAttribute="top" constant="5" id="aPy-ia-nWz"/>
+                                                <constraint firstAttribute="trailing" secondItem="xD1-F3-1Gg" secondAttribute="trailing" constant="12" id="hN2-H8-4gP"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="bodyLabel" destination="FZg-JH-Asn" id="fXG-Hr-QYf"/>
                                             <outlet property="dateLabel" destination="Fez-zu-EsY" id="gUY-no-4aa"/>
+                                            <outlet property="innerView" destination="xD1-F3-1Gg" id="zGT-xs-HWj"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -61,11 +76,13 @@
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UDd-Nr-0vb">
                                 <rect key="frame" x="0.0" y="623" width="375" height="44"/>
                                 <items>
-                                    <barButtonItem title="Settings" id="r9Q-qu-xVE">
+                                    <barButtonItem image="icons8-settings-50" id="r9Q-qu-xVE">
                                         <color key="tintColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     </barButtonItem>
-                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="YId-V6-8Yt"/>
-                                    <barButtonItem title="Timer" id="Bhe-Pr-GDe">
+                                    <barButtonItem title="What's on your mind?" width="296" id="8Qh-IB-QI2">
+                                        <color key="tintColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </barButtonItem>
+                                    <barButtonItem title="Timer" image="icons8-meditation-50" id="Bhe-Pr-GDe">
                                         <color key="tintColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     </barButtonItem>
                                 </items>
@@ -86,12 +103,64 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="Journal" id="W65-rE-ZLS"/>
                     <connections>
+                        <outlet property="createEntryBarButton" destination="8Qh-IB-QI2" id="klC-eP-gtE"/>
                         <outlet property="entriesTableView" destination="vVV-wP-7fq" id="wWF-oz-4bj"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ctH-Fc-PfS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="206" y="-37"/>
+            <point key="canvasLocation" x="205.59999999999999" y="-37.331334332833585"/>
+        </scene>
+        <!--Edit Entry View Controller-->
+        <scene sceneID="qqu-le-kpi">
+            <objects>
+                <viewController storyboardIdentifier="EditEntryViewController" id="IIS-L4-KDu" customClass="EditEntryViewController" customModule="Vybes" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="e5i-IH-ejS">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Monday, Apr 9, 2018, 12:56 pm" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mnK-fn-4RR">
+                                <rect key="frame" x="22" y="42" width="323.5" height="32"/>
+                                <fontDescription key="fontDescription" name="AmericanTypewriter-CondensedBold" family="American Typewriter" pointSize="26"/>
+                                <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="bKA-UJ-aUm">
+                                <rect key="frame" x="18" y="82" width="343" height="458"/>
+                                <color key="backgroundColor" red="0.90196078431372551" green="0.9137254901960784" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" name="KohinoorTelugu-Light" family="Kohinoor Telugu" pointSize="17"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BOJ-sQ-cVJ">
+                                <rect key="frame" x="161.5" y="585" width="52" height="39"/>
+                                <state key="normal" image="down-button">
+                                    <color key="titleColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="doneButtonPressed:" destination="IIS-L4-KDu" eventType="touchUpInside" id="jwU-qz-jTX"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="0.4392156862745098" green="0.44313725490196076" blue="0.84705882352941175" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="bKA-UJ-aUm" firstAttribute="top" secondItem="mnK-fn-4RR" secondAttribute="bottom" constant="8" id="9Jg-KY-9LS"/>
+                            <constraint firstItem="bKA-UJ-aUm" firstAttribute="height" secondItem="e5i-IH-ejS" secondAttribute="height" multiplier="458/667" id="9nK-2j-6mV"/>
+                            <constraint firstItem="S1G-cA-DbR" firstAttribute="trailing" secondItem="bKA-UJ-aUm" secondAttribute="trailing" constant="14" id="IeH-4a-frW"/>
+                            <constraint firstItem="mnK-fn-4RR" firstAttribute="top" secondItem="S1G-cA-DbR" secondAttribute="top" constant="22" id="LSv-mF-p5N"/>
+                            <constraint firstItem="bKA-UJ-aUm" firstAttribute="leading" secondItem="S1G-cA-DbR" secondAttribute="leading" constant="18" id="SWZ-QD-WUB"/>
+                            <constraint firstItem="mnK-fn-4RR" firstAttribute="leading" secondItem="S1G-cA-DbR" secondAttribute="leading" constant="22" id="Wtu-UE-uwI"/>
+                            <constraint firstItem="BOJ-sQ-cVJ" firstAttribute="centerX" secondItem="S1G-cA-DbR" secondAttribute="centerX" id="aSR-VY-7U8"/>
+                            <constraint firstItem="BOJ-sQ-cVJ" firstAttribute="top" secondItem="bKA-UJ-aUm" secondAttribute="bottom" constant="45" id="bYe-NT-aZk"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="S1G-cA-DbR"/>
+                    </view>
+                    <connections>
+                        <outlet property="entryTextView" destination="bKA-UJ-aUm" id="9ub-DM-Mlm"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="hhE-DW-dxa" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="920.79999999999995" y="-37.331334332833585"/>
         </scene>
         <!--Login View Controller-->
         <scene sceneID="bsQ-Ge-qQ9">
@@ -265,4 +334,9 @@
             <point key="canvasLocation" x="207" y="-707"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="down-button" width="52" height="39"/>
+        <image name="icons8-meditation-50" width="25" height="25"/>
+        <image name="icons8-settings-50" width="25" height="25"/>
+    </resources>
 </document>

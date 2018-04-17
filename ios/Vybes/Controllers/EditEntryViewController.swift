@@ -21,6 +21,7 @@ class EditEntryViewController: UIViewController {
     }
   }
   @IBOutlet weak var entryDateLabel: UILabel!
+  @IBOutlet weak var doneButton: UIButton!
   /// The entry that is modified by the view controller.
   var selectedEntry: Entry?
   /// The index of the selected entry.
@@ -45,6 +46,7 @@ class EditEntryViewController: UIViewController {
 
   @IBAction func doneButtonPressed(_ sender: Any) {
     UIApplication.shared.statusBarStyle = .default
+    doneButton.animateTap()
     guard let delegate = delegate else { return }
     guard let entryText = entryTextView.text, entryText.count > 1 else {
       dismiss(animated: true, completion: nil)

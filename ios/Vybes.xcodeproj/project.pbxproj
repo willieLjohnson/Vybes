@@ -27,6 +27,7 @@
 		3DC076091F7B031700D1016F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3DC076071F7B031700D1016F /* LaunchScreen.storyboard */; };
 		3DC6D8F72077FF6500C9F6A9 /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DC6D8F62077FF6500C9F6A9 /* Result.swift */; };
 		3DD0B5FA208574DB006938E9 /* MeditateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DD0B5F9208574DB006938E9 /* MeditateViewController.swift */; };
+		3DD0B5FC2086AA8C006938E9 /* TimeInterval+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DD0B5FB2086AA8C006938E9 /* TimeInterval+Extensions.swift */; };
 		3DF1B36C208526D5005F57F9 /* JournalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DF1B36B208526D4005F57F9 /* JournalViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -53,6 +54,7 @@
 		3DC0760A1F7B031700D1016F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3DC6D8F62077FF6500C9F6A9 /* Result.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Result.swift; sourceTree = "<group>"; };
 		3DD0B5F9208574DB006938E9 /* MeditateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeditateViewController.swift; sourceTree = "<group>"; };
+		3DD0B5FB2086AA8C006938E9 /* TimeInterval+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TimeInterval+Extensions.swift"; sourceTree = "<group>"; };
 		3DF1B36B208526D4005F57F9 /* JournalViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JournalViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -73,6 +75,7 @@
 				3D806924206787830052D422 /* UIView+Extensions.swift */,
 				3D806926206789820052D422 /* UITextField+Extensions.swift */,
 				3DA97C0E206CB5460012F444 /* User+NetworkManager.swift */,
+				3DD0B5FB2086AA8C006938E9 /* TimeInterval+Extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -234,6 +237,7 @@
 			files = (
 				3D80692A20678A7C0052D422 /* LoginViewController.swift in Sources */,
 				3D8069322067C12A0052D422 /* Resource.swift in Sources */,
+				3DD0B5FC2086AA8C006938E9 /* TimeInterval+Extensions.swift in Sources */,
 				3D63FD712060781F0029F21F /* Entry.swift in Sources */,
 				3D8069352067C1540052D422 /* NetworkManager.swift in Sources */,
 				3DA97C0B206C4D3D0012F444 /* UserResource.swift in Sources */,

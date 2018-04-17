@@ -92,6 +92,7 @@ extension JournalViewController: JournalViewDelegate {
     }
     user.post(entry: entry)
     entries.append(entry)
+    scrollToBottom()
   }
 
   func updateEntry(_ entry: Entry, index: Int) {
@@ -115,14 +116,8 @@ extension JournalViewController: UITableViewDelegate {
 
   func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
     guard let cell = tableView.cellForRow(at: indexPath) as? EntryTableViewCell else { return }
-    UIView.animate(withDuration: 0.1, animations: {
-      cell.innerView.transform = .init(scaleX: 0.9, y: 0.9)
-    }) { _ in
-      UIView.animate(withDuration: 0.2, animations: {
-        cell.innerView.transform = .identity
-      })
-    }
-
+    cell.innerView.animateTap()
+  
     let storyboard = UIStoryboard(name: "Main", bundle: nil)
     guard let editEntryViewController = storyboard.instantiateViewController(withIdentifier: "EditEntryViewController") as? EditEntryViewController else { return }
     editEntryViewController.selectedEntry = cell.entry
@@ -139,16 +134,14 @@ extension JournalViewController: UITableViewDelegate {
   func tableView(_ tableView: UITableView, didHighlightRowAt indexPath: IndexPath) {
     UIView.animate(withDuration: 0.2) {
       if let cell = tableView.cellForRow(at: indexPath) as? EntryTableViewCell {
-        cell.innerView.transform = .init(scaleX: 0.95, y: 0.95)
+        cell.innerView.animateHighlight(transform: .init(scaleX: 0.95, y: 0.95), offset: 3.5)
       }
     }
   }
 
   func tableView(_ tableView: UITableView, didUnhighlightRowAt indexPath: IndexPath) {
-    UIView.animate(withDuration: 0.2) {
-      if let cell = tableView.cellForRow(at: indexPath) as? EntryTableViewCell {
-        cell.innerView.transform = .identity
-      }
+    if let cell = tableView.cellForRow(at: indexPath) as? EntryTableViewCell {
+      cell.innerView.animateHighlight(transform: .identity, offset: 4, duration: 0.15)
     }
   }
 
@@ -170,6 +163,14 @@ private extension JournalViewController {
   func scrollToBottom() {
     DispatchQueue.main.async {
       let indexPath = IndexPath(row: self.entries.count - 1, section: 0)
+      self.entriesTableView.scrollToRow(at: indexPath, at: .bottom, animated: true)
+    }
+  }
+
+  /// Scroll the tableview to the bottom of the view.
+  func scrollToEntry(_ index: Int) {
+    DispatchQueue.main.async {
+      let indexPath = IndexPath(row: index, section: 0)
       self.entriesTableView.scrollToRow(at: indexPath, at: .bottom, animated: true)
     }
   }

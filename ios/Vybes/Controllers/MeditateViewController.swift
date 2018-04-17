@@ -10,12 +10,21 @@ import UIKit
 
 /// View controller used to have a meditation session.
 class MeditateViewController: UIViewController {
+  @IBOutlet weak var stopButton: UIButton!
   @IBOutlet weak var playButton: UIButton!
   @IBOutlet weak var timerLabel: UILabel!
   @IBOutlet weak var durationPicker: UIDatePicker!
   var timer = Timer()
-  var secCounter: TimeInterval = 1
-  var isRunning: Bool = false
+  var secCounter: TimeInterval = 0
+  var isRunning: Bool = false {
+    willSet {
+      if newValue {
+        startTimer()
+      } else {
+        pauseTimer()
+      }
+    }
+  }
 
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -30,25 +39,18 @@ class MeditateViewController: UIViewController {
   }
 
   @IBAction func pausePlayButtonPressed(_ sender: Any) {
-    if !isRunning {
-      timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(updateTimer), userInfo: nil, repeats: true)
-      isRunning = true
-      UIView.animate(withDuration: 0.2) {
-        self.playButton.setImage(#imageLiteral(resourceName: "pause-button"), for: .normal)
-      }
-    } else {
-      timer.invalidate()
-      isRunning = false
-      UIView.animate(withDuration: 0.2) {
-        self.playButton.setImage(#imageLiteral(resourceName: "enter-button"), for: .normal)
-      }
-    }
-    UIView.animate(withDuration: 0.2) {
-      self.durationPicker.transform = .init(scaleX: 1, y: 0.001)
-      self.durationPicker.isHidden = true
-      self.timerLabel.transform = .identity
-    }
+    /// Toggle isRunning
+    isRunning = !isRunning
+    guard secCounter == 0, !durationPicker.isHidden else { return }
     secCounter = durationPicker.countDownDuration
+    /// Animate duration picker and timer label.
+    UIView.animate(withDuration: 0.2, animations: ({
+      self.timerLabel.isHidden = false
+      self.durationPicker.transform = .init(scaleX: 1, y: 0.01)
+      self.timerLabel.transform = .identity
+    }), completion: ({ _ in
+      self.durationPicker.isHidden = true
+    }))
   }
 
   @objc func updateTimer() {
@@ -56,7 +58,47 @@ class MeditateViewController: UIViewController {
     timerLabel.text = "\(String(format: "%02.0f", secCounter))"
   }
 
-  @IBAction func cancelButtonPressed(_ sender: Any) {
-    dismiss(animated: true, completion: nil)
+  @IBAction func stopButtonPressed(_ sender: Any) {
+    guard secCounter > 0 else {
+      dismiss(animated: true, completion: nil)
+      return
+    }
+    stopTimer()
+  }
+}
+
+// MARK: - Helper methods
+private extension MeditateViewController {
+  /// Initalizes the timer and plays button animations.
+  func startTimer() {
+    timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(updateTimer), userInfo: nil, repeats: true)
+    /// Animate stop and play buttons.
+    UIView.animate(withDuration: 0.2) {
+      self.playButton.setImage(#imageLiteral(resourceName: "pause-button"), for: .normal)
+      self.stopButton.setImage(#imageLiteral(resourceName: "cancel-button"), for: .normal)
+    }
+  }
+
+  /// Invalidates the timer and plays button animations.
+  func pauseTimer() {
+    timer.invalidate()
+    UIView.animate(withDuration: 0.2) {
+      self.playButton.setImage(#imageLiteral(resourceName: "play-button"), for: .normal)
+    }
+  }
+
+  /// Stops the timer.
+  func stopTimer() {
+    secCounter = 0
+    isRunning = false
+    /// Animate duration picker and timer label.
+    UIView.animate(withDuration: 0.2, animations: ({
+      self.durationPicker.isHidden = false
+      self.durationPicker.transform = .identity
+      self.timerLabel.transform = .init(scaleX: 1, y: 0.01)
+      self.stopButton.setImage(#imageLiteral(resourceName: "enter-button"), for: .normal)
+    }), completion: ({ _ in
+      self.timerLabel.isHidden = true
+    }))
   }
 }

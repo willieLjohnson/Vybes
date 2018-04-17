@@ -16,4 +16,13 @@ extension UIView {
     let tapToDismissGesture = UITapGestureRecognizer(target: self, action: #selector(endEditing(_:)))
     addGestureRecognizer(tapToDismissGesture)
   }
+
+  /// Adds a shadow beneath the view
+  func addDropShadow() {
+    layer.shadowColor = Style.shadowColor
+    layer.shadowOpacity = 1
+    layer.shadowRadius = 4
+    layer.shadowOffset = CGSize(width: 0, height: 4)
+    layer.masksToBounds = false
+  }
 }

@@ -14,6 +14,7 @@ class EditEntryViewController: UIViewController {
   @IBOutlet weak var entryTextView: UITextView! {
     didSet {
       entryTextView.layer.cornerRadius = 10
+      entryTextView.addDropShadow()
       guard let selectedEntry = selectedEntry else { return }
       entryTextView.text = selectedEntry.body
       entryDateLabel.text = selectedEntry.date

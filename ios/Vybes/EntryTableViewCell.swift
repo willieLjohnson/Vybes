@@ -34,11 +34,7 @@ class EntryTableViewCell: UITableViewCell {
       clipsToBounds = false
       selectionStyle = .none
       innerView.layer.cornerRadius = 10
-      innerView.layer.shadowColor = Style.shadowColor
-      innerView.layer.shadowOpacity = 1
-      innerView.layer.shadowRadius = 4
-      innerView.layer.shadowOffset = CGSize(width: 0, height: 2)
-      innerView.layer.masksToBounds = false
+      innerView.addDropShadow()
     }
   }
 }

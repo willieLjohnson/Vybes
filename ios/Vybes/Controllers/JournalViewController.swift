@@ -16,8 +16,6 @@ class JournalViewController: UIViewController {
     didSet {
       DispatchQueue.main.async { 
         self.entriesTableView.reloadData()
-        guard self.entries.count > 0 else { return }
-        self.quoteTextView.isHidden = true
       }
     }
   }
@@ -32,7 +30,7 @@ class JournalViewController: UIViewController {
     super.viewDidLoad()
     entriesTableView.dataSource = self
     entriesTableView.delegate = self
-    entriesTableView.contentInset = UIEdgeInsetsMake(50, 0, 0, 0)
+    entriesTableView.contentInset = UIEdgeInsetsMake(50, 0, 50, 0)
     entriesTableView.estimatedRowHeight = 65
     entriesTableView.rowHeight = UITableViewAutomaticDimension
 

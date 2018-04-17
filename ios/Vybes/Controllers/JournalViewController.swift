@@ -16,6 +16,8 @@ class JournalViewController: UIViewController {
     didSet {
       DispatchQueue.main.async { 
         self.entriesTableView.reloadData()
+        guard self.entries.count > 0 else { return }
+        self.quoteTextView.isHidden = true
       }
     }
   }
@@ -23,6 +25,8 @@ class JournalViewController: UIViewController {
   private var indexOfEditedEntry: Int?
 
   @IBOutlet weak var createEntryBarButton: UIBarButtonItem!
+
+  @IBOutlet weak var quoteTextView: UITextView!
 
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -43,7 +47,9 @@ class JournalViewController: UIViewController {
     guard let editEntryViewController = storyboard.instantiateViewController(withIdentifier: "EditEntryViewController") as? EditEntryViewController else { return }
     editEntryViewController.modalPresentationStyle = .overFullScreen
     editEntryViewController.delegate = self
-    present(editEntryViewController, animated: true, completion: nil)
+    present(editEntryViewController, animated: true) {
+      UIApplication.shared.statusBarStyle = .lightContent
+    }
   }
 
   func getEntries() {
@@ -56,7 +62,6 @@ class JournalViewController: UIViewController {
     }
     user.getEntries() { [unowned self] entries in
       self.entries = entries
-      print(entries)
     }
   }
 }
@@ -73,7 +78,6 @@ extension JournalViewController: UITableViewDataSource {
     }
     let entry = entries[indexPath.row]
     cell.entry = entry
-    cell.dateLabel.text = "12:30 pm"
     return cell
   }
 }
@@ -113,8 +117,12 @@ extension JournalViewController: UITableViewDelegate {
 
   func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
     guard let cell = tableView.cellForRow(at: indexPath) as? EntryTableViewCell else { return }
-    UIView.animate(withDuration: 0.1) {
-        cell.innerView.transform = .init(scaleX: 1.05, y: 1.05)
+    UIView.animate(withDuration: 0.1, animations: {
+      cell.innerView.transform = .init(scaleX: 0.9, y: 0.9)
+    }) { _ in
+      UIView.animate(withDuration: 0.2, animations: {
+        cell.innerView.transform = .identity
+      })
     }
 
     let storyboard = UIStoryboard(name: "Main", bundle: nil)
@@ -123,15 +131,7 @@ extension JournalViewController: UITableViewDelegate {
     editEntryViewController.selectedEntryIndex = indexPath.row
     editEntryViewController.delegate = self
     editEntryViewController.modalPresentationStyle = .overFullScreen
-    present(editEntryViewController, animated: true, completion: nil)
-  }
-
-  func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
-    UIView.animate(withDuration: 0.2) {
-      if let cell = tableView.cellForRow(at: indexPath) as? EntryTableViewCell {
-        cell.innerView.transform = .identity
-      }
-    }
+    present(editEntryViewController, animated: true, completion:  nil)
   }
 
   func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
@@ -156,7 +156,7 @@ extension JournalViewController: UITableViewDelegate {
 
 
   func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
-    let deleteCellAction = UITableViewRowAction(style: .destructive, title: "delete") { [unowned self] (action, index) in
+    let deleteCellAction = UITableViewRowAction(style: .destructive, title: "Delete") { [unowned self] (action, index) in
       guard let user = NetworkManager.shared.user else { return }
       user.delete(entry: self.entries[indexPath.row])
       self.entries.remove(at: indexPath.row)

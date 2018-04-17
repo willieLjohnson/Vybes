@@ -16,18 +16,25 @@ class EditEntryViewController: UIViewController {
       entryTextView.layer.cornerRadius = 10
       guard let selectedEntry = selectedEntry else { return }
       entryTextView.text = selectedEntry.body
+      entryDateLabel.text = selectedEntry.date
     }
   }
+  @IBOutlet weak var entryDateLabel: UILabel!
   /// The entry that is modified by the view controller.
   var selectedEntry: Entry?
   /// The index of the selected entry.
   var selectedEntryIndex: Int?
   
   weak var delegate: JournalViewDelegate?
+  
+  override var preferredStatusBarStyle: UIStatusBarStyle {
+    return .lightContent
+  }
 
   override func viewDidLoad() {
     super.viewDidLoad()
     view.addTapToDismissKeyboardGesture()
+    setNeedsStatusBarAppearanceUpdate()
   }
 
   override func didReceiveMemoryWarning() {
@@ -36,8 +43,12 @@ class EditEntryViewController: UIViewController {
   }
 
   @IBAction func doneButtonPressed(_ sender: Any) {
+    UIApplication.shared.statusBarStyle = .default
     guard let delegate = delegate else { return }
-    guard let entryText = entryTextView.text else { return }
+    guard let entryText = entryTextView.text, entryText.count > 1 else {
+      dismiss(animated: true, completion: nil)
+      return
+    }
 
     if var selectedEntry = selectedEntry, let selectedEntryIndex = selectedEntryIndex {
       selectedEntry.body = entryText

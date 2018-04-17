@@ -26,6 +26,7 @@
 		3DC076061F7B031700D1016F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3DC076051F7B031700D1016F /* Assets.xcassets */; };
 		3DC076091F7B031700D1016F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3DC076071F7B031700D1016F /* LaunchScreen.storyboard */; };
 		3DC6D8F72077FF6500C9F6A9 /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DC6D8F62077FF6500C9F6A9 /* Result.swift */; };
+		3DD0B5FA208574DB006938E9 /* MeditateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DD0B5F9208574DB006938E9 /* MeditateViewController.swift */; };
 		3DF1B36C208526D5005F57F9 /* JournalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DF1B36B208526D4005F57F9 /* JournalViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -51,6 +52,7 @@
 		3DC076081F7B031700D1016F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3DC0760A1F7B031700D1016F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3DC6D8F62077FF6500C9F6A9 /* Result.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Result.swift; sourceTree = "<group>"; };
+		3DD0B5F9208574DB006938E9 /* MeditateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeditateViewController.swift; sourceTree = "<group>"; };
 		3DF1B36B208526D4005F57F9 /* JournalViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JournalViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -82,6 +84,7 @@
 				3D80692920678A7C0052D422 /* LoginViewController.swift */,
 				3DAF8D9420699ED700F7EFF1 /* SignupViewController.swift */,
 				3DA725712083F4070021F741 /* EditEntryViewController.swift */,
+				3DD0B5F9208574DB006938E9 /* MeditateViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -238,6 +241,7 @@
 				3DAF8D9520699ED700F7EFF1 /* SignupViewController.swift in Sources */,
 				3DA97C0D206C4DC20012F444 /* EntryResource.swift in Sources */,
 				3D806925206787830052D422 /* UIView+Extensions.swift in Sources */,
+				3DD0B5FA208574DB006938E9 /* MeditateViewController.swift in Sources */,
 				3DA97C0F206CB5460012F444 /* User+NetworkManager.swift in Sources */,
 				3D806927206789820052D422 /* UITextField+Extensions.swift in Sources */,
 				3DF1B36C208526D5005F57F9 /* JournalViewController.swift in Sources */,

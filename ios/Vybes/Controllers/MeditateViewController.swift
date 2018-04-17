@@ -25,14 +25,12 @@ class MeditateViewController: UIViewController {
       }
     }
   }
-  let timerFormatter = DateFormatter()
-  let timerFormat = "mm:ss"
 
   override func viewDidLoad() {
     super.viewDidLoad()
     timerLabel.transform = .init(scaleX: 0.001, y: 0.001)
     durationPicker.setValue(UIColor.white, forKey: "textColor")
-    timerFormatter.dateFormat = timerFormat
+
   }
 
   override func didReceiveMemoryWarning() {
@@ -46,7 +44,7 @@ class MeditateViewController: UIViewController {
     isRunning = !isRunning
     guard secCounter == 0, !durationPicker.isHidden else { return }
     secCounter = durationPicker.countDownDuration
-    timerLabel.text = "\(String(format: "%02.0f", secCounter))"
+    timerLabel.text = secCounter.stringFormatted()
     /// Animate duration picker and timer label.
     UIView.animate(withDuration: 0.2, animations: ({
       self.timerLabel.isHidden = false
@@ -61,7 +59,7 @@ class MeditateViewController: UIViewController {
     secCounter -= 1
     timerLabel.animateTap(duration: 0.4)
     
-    timerLabel.text = timerFormatter.string(from: secCounter)
+    timerLabel.text = secCounter.stringFormatted()
   }
 
   @IBAction func stopButtonPressed(_ sender: Any) {

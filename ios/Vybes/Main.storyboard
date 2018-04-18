@@ -273,6 +273,7 @@
         <!--Login View Controller-->
         <scene sceneID="bsQ-Ge-qQ9">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="MSP-iN-b9J" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController storyboardIdentifier="LoginViewController" id="JLP-f6-epK" customClass="LoginViewController" customModule="Vybes" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="sSl-yX-c6S">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
@@ -306,11 +307,21 @@
                                 <rect key="frame" x="0.0" y="612" width="375" height="55"/>
                                 <color key="backgroundColor" red="0.44313725490196076" green="0.45490196078431372" blue="0.83529411764705885" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" name="KohinoorTelugu-Light" family="Kohinoor Telugu" pointSize="20"/>
-                                <state key="normal" title="Login">
+                                <state key="normal" title="Create An Account">
                                     <color key="titleColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
-                                    <action selector="loginButtonPressed:" destination="JLP-f6-epK" eventType="touchUpInside" id="Hvs-6n-243"/>
+                                    <action selector="createAccountButtonPressed:" destination="JLP-f6-epK" eventType="touchUpInside" id="uiD-lB-3bM"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sJ2-hx-bGl">
+                                <rect key="frame" x="147" y="394.5" width="80" height="49"/>
+                                <fontDescription key="fontDescription" name="KohinoorTelugu-Light" family="Kohinoor Telugu" pointSize="26"/>
+                                <state key="normal" title="Sign in">
+                                    <color key="titleColor" red="0.44313725490196076" green="0.45490196078431372" blue="0.83529411764705885" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="loginButtonPressed:" destination="JLP-f6-epK" eventType="touchUpInside" id="Kcy-Z3-f5q"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Password" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hNm-u7-CE8">
@@ -319,16 +330,6 @@
                                 <color key="textColor" red="0.34901960784313724" green="0.3411764705882353" blue="0.45490196078431372" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sJ2-hx-bGl">
-                                <rect key="frame" x="137" y="399" width="101" height="33"/>
-                                <fontDescription key="fontDescription" name="KohinoorTelugu-Light" family="Kohinoor Telugu" pointSize="15"/>
-                                <state key="normal" title="Create account">
-                                    <color key="titleColor" red="0.44313725490196076" green="0.45490196078431372" blue="0.83529411764705885" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                </state>
-                                <connections>
-                                    <action selector="createAccountButtonPressed:" destination="JLP-f6-epK" eventType="touchUpInside" id="x1d-1H-JPy"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -347,7 +348,7 @@
                             <constraint firstItem="fNq-aS-6j8" firstAttribute="top" secondItem="hNm-u7-CE8" secondAttribute="bottom" id="dSe-Yw-P5v"/>
                             <constraint firstItem="fNq-aS-6j8" firstAttribute="centerX" secondItem="UKg-Ie-BGH" secondAttribute="centerX" id="gSH-rW-Nqg"/>
                             <constraint firstItem="5Tm-Il-Xhw" firstAttribute="trailing" secondItem="UKg-Ie-BGH" secondAttribute="trailing" id="kwg-Xc-9DW"/>
-                            <constraint firstItem="sJ2-hx-bGl" firstAttribute="top" secondItem="fNq-aS-6j8" secondAttribute="bottom" constant="35" id="u3U-Yn-NOD"/>
+                            <constraint firstItem="sJ2-hx-bGl" firstAttribute="top" secondItem="fNq-aS-6j8" secondAttribute="bottom" constant="20" id="u3U-Yn-NOD"/>
                             <constraint firstItem="sJ2-hx-bGl" firstAttribute="centerX" secondItem="UKg-Ie-BGH" secondAttribute="centerX" id="vqw-4y-oBy"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="UKg-Ie-BGH"/>
@@ -357,7 +358,6 @@
                         <outlet property="passwordTextField" destination="fNq-aS-6j8" id="8mN-7t-vE9"/>
                     </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="MSP-iN-b9J" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-548" y="-707.49625187406298"/>
         </scene>
@@ -393,17 +393,6 @@
                                 <fontDescription key="fontDescription" name="KohinoorTelugu-Light" family="Kohinoor Telugu" pointSize="20"/>
                                 <textInputTraits key="textInputTraits" textContentType="email"/>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MlP-A7-udZ">
-                                <rect key="frame" x="0.0" y="612" width="375" height="55"/>
-                                <color key="backgroundColor" red="0.95026967009999996" green="0.95026967009999996" blue="0.95026967009999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <fontDescription key="fontDescription" name="KohinoorTelugu-Light" family="Kohinoor Telugu" pointSize="20"/>
-                                <state key="normal" title="Signup">
-                                    <color key="titleColor" red="0.34901960780000002" green="0.3411764706" blue="0.4549019608" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                </state>
-                                <connections>
-                                    <action selector="signupButtonPressed:" destination="vsf-Sv-Pr4" eventType="touchUpInside" id="k0h-Ap-Mxx"/>
-                                </connections>
-                            </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Password" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DIN-T2-wur">
                                 <rect key="frame" x="22" y="303.5" width="79.5" height="25.5"/>
                                 <fontDescription key="fontDescription" name="KohinoorDevanagari-Semibold" family="Kohinoor Devanagari" pointSize="18"/>
@@ -425,10 +414,22 @@
                                 <fontDescription key="fontDescription" name="KohinoorTelugu-Light" family="Kohinoor Telugu" pointSize="20"/>
                                 <textInputTraits key="textInputTraits" textContentType="email"/>
                             </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MlP-A7-udZ">
+                                <rect key="frame" x="148" y="393" width="79" height="49"/>
+                                <fontDescription key="fontDescription" name="KohinoorTelugu-Light" family="Kohinoor Telugu" pointSize="26"/>
+                                <state key="normal" title="Signup">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="signupButtonPressed:" destination="vsf-Sv-Pr4" eventType="touchUpInside" id="k0h-Ap-Mxx"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.43921568630000002" green="0.4431372549" blue="0.84705882349999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="9xN-w3-0gr" firstAttribute="top" secondItem="YU3-M3-uK0" secondAttribute="bottom" constant="1" id="0m3-lB-q33"/>
+                            <constraint firstItem="MlP-A7-udZ" firstAttribute="top" secondItem="gff-hO-9vl" secondAttribute="bottom" constant="20" id="1TQ-Yq-cLx"/>
+                            <constraint firstItem="MlP-A7-udZ" firstAttribute="centerX" secondItem="sk7-dy-DJw" secondAttribute="centerX" id="351-xP-ha4"/>
                             <constraint firstItem="FZs-cc-blW" firstAttribute="centerX" secondItem="sk7-dy-DJw" secondAttribute="centerX" id="Axj-sg-ruI"/>
                             <constraint firstItem="gff-hO-9vl" firstAttribute="top" secondItem="FZs-cc-blW" secondAttribute="bottom" constant="43.5" id="EyS-PQ-z1Y"/>
                             <constraint firstItem="FZs-cc-blW" firstAttribute="top" secondItem="nrn-yq-E91" secondAttribute="bottom" constant="0.5" id="JbN-2G-qbe"/>
@@ -437,15 +438,11 @@
                             <constraint firstItem="sk7-dy-DJw" firstAttribute="trailing" secondItem="9xN-w3-0gr" secondAttribute="trailing" constant="16" id="VHz-K5-frG"/>
                             <constraint firstItem="FZs-cc-blW" firstAttribute="top" secondItem="9xN-w3-0gr" secondAttribute="bottom" constant="43.5" id="VVW-28-odk"/>
                             <constraint firstItem="FZs-cc-blW" firstAttribute="centerY" secondItem="sk7-dy-DJw" secondAttribute="centerY" constant="-80" id="Y1j-JD-8g0"/>
-                            <constraint firstItem="MlP-A7-udZ" firstAttribute="leading" secondItem="sk7-dy-DJw" secondAttribute="leading" id="Y2K-Xx-2Qt"/>
-                            <constraint firstItem="MlP-A7-udZ" firstAttribute="bottom" secondItem="sk7-dy-DJw" secondAttribute="bottom" id="dFS-KL-iDU"/>
                             <constraint firstItem="sk7-dy-DJw" firstAttribute="trailing" secondItem="gff-hO-9vl" secondAttribute="trailing" constant="16" id="kdd-Yn-aAv"/>
                             <constraint firstItem="gff-hO-9vl" firstAttribute="leading" secondItem="sk7-dy-DJw" secondAttribute="leading" constant="16" id="lwN-i0-LQu"/>
                             <constraint firstItem="DIN-T2-wur" firstAttribute="leading" secondItem="gff-hO-9vl" secondAttribute="leading" constant="6" id="r4P-YG-s6m"/>
-                            <constraint firstItem="MlP-A7-udZ" firstAttribute="height" secondItem="rtT-Lr-Cyc" secondAttribute="height" multiplier="55/667" id="sJq-K3-Wuh"/>
                             <constraint firstItem="YU3-M3-uK0" firstAttribute="leading" secondItem="9xN-w3-0gr" secondAttribute="leading" constant="6" id="sQC-xq-hFF"/>
                             <constraint firstItem="FZs-cc-blW" firstAttribute="leading" secondItem="sk7-dy-DJw" secondAttribute="leading" constant="16" id="udC-h3-CvP"/>
-                            <constraint firstItem="MlP-A7-udZ" firstAttribute="trailing" secondItem="sk7-dy-DJw" secondAttribute="trailing" id="vY9-8O-z9h"/>
                             <constraint firstItem="gff-hO-9vl" firstAttribute="top" secondItem="DIN-T2-wur" secondAttribute="bottom" id="wSy-vS-Dth"/>
                             <constraint firstItem="sk7-dy-DJw" firstAttribute="trailing" secondItem="FZs-cc-blW" secondAttribute="trailing" constant="16" id="z70-Ah-76l"/>
                         </constraints>
@@ -459,7 +456,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="C9Y-xy-9tL" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="468" y="-707"/>
+            <point key="canvasLocation" x="468" y="-707.49625187406298"/>
         </scene>
         <!--Options View Controller-->
         <scene sceneID="jDo-9e-4as">

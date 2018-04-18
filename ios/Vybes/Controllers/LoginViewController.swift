@@ -17,9 +17,11 @@ class LoginViewController: UIViewController {
     super.viewDidLoad()
     view.addTapToDismissKeyboardGesture()
     emailTextField.addDoneButtonOnKeyboard()
+    emailTextField.layer.borderWidth = 0
     emailTextField.addDropShadow()
     passwordTextField.addDoneButtonOnKeyboard()
     passwordTextField.addDropShadow()
+    passwordTextField.layer.borderWidth = 0
   }
 
   override func didReceiveMemoryWarning() {
@@ -47,7 +49,9 @@ class LoginViewController: UIViewController {
   @IBAction func createAccountButtonPressed(_ sender: UIButton) {
     let storyboard = UIStoryboard(name: "Main", bundle: nil)
     let signupViewController = storyboard.instantiateViewController(withIdentifier: "SignupViewController")
-    present(signupViewController, animated: true, completion: nil)
+    present(signupViewController, animated: true, completion: ({
+      UIApplication.shared.statusBarStyle = .lightContent
+    }))
   }
 }
 

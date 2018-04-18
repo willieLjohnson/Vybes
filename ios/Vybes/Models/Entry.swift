@@ -15,6 +15,8 @@ struct Entry: Codable {
   var date: String
   /// The text that was entered by the user.
   var body: String
+  /// The date when the Entry was created.s
+  var created_at: String?
 
   init(date: String, body: String) {
     self.date = date

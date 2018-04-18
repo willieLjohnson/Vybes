@@ -30,7 +30,7 @@ class MeditateViewController: UIViewController {
     super.viewDidLoad()
     timerLabel.transform = .init(scaleX: 0.001, y: 0.001)
     durationPicker.setValue(UIColor.white, forKey: "textColor")
-
+    UIApplication.shared.statusBarStyle = .lightContent
   }
 
   override func didReceiveMemoryWarning() {
@@ -65,6 +65,7 @@ class MeditateViewController: UIViewController {
   @IBAction func stopButtonPressed(_ sender: Any) {
     stopButton.animateTap()
     guard secCounter > 0 else {
+      UIApplication.shared.statusBarStyle = .default
       dismiss(animated: true, completion: nil)
       return
     }
@@ -80,7 +81,7 @@ private extension MeditateViewController {
     /// Animate stop and play buttons.
     UIView.animate(withDuration: 0.2) {
       self.playButton.setImage(#imageLiteral(resourceName: "pause-button"), for: .normal)
-      self.stopButton.setImage(#imageLiteral(resourceName: "cancel-button"), for: .normal)
+      self.stopButton.setImage(#imageLiteral(resourceName: "stop-button"), for: .normal)
     }
   }
 

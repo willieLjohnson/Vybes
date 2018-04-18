@@ -18,7 +18,14 @@ class SignupViewController: UIViewController {
   
   override func viewDidLoad() {
     super.viewDidLoad()
-    
+    view.addTapToDismissKeyboardGesture()
+    nameTextField.addDropShadow()
+    emailTextField.addDropShadow()
+    passwordTextField.addDropShadow()
+
+    nameTextField.addDoneButtonOnKeyboard()
+    emailTextField.addDoneButtonOnKeyboard()
+    passwordTextField.addDoneButtonOnKeyboard()
     // Do any additional setup after loading the view.
   }
   

@@ -74,7 +74,7 @@ enum UserResource: Resource {
       return "\(key)=\(value)"
     }
 
-    return parameterArray.joined(separator: "&")
+    return parameterArray.joined(separator: "&").addingPercentEncoding(withAllowedCharacters: CharacterSet.urlQueryAllowed)!
   }
 
   /// Get the path to the resource's route.

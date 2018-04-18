@@ -28,15 +28,11 @@ class EditEntryViewController: UIViewController {
   var selectedEntryIndex: Int?
   
   weak var delegate: JournalViewDelegate?
-  
-  override var preferredStatusBarStyle: UIStatusBarStyle {
-    return .lightContent
-  }
 
   override func viewDidLoad() {
     super.viewDidLoad()
     view.addTapToDismissKeyboardGesture()
-    setNeedsStatusBarAppearanceUpdate()
+    UIApplication.shared.statusBarStyle = .lightContent
   }
 
   override func didReceiveMemoryWarning() {
@@ -52,16 +48,11 @@ class EditEntryViewController: UIViewController {
       dismiss(animated: true, completion: nil)
       return
     }
-
     if var selectedEntry = selectedEntry, let selectedEntryIndex = selectedEntryIndex {
       selectedEntry.body = entryText
       delegate.updateEntry(selectedEntry, index: selectedEntryIndex)
     } else {
-      let date = Date()
-      let dateFormatter = DateFormatter()
-      dateFormatter.dateFormat = "yyyy-MM-dd"
-      let today = dateFormatter.string(from: date)
-      let newEntry = Entry(date: today, body: entryText)
+      let newEntry = Entry(date: Date().formattedEntryDate(), body: entryText)
       delegate.postEntry(newEntry)
     }
     dismiss(animated: true, completion: nil)

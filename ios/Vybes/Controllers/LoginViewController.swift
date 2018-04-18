@@ -17,7 +17,9 @@ class LoginViewController: UIViewController {
     super.viewDidLoad()
     view.addTapToDismissKeyboardGesture()
     emailTextField.addDoneButtonOnKeyboard()
+    emailTextField.addDropShadow()
     passwordTextField.addDoneButtonOnKeyboard()
+    passwordTextField.addDropShadow()
   }
 
   override func didReceiveMemoryWarning() {

@@ -22,8 +22,10 @@ class JournalViewController: UIViewController {
   /// Holds the most recent entry that was edited by the user.
   private var indexOfEditedEntry: Int?
 
+  /// Presents the editEntrViewController.
   @IBOutlet weak var createEntryBarButton: UIBarButtonItem!
-
+  /// Presents the optionsViewController.
+  @IBOutlet weak var optionsBarButton: UIBarButtonItem!
   @IBOutlet weak var quoteTextView: UITextView!
 
   override func viewDidLoad() {
@@ -35,7 +37,9 @@ class JournalViewController: UIViewController {
     entriesTableView.rowHeight = UITableViewAutomaticDimension
 
     createEntryBarButton.action = #selector(createEntryButtonPressed)
+    optionsBarButton.action = #selector(optionsButtonPressed)
     createEntryBarButton.target = self
+    optionsBarButton.target = self
 
     getEntries()
   }
@@ -46,6 +50,14 @@ class JournalViewController: UIViewController {
     editEntryViewController.modalPresentationStyle = .overFullScreen
     editEntryViewController.delegate = self
     present(editEntryViewController, animated: true) {
+      UIApplication.shared.statusBarStyle = .lightContent
+    }
+  }
+
+  @objc func optionsButtonPressed() {
+    let storyboard = UIStoryboard(name: "Main", bundle: nil)
+    guard let optionsViewController = storyboard.instantiateViewController(withIdentifier: "OptionsViewController") as? OptionsViewController else { return }
+    present(optionsViewController, animated: true) {
       UIApplication.shared.statusBarStyle = .lightContent
     }
   }

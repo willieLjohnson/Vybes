@@ -23,12 +23,20 @@ class EntryTableViewCell: UITableViewCell {
   var entry: Entry? {
     didSet {
       guard let entry = entry else { return }
-      /// Automatically update the labels when the cell's entry is set
-      dateLabel.text = "\(entry.date)"
+      /// Automatically update the labels when the cell's entry is sets
+      var entryDate = Date()
+      let dateFormatter = DateFormatter()
+      dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
+      if let createdAt = entry.created_at {
+        guard let date = dateFormatter.date(from: createdAt) else { return }
+        entryDate = date
+      }
+      dateLabel.text = entryDate.formattedStringDate()
       bodyLabel.preferredMaxLayoutWidth = bodyLabel.frame.width
       bodyLabel.text = entry.body
     }
   }
+  
   @IBOutlet weak var innerView: UIView! {
     didSet {
       clipsToBounds = false

@@ -25,6 +25,8 @@ class MeditateViewController: UIViewController {
       }
     }
   }
+  let heavyImpactFeedbackGenerator = UIImpactFeedbackGenerator(style: .heavy)
+  let lightImpactFeedbackGenerator = UIImpactFeedbackGenerator(style: .light)
 
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -56,10 +58,16 @@ class MeditateViewController: UIViewController {
   }
 
   @objc func updateTimer() {
+    lightImpactFeedbackGenerator.prepare()
     secCounter -= 1
+    guard secCounter > 0 else {
+      heavyImpactFeedbackGenerator.prepare()
+      stopTimer()
+      return
+    }
     timerLabel.animateTap(duration: 0.4)
-    
     timerLabel.text = secCounter.stringFormatted()
+    lightImpactFeedbackGenerator.impactOccurred()
   }
 
   @IBAction func stopButtonPressed(_ sender: Any) {
@@ -98,11 +106,12 @@ private extension MeditateViewController {
     secCounter = 0
     isRunning = false
     /// Animate duration picker and timer label.
-    UIView.animate(withDuration: 0.2, animations: ({
+    UIView.animate(withDuration: 0.2, animations: ({ [unowned self] in
       self.durationPicker.isHidden = false
       self.durationPicker.transform = .identity
       self.timerLabel.transform = .init(scaleX: 1, y: 0.01)
       self.stopButton.setImage(#imageLiteral(resourceName: "enter-button"), for: .normal)
+      self.heavyImpactFeedbackGenerator.impactOccurred()
     }), completion: ({ _ in
       self.timerLabel.isHidden = true
     }))

@@ -21,7 +21,8 @@ class JournalViewController: UIViewController {
   }
   /// Holds the most recent entry that was edited by the user.
   private var indexOfEditedEntry: Int?
-
+  /// Presents the meditateViewController.
+  @IBOutlet weak var meditateBarButton: UIBarButtonItem!
   /// Presents the editEntrViewController.
   @IBOutlet weak var createEntryBarButton: UIBarButtonItem!
   /// Presents the optionsViewController.
@@ -38,8 +39,10 @@ class JournalViewController: UIViewController {
 
     createEntryBarButton.action = #selector(createEntryButtonPressed)
     optionsBarButton.action = #selector(optionsButtonPressed)
+    meditateBarButton.action = #selector(meditateButtonPressed)
     createEntryBarButton.target = self
     optionsBarButton.target = self
+    meditateBarButton.target = self
 
     getEntries()
   }
@@ -57,7 +60,17 @@ class JournalViewController: UIViewController {
   @objc func optionsButtonPressed() {
     let storyboard = UIStoryboard(name: "Main", bundle: nil)
     guard let optionsViewController = storyboard.instantiateViewController(withIdentifier: "OptionsViewController") as? OptionsViewController else { return }
+    optionsViewController.modalPresentationStyle = .overFullScreen
     present(optionsViewController, animated: true) {
+      UIApplication.shared.statusBarStyle = .lightContent
+    }
+  }
+
+  @objc func meditateButtonPressed() {
+    let storyboard = UIStoryboard(name: "Main", bundle: nil)
+    guard let meditateViewController = storyboard.instantiateViewController(withIdentifier: "MeditateViewController") as? MeditateViewController else { return }
+    meditateViewController.modalPresentationStyle = .overFullScreen
+    present(meditateViewController, animated: true) {
       UIApplication.shared.statusBarStyle = .lightContent
     }
   }

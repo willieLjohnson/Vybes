@@ -11,7 +11,7 @@ import Foundation
 extension Date {
   func formattedStringDate() -> String {
     let dateFormatter = DateFormatter()
-    dateFormatter.setLocalizedDateFormatFromTemplate("MMM d, h:mm a")
+    dateFormatter.setLocalizedDateFormatFromTemplate("MMM d, h:mm a, yyyy")
     return dateFormatter.string(from: self)
   }
 

@@ -15,9 +15,6 @@ class EditEntryViewController: UIViewController {
     didSet {
       entryTextView.layer.cornerRadius = 10
       entryTextView.addDropShadow()
-      guard let selectedEntry = selectedEntry else { return }
-      entryTextView.text = selectedEntry.body
-      entryDateLabel.text = selectedEntry.date
     }
   }
   @IBOutlet weak var entryDateLabel: UILabel!
@@ -32,7 +29,12 @@ class EditEntryViewController: UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     view.addTapToDismissKeyboardGesture()
+    entryTextView.addDoneButtonOnKeyboard()
     UIApplication.shared.statusBarStyle = .lightContent
+    entryDateLabel.text = Date().formattedStringDate()
+    guard let selectedEntry = selectedEntry else { return }
+    entryTextView.text = selectedEntry.body
+    entryDateLabel.text = selectedEntry.formattedStringDate
   }
 
   override func didReceiveMemoryWarning() {

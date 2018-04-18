@@ -47,11 +47,10 @@ class LoginViewController: UIViewController {
   }
 
   @IBAction func createAccountButtonPressed(_ sender: UIButton) {
+    UIApplication.shared.statusBarStyle = .lightContent
     let storyboard = UIStoryboard(name: "Main", bundle: nil)
     let signupViewController = storyboard.instantiateViewController(withIdentifier: "SignupViewController")
-    present(signupViewController, animated: true, completion: ({
-      UIApplication.shared.statusBarStyle = .lightContent
-    }))
+    present(signupViewController, animated: true, completion: nil)
   }
 }
 

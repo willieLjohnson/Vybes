@@ -43,6 +43,7 @@ class SignupViewController: UIViewController {
           let storyboard = UIStoryboard(name: "Main", bundle: nil)
           let viewController = storyboard.instantiateViewController(withIdentifier: "ViewController")
           DispatchQueue.main.async {
+            UIApplication.shared.statusBarStyle = .default
             self.present(viewController, animated: true, completion: nil)
           }
         }

@@ -20,11 +20,13 @@ struct Entry: Codable {
   /// The date formatted for use in app.
   var formattedStringDate: String {
     get {
-      guard let createdAt = created_at else { return ""}
       let dateFormatter = DateFormatter()
+      guard let createdAt = created_at else {
+        return Date().formattedStringDate()
+      }
       dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
-      guard let date = dateFormatter.date(from: createdAt) else { return ""}
-      return date.formattedStringDate()
+      guard let createdAtDate = dateFormatter.date(from: createdAt) else { return ""}
+      return createdAtDate.formattedStringDate()
     }
   }
 

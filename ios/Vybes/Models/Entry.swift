@@ -25,7 +25,7 @@ struct Entry: Codable {
         return Date().formattedStringDate()
       }
       dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
-      guard let createdAtDate = dateFormatter.date(from: createdAt) else { return ""}
+      guard let createdAtDate = dateFormatter.date(from: createdAt) else { return "" }
       return createdAtDate.formattedStringDate()
     }
   }

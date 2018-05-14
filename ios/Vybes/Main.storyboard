@@ -48,7 +48,7 @@
                                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                 </textView>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="entryCell" rowHeight="93" id="7uh-Ds-bea" customClass="EntryTableViewCell" customModule="Vybes" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="entryCell" rowHeight="93" id="7uh-Ds-bea" customClass="EntryTableViewCell" customModule="Vybes" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="93"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="7uh-Ds-bea" id="ZKJ-Pn-eVV">
@@ -141,7 +141,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ctH-Fc-PfS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1662" y="72"/>
+            <point key="canvasLocation" x="1662" y="91"/>
         </scene>
         <!--Meditate View Controller-->
         <scene sceneID="z1W-k2-n8I">
@@ -208,7 +208,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PSr-Vk-laH" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2370" y="72"/>
+            <point key="canvasLocation" x="2330" y="90"/>
         </scene>
         <!--Edit Entry View Controller-->
         <scene sceneID="qqu-le-kpi">
@@ -263,12 +263,11 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hhE-DW-dxa" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1642" y="842"/>
+            <point key="canvasLocation" x="1662" y="770"/>
         </scene>
         <!--Login View Controller-->
         <scene sceneID="bsQ-Ge-qQ9">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="MSP-iN-b9J" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController storyboardIdentifier="LoginViewController" id="JLP-f6-epK" customClass="LoginViewController" customModule="Vybes" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="sSl-yX-c6S">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
@@ -353,8 +352,9 @@
                         <outlet property="passwordTextField" destination="fNq-aS-6j8" id="8mN-7t-vE9"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="MSP-iN-b9J" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-548" y="-707.49625187406298"/>
+            <point key="canvasLocation" x="977" y="-583"/>
         </scene>
         <!--Signup View Controller-->
         <scene sceneID="v8B-5q-yh6">
@@ -451,7 +451,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="C9Y-xy-9tL" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="468" y="-707.49625187406298"/>
+            <point key="canvasLocation" x="1662" y="-590"/>
         </scene>
         <!--Options View Controller-->
         <scene sceneID="jDo-9e-4as">
@@ -504,7 +504,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="E8g-nk-wSJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="801" y="92"/>
+            <point key="canvasLocation" x="977" y="90"/>
         </scene>
     </scenes>
     <resources>

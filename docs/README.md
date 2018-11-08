@@ -5,15 +5,27 @@
 
 Track your thoughts and feelings with Vybes to tackle life's biggest problems.
 
-## Download
+## Setup
+
+### iOS Project
 
 ```sh
 git clone https://github.com/SlickJohnson/Vybes.git
 cd Vybes
 ```
 
+### Backend Project
+
+```sh
+cd backend
+
+bundle install
+rails s
+```
+
 ## Getting Started
 
-1. Build project.
-2. Fix any errors.
-3. Run project on desired iOS device.
+1. Build projects.
+2. Run server
+3. Fix any errors that pop up.
+4. Run project on desired iOS device.

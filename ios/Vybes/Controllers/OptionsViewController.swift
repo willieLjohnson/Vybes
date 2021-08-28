@@ -10,8 +10,14 @@ import Foundation
 import UIKit
 
 class OptionsViewController: UIViewController {
+  @IBOutlet weak var logoutButton: UIButton!
+
   override func viewDidLoad() {
-    
+    if NetworkManager.shared.isLoggedIn {
+      logoutButton.setTitle("Logout", for: .normal)
+    } else {
+      logoutButton.setTitle("Login", for: .normal)
+    }
   }
   
   @IBAction func dismissedButtonPressed(_ sender: Any) {
@@ -31,4 +37,11 @@ class OptionsViewController: UIViewController {
     UIApplication.shared.statusBarStyle = .default
     present(loginViewController, animated: true, completion: nil)
   }
+
+  @IBAction func icloudSwitchChanged(_ sender: UISwitch) {
+    let defaults = UserDefaults.standard
+    defaults.set(sender.isOn, forKey: "isCloudEnabled")
+    print(defaults.bool(forKey: "isCloudEnabled"))
+  }
+
 }

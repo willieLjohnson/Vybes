@@ -1,13 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="JLP-f6-epK">
-    <device id="retina4_7" orientation="portrait">
-        <adaptation id="fullscreen"/>
-    </device>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="JLP-f6-epK">
+    <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
-        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
-        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -20,11 +18,11 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="vVV-wP-7fq">
-                                <rect key="frame" x="0.0" y="20" width="375" height="603"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="623"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="separatorColor" red="0.34901960784313724" green="0.3411764705882353" blue="0.45490196078431372" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <textView key="tableFooterView" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" usesAttributedText="YES" id="WgQ-wc-xT5">
-                                    <rect key="frame" x="0.0" y="121" width="375" height="92.5"/>
+                                    <rect key="frame" x="0.0" y="142.00000034679067" width="375" height="92.5"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <attributedString key="attributedText">
@@ -49,7 +47,7 @@
                                 </textView>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="entryCell" rowHeight="93" id="7uh-Ds-bea" customClass="EntryTableViewCell" customModule="Vybes" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="375" height="93"/>
+                                        <rect key="frame" x="0.0" y="24.5" width="375" height="93"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="7uh-Ds-bea" id="ZKJ-Pn-eVV">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="93"/>
@@ -117,6 +115,7 @@
                                 <color key="barTintColor" red="0.34509803921568627" green="0.33725490196078434" blue="0.83921568627450982" alpha="0.94999999999999996" colorSpace="custom" customColorSpace="sRGB"/>
                             </toolbar>
                         </subviews>
+                        <viewLayoutGuide key="safeArea" id="E6w-Un-Wzl"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="vVV-wP-7fq" firstAttribute="trailing" secondItem="E6w-Un-Wzl" secondAttribute="trailing" id="4h0-BH-s22"/>
@@ -127,7 +126,6 @@
                             <constraint firstItem="UDd-Nr-0vb" firstAttribute="leading" secondItem="E6w-Un-Wzl" secondAttribute="leading" id="hpf-h4-5Fs"/>
                             <constraint firstItem="vVV-wP-7fq" firstAttribute="leading" secondItem="kHE-qH-KY2" secondAttribute="leading" id="jfa-rQ-3y8"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="E6w-Un-Wzl"/>
                     </view>
                     <navigationItem key="navigationItem" id="W6u-YF-A9x"/>
                     <nil key="simulatedTopBarMetrics"/>
@@ -152,10 +150,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="countDownTimer" minuteInterval="1" useCurrentDate="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QlW-0s-EEF">
-                                <rect key="frame" x="0.0" y="20" width="375" height="586"/>
-                                <date key="date" timeIntervalSinceReferenceDate="566683200.52713001">
-                                    <!--2018-12-16 20:00:00 +0000-->
-                                </date>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="606"/>
                             </datePicker>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7H4-mx-NGQ">
                                 <rect key="frame" x="131.5" y="562" width="52" height="44"/>
@@ -178,12 +173,13 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7P2-dL-Lr4">
-                                <rect key="frame" x="179" y="292" width="17" height="42"/>
+                                <rect key="frame" x="179" y="282" width="17" height="42"/>
                                 <fontDescription key="fontDescription" name="KohinoorTelugu-Light" family="Kohinoor Telugu" pointSize="30"/>
                                 <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
+                        <viewLayoutGuide key="safeArea" id="l2r-Ga-tJ2"/>
                         <color key="backgroundColor" red="0.4392156862745098" green="0.44313725490196076" blue="0.84705882352941175" alpha="0.94999999999999996" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="QlW-0s-EEF" firstAttribute="trailing" secondItem="l2r-Ga-tJ2" secondAttribute="trailing" id="4QY-sA-8vZ"/>
@@ -197,7 +193,6 @@
                             <constraint firstItem="QlW-0s-EEF" firstAttribute="leading" secondItem="l2r-Ga-tJ2" secondAttribute="leading" id="mSG-ME-NHv"/>
                             <constraint firstItem="7P2-dL-Lr4" firstAttribute="centerY" secondItem="QlW-0s-EEF" secondAttribute="centerY" id="xGF-il-ZH1"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="l2r-Ga-tJ2"/>
                     </view>
                     <connections>
                         <outlet property="durationPicker" destination="QlW-0s-EEF" id="9Qb-Pd-2bc"/>
@@ -219,7 +214,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="bKA-UJ-aUm">
-                                <rect key="frame" x="18" y="84" width="339" height="456"/>
+                                <rect key="frame" x="5" y="64" width="365" height="476"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <color key="textColor" red="0.34901960784313724" green="0.3411764705882353" blue="0.45490196078431372" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" name="KohinoorTelugu-Light" family="Kohinoor Telugu" pointSize="17"/>
@@ -235,25 +230,25 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Monday, Apr 9, 2018, 12:56 PM" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mnK-fn-4RR">
-                                <rect key="frame" x="22" y="42" width="332" height="34"/>
+                                <rect key="frame" x="22" y="22" width="337.5" height="34"/>
                                 <fontDescription key="fontDescription" name="KohinoorDevanagari-Semibold" family="Kohinoor Devanagari" pointSize="24"/>
                                 <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
+                        <viewLayoutGuide key="safeArea" id="S1G-cA-DbR"/>
                         <color key="backgroundColor" red="0.4392156862745098" green="0.44313725490196076" blue="0.84705882352941175" alpha="0.94999999999999996" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="bKA-UJ-aUm" firstAttribute="top" secondItem="mnK-fn-4RR" secondAttribute="bottom" constant="8" id="9Jg-KY-9LS"/>
-                            <constraint firstItem="S1G-cA-DbR" firstAttribute="trailing" secondItem="bKA-UJ-aUm" secondAttribute="trailing" constant="18" id="IeH-4a-frW"/>
+                            <constraint firstItem="S1G-cA-DbR" firstAttribute="trailing" secondItem="bKA-UJ-aUm" secondAttribute="trailing" constant="5" id="IeH-4a-frW"/>
                             <constraint firstItem="mnK-fn-4RR" firstAttribute="top" secondItem="S1G-cA-DbR" secondAttribute="top" constant="22" id="LSv-mF-p5N"/>
                             <constraint firstItem="bKA-UJ-aUm" firstAttribute="centerX" secondItem="S1G-cA-DbR" secondAttribute="centerX" id="OsF-qh-IBP"/>
                             <constraint firstItem="S1G-cA-DbR" firstAttribute="bottom" secondItem="BOJ-sQ-cVJ" secondAttribute="bottom" constant="61" id="R0Y-3F-0j6"/>
-                            <constraint firstItem="bKA-UJ-aUm" firstAttribute="leading" secondItem="S1G-cA-DbR" secondAttribute="leading" constant="18" id="SWZ-QD-WUB"/>
+                            <constraint firstItem="bKA-UJ-aUm" firstAttribute="leading" secondItem="S1G-cA-DbR" secondAttribute="leading" constant="5" id="SWZ-QD-WUB"/>
                             <constraint firstItem="BOJ-sQ-cVJ" firstAttribute="top" secondItem="bKA-UJ-aUm" secondAttribute="bottom" constant="22" id="Ueo-dY-eRi"/>
                             <constraint firstItem="mnK-fn-4RR" firstAttribute="leading" secondItem="S1G-cA-DbR" secondAttribute="leading" constant="22" id="Wtu-UE-uwI"/>
                             <constraint firstItem="BOJ-sQ-cVJ" firstAttribute="centerX" secondItem="S1G-cA-DbR" secondAttribute="centerX" id="aSR-VY-7U8"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="S1G-cA-DbR"/>
                     </view>
                     <connections>
                         <outlet property="doneButton" destination="BOJ-sQ-cVJ" id="OLT-hg-iQS"/>
@@ -274,13 +269,13 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Email" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Nzr-7T-Jsb">
-                                <rect key="frame" x="23" y="217.5" width="44.5" height="24"/>
+                                <rect key="frame" x="23" y="207.5" width="44.5" height="24"/>
                                 <fontDescription key="fontDescription" name="KohinoorDevanagari-Semibold" family="Kohinoor Devanagari" pointSize="17"/>
                                 <color key="textColor" red="0.34901960784313724" green="0.3411764705882353" blue="0.45490196078431372" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="fNq-aS-6j8">
-                                <rect key="frame" x="16" y="330.5" width="343" height="44"/>
+                                <rect key="frame" x="16" y="320.5" width="343" height="44"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="44" id="K6a-Dm-xwF"/>
                                 </constraints>
@@ -289,7 +284,7 @@
                                 <textInputTraits key="textInputTraits" secureTextEntry="YES" textContentType="password"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="AKw-9O-O74">
-                                <rect key="frame" x="16" y="241.5" width="343" height="44"/>
+                                <rect key="frame" x="16" y="231.5" width="343" height="44"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="44" id="Qsh-rb-vlM"/>
                                 </constraints>
@@ -297,7 +292,7 @@
                                 <fontDescription key="fontDescription" name="KohinoorTelugu-Light" family="Kohinoor Telugu" pointSize="20"/>
                                 <textInputTraits key="textInputTraits" textContentType="email"/>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5Tm-Il-Xhw">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5Tm-Il-Xhw">
                                 <rect key="frame" x="0.0" y="612" width="375" height="55"/>
                                 <color key="backgroundColor" red="0.44313725490196076" green="0.45490196078431372" blue="0.83529411764705885" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" name="KohinoorTelugu-Light" family="Kohinoor Telugu" pointSize="20"/>
@@ -308,8 +303,8 @@
                                     <action selector="createAccountButtonPressed:" destination="JLP-f6-epK" eventType="touchUpInside" id="uiD-lB-3bM"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sJ2-hx-bGl">
-                                <rect key="frame" x="153" y="394.5" width="68" height="43"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sJ2-hx-bGl">
+                                <rect key="frame" x="153.5" y="384.5" width="68" height="43"/>
                                 <fontDescription key="fontDescription" name="KohinoorTelugu-Light" family="Kohinoor Telugu" pointSize="22"/>
                                 <state key="normal" title="Sign in">
                                     <color key="titleColor" red="0.44313725490196076" green="0.45490196078431372" blue="0.83529411764705885" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -319,12 +314,13 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Password" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hNm-u7-CE8">
-                                <rect key="frame" x="23" y="306.5" width="75" height="24"/>
+                                <rect key="frame" x="23" y="296.5" width="75" height="24"/>
                                 <fontDescription key="fontDescription" name="KohinoorDevanagari-Semibold" family="Kohinoor Devanagari" pointSize="17"/>
                                 <color key="textColor" red="0.34901960784313724" green="0.3411764705882353" blue="0.45490196078431372" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
+                        <viewLayoutGuide key="safeArea" id="UKg-Ie-BGH"/>
                         <color key="backgroundColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="AKw-9O-O74" firstAttribute="top" secondItem="Nzr-7T-Jsb" secondAttribute="bottom" id="1I1-vU-xeK"/>
@@ -345,7 +341,6 @@
                             <constraint firstItem="sJ2-hx-bGl" firstAttribute="top" secondItem="fNq-aS-6j8" secondAttribute="bottom" constant="20" id="u3U-Yn-NOD"/>
                             <constraint firstItem="sJ2-hx-bGl" firstAttribute="centerX" secondItem="UKg-Ie-BGH" secondAttribute="centerX" id="vqw-4y-oBy"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="UKg-Ie-BGH"/>
                     </view>
                     <connections>
                         <outlet property="emailTextField" destination="AKw-9O-O74" id="42o-G5-aql"/>
@@ -365,13 +360,13 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Email" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nrn-yq-E91">
-                                <rect key="frame" x="22" y="215.5" width="47" height="25.5"/>
+                                <rect key="frame" x="22" y="205.5" width="47" height="25.5"/>
                                 <fontDescription key="fontDescription" name="KohinoorDevanagari-Semibold" family="Kohinoor Devanagari" pointSize="18"/>
                                 <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="gff-hO-9vl">
-                                <rect key="frame" x="16" y="329" width="343" height="44"/>
+                                <rect key="frame" x="16" y="319" width="343" height="44"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="44" id="Kdc-xl-bQj"/>
                                 </constraints>
@@ -380,7 +375,7 @@
                                 <textInputTraits key="textInputTraits" secureTextEntry="YES" textContentType="password"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="FZs-cc-blW">
-                                <rect key="frame" x="16" y="241.5" width="343" height="44"/>
+                                <rect key="frame" x="16" y="231.5" width="343" height="44"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="44" id="CL5-ce-P8h"/>
                                 </constraints>
@@ -389,19 +384,19 @@
                                 <textInputTraits key="textInputTraits" textContentType="email"/>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Password" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DIN-T2-wur">
-                                <rect key="frame" x="22" y="303.5" width="79.5" height="25.5"/>
+                                <rect key="frame" x="22" y="293.5" width="79.5" height="25.5"/>
                                 <fontDescription key="fontDescription" name="KohinoorDevanagari-Semibold" family="Kohinoor Devanagari" pointSize="18"/>
                                 <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YU3-M3-uK0">
-                                <rect key="frame" x="22" y="127.5" width="49.5" height="25.5"/>
+                                <rect key="frame" x="22" y="117.5" width="49.5" height="25.5"/>
                                 <fontDescription key="fontDescription" name="KohinoorDevanagari-Semibold" family="Kohinoor Devanagari" pointSize="18"/>
                                 <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="9xN-w3-0gr">
-                                <rect key="frame" x="16" y="154" width="343" height="44"/>
+                                <rect key="frame" x="16" y="144" width="343" height="44"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="44" id="ilP-Z3-1qG"/>
                                 </constraints>
@@ -409,8 +404,8 @@
                                 <fontDescription key="fontDescription" name="KohinoorTelugu-Light" family="Kohinoor Telugu" pointSize="20"/>
                                 <textInputTraits key="textInputTraits" textContentType="email"/>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MlP-A7-udZ">
-                                <rect key="frame" x="154" y="393" width="67" height="43"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MlP-A7-udZ">
+                                <rect key="frame" x="154" y="383" width="67" height="43"/>
                                 <fontDescription key="fontDescription" name="KohinoorTelugu-Light" family="Kohinoor Telugu" pointSize="22"/>
                                 <state key="normal" title="Signup">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -420,6 +415,7 @@
                                 </connections>
                             </button>
                         </subviews>
+                        <viewLayoutGuide key="safeArea" id="sk7-dy-DJw"/>
                         <color key="backgroundColor" red="0.43921568630000002" green="0.4431372549" blue="0.84705882349999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="9xN-w3-0gr" firstAttribute="top" secondItem="YU3-M3-uK0" secondAttribute="bottom" constant="1" id="0m3-lB-q33"/>
@@ -441,7 +437,6 @@
                             <constraint firstItem="gff-hO-9vl" firstAttribute="top" secondItem="DIN-T2-wur" secondAttribute="bottom" id="wSy-vS-Dth"/>
                             <constraint firstItem="sk7-dy-DJw" firstAttribute="trailing" secondItem="FZs-cc-blW" secondAttribute="trailing" constant="16" id="z70-Ah-76l"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="sk7-dy-DJw"/>
                     </view>
                     <connections>
                         <outlet property="emailTextField" destination="FZs-cc-blW" id="2Aj-Ye-7eQ"/>
@@ -470,7 +465,7 @@
                                     <action selector="dismissedButtonPressed:" destination="9xm-qH-p1i" eventType="touchUpInside" id="99y-wD-2BJ"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GUw-gk-w0G">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GUw-gk-w0G">
                                 <rect key="frame" x="87.5" y="438" width="200" height="40"/>
                                 <color key="backgroundColor" red="1" green="0.57810515169999999" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
@@ -484,27 +479,52 @@
                                     <action selector="logoutButtonPressed:" destination="9xm-qH-p1i" eventType="touchUpInside" id="lNL-DD-a3Q"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5v1-v0-0Fw">
-                                <rect key="frame" x="16" y="134" width="0.0" height="0.0"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="eRO-W5-jH9">
+                                <rect key="frame" x="72.5" y="359" width="230.5" height="31"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Use iCloud Storage:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cI6-Zp-ffz">
+                                        <rect key="frame" x="0.0" y="0.0" width="173.5" height="31"/>
+                                        <fontDescription key="fontDescription" name="KohinoorTelugu-Light" family="Kohinoor Telugu" pointSize="20"/>
+                                        <color key="textColor" systemColor="systemGray6Color"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" selected="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="fTW-b8-ebL">
+                                        <rect key="frame" x="181.5" y="0.0" width="51" height="31"/>
+                                        <color key="onTintColor" systemColor="systemOrangeColor"/>
+                                        <color key="thumbTintColor" systemColor="systemGray6Color"/>
+                                        <connections>
+                                            <action selector="icloudSwitchChanged:" destination="9xm-qH-p1i" eventType="valueChanged" id="Cem-Jw-dRM"/>
+                                        </connections>
+                                    </switch>
+                                </subviews>
+                            </stackView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Options" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AUi-BH-KXR">
+                                <rect key="frame" x="143.5" y="20" width="88" height="35"/>
+                                <fontDescription key="fontDescription" name="KohinoorTelugu-Regular" family="Kohinoor Telugu" pointSize="25"/>
+                                <color key="textColor" systemColor="systemGray6Color"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
+                        <viewLayoutGuide key="safeArea" id="k6a-kf-ta6"/>
                         <color key="backgroundColor" red="0.43921568630000002" green="0.4431372549" blue="0.84705882349999995" alpha="0.94999999999999996" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="k6a-kf-ta6" firstAttribute="bottom" secondItem="hwG-tY-4LU" secondAttribute="bottom" constant="61" id="2Q7-BT-erF"/>
+                            <constraint firstItem="GUw-gk-w0G" firstAttribute="top" secondItem="cI6-Zp-ffz" secondAttribute="bottom" constant="48" id="9cl-UP-8aL"/>
+                            <constraint firstItem="AUi-BH-KXR" firstAttribute="centerX" secondItem="KAm-XX-pjk" secondAttribute="centerX" id="RUh-gj-YTp"/>
+                            <constraint firstItem="eRO-W5-jH9" firstAttribute="centerX" secondItem="k6a-kf-ta6" secondAttribute="centerX" id="T8U-Mz-ZCh"/>
                             <constraint firstItem="GUw-gk-w0G" firstAttribute="centerX" secondItem="k6a-kf-ta6" secondAttribute="centerX" id="iqS-WF-4dR"/>
                             <constraint firstItem="hwG-tY-4LU" firstAttribute="top" secondItem="GUw-gk-w0G" secondAttribute="bottom" constant="84" id="jlD-3X-LmC"/>
+                            <constraint firstItem="AUi-BH-KXR" firstAttribute="top" secondItem="k6a-kf-ta6" secondAttribute="top" constant="20" id="zkh-lw-UZj"/>
                             <constraint firstItem="hwG-tY-4LU" firstAttribute="centerX" secondItem="k6a-kf-ta6" secondAttribute="centerX" id="zpM-dL-0et"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="k6a-kf-ta6"/>
                     </view>
+                    <connections>
+                        <outlet property="logoutButton" destination="GUw-gk-w0G" id="gjN-xz-B6l"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="E8g-nk-wSJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="977" y="90"/>
+            <point key="canvasLocation" x="976.79999999999995" y="89.505247376311857"/>
         </scene>
     </scenes>
     <resources>
@@ -512,5 +532,11 @@
         <image name="icons8-meditation-50" width="25" height="25"/>
         <image name="icons8-settings-50" width="25" height="25"/>
         <image name="play-button" width="40" height="45"/>
+        <systemColor name="systemGray6Color">
+            <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemOrangeColor">
+            <color red="1" green="0.58431372549019611" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
     </resources>
 </document>

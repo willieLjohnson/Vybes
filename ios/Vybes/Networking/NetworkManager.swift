@@ -18,6 +18,12 @@ class NetworkManager {
   static let shared = NetworkManager()
   /// The User that's currently logged into the app
   var user: User?
+  /// Check if you are logged in.
+  var isLoggedIn: Bool {
+    get {
+      return user != nil;
+    }
+  }
   /**
    Sends an HTTP request for User resource.
 

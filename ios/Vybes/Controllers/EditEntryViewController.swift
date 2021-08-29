@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Ink
 
 /// Screen used to create and edit Entry cells.
 class EditEntryViewController: UIViewController {

@@ -131,7 +131,6 @@ extension JournalViewController: UITableViewDelegate {
     editEntryViewController.selectedEntry = cell.entry
     editEntryViewController.selectedEntryIndex = indexPath.row
     editEntryViewController.delegate = self
-    editEntryViewController.modalPresentationStyle = .overFullScreen
     present(editEntryViewController, animated: true, completion:  nil)
   }
 

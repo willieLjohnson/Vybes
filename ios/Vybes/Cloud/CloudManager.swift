@@ -140,6 +140,7 @@ extension CloudManager {
       let fileNames = files.map{ $0.deletingPathExtension().lastPathComponent }
 
       for (index, file) in files.enumerated() {
+        if !file.lastPathComponent.contains(".md") { continue }
         do {
           let content = try String(contentsOf: file, encoding: .utf8)
 

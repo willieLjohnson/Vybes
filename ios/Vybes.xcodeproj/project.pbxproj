@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 48;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -32,6 +32,8 @@
 		3DD0B5FC2086AA8C006938E9 /* TimeInterval+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DD0B5FB2086AA8C006938E9 /* TimeInterval+Extensions.swift */; };
 		3DD0B5FE20870A2C006938E9 /* Date+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DD0B5FD20870A2C006938E9 /* Date+Extensions.swift */; };
 		3DD0B600208717CE006938E9 /* OptionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DD0B5FF208717CD006938E9 /* OptionsViewController.swift */; };
+		3DE8536326DC4BB400D5E146 /* Ink in Frameworks */ = {isa = PBXBuildFile; productRef = 3DE8536226DC4BB400D5E146 /* Ink */; };
+		3DE8536626DC4C9D00D5E146 /* Down in Frameworks */ = {isa = PBXBuildFile; productRef = 3DE8536526DC4C9D00D5E146 /* Down */; };
 		3DF1B36C208526D5005F57F9 /* JournalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DF1B36B208526D4005F57F9 /* JournalViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -73,6 +75,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				3D6E62D626DB010F008FAD15 /* CloudKit.framework in Frameworks */,
+				3DE8536326DC4BB400D5E146 /* Ink in Frameworks */,
+				3DE8536626DC4C9D00D5E146 /* Down in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -210,6 +214,10 @@
 			dependencies = (
 			);
 			name = Vybes;
+			packageProductDependencies = (
+				3DE8536226DC4BB400D5E146 /* Ink */,
+				3DE8536526DC4C9D00D5E146 /* Down */,
+			);
 			productName = Vibes;
 			productReference = 3DC075FB1F7B031700D1016F /* Vybes.app */;
 			productType = "com.apple.product-type.application";
@@ -239,6 +247,10 @@
 				Base,
 			);
 			mainGroup = 3DC075F21F7B031700D1016F;
+			packageReferences = (
+				3DE8536126DC4BB400D5E146 /* XCRemoteSwiftPackageReference "ink" */,
+				3DE8536426DC4C9D00D5E146 /* XCRemoteSwiftPackageReference "Down" */,
+			);
 			productRefGroup = 3DC075FC1F7B031700D1016F /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -415,7 +427,8 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
-				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
@@ -431,7 +444,10 @@
 				DEVELOPMENT_TEAM = RFQY6T2L4D;
 				EMBED_ASSET_PACKS_IN_PRODUCT_BUNDLE = YES;
 				INFOPLIST_FILE = "$(SRCROOT)/Vybes/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.vybe.vybes;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -451,7 +467,10 @@
 				DEVELOPMENT_TEAM = RFQY6T2L4D;
 				EMBED_ASSET_PACKS_IN_PRODUCT_BUNDLE = YES;
 				INFOPLIST_FILE = "$(SRCROOT)/Vybes/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.vybe.vybes;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -482,6 +501,38 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		3DE8536126DC4BB400D5E146 /* XCRemoteSwiftPackageReference "ink" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/johnsundell/ink.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.5.1;
+			};
+		};
+		3DE8536426DC4C9D00D5E146 /* XCRemoteSwiftPackageReference "Down" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/johnxnguyen/Down.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.11.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		3DE8536226DC4BB400D5E146 /* Ink */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 3DE8536126DC4BB400D5E146 /* XCRemoteSwiftPackageReference "ink" */;
+			productName = Ink;
+		};
+		3DE8536526DC4C9D00D5E146 /* Down */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 3DE8536426DC4C9D00D5E146 /* XCRemoteSwiftPackageReference "Down" */;
+			productName = Down;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 3DC075F31F7B031700D1016F /* Project object */;
 }

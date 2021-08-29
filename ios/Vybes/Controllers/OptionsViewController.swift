@@ -37,7 +37,6 @@ class OptionsViewController: UIViewController {
     /// Go back to login screen.
     let storyboard = UIStoryboard.init(name: "Main", bundle: nil)
     let loginViewController = storyboard.instantiateViewController(withIdentifier: "LoginViewController")
-    UIApplication.shared.statusBarStyle = .default
     present(loginViewController, animated: true, completion: nil)
   }
 

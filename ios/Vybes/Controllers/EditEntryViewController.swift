@@ -31,7 +31,6 @@ class EditEntryViewController: UIViewController {
     super.viewDidLoad()
     view.addTapToDismissKeyboardGesture()
     entryTextView.addDoneButtonOnKeyboard()
-    UIApplication.shared.statusBarStyle = .lightContent
     entryDateLabel.text = Date().displayDate()
     
     guard let selectedEntry = selectedEntry else { return }
@@ -45,7 +44,6 @@ class EditEntryViewController: UIViewController {
   }
 
   @IBAction func doneButtonPressed(_ sender: Any) {
-    UIApplication.shared.statusBarStyle = .default
     doneButton.animateTap()
     guard let delegate = delegate else { return }
     guard let entryText = entryTextView.text, entryText.count > 1 else {

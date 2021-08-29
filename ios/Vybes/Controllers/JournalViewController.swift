@@ -30,6 +30,18 @@ class JournalViewController: UIViewController {
   @IBOutlet weak var optionsBarButton: UIBarButtonItem!
   @IBOutlet weak var quoteTextView: UITextView!
 
+  override var preferredStatusBarStyle: UIStatusBarStyle {
+    if Style.isDarkContentBackground {
+          return .lightContent
+      } else {
+        if #available(iOS 13.0, *) {
+          return .darkContent
+        } else {
+          return .lightContent
+        }
+      }
+  }
+
   override func viewDidLoad() {
     super.viewDidLoad()
     entriesTableView.dataSource = self
@@ -51,30 +63,21 @@ class JournalViewController: UIViewController {
   @objc func createEntryButtonPressed() {
     let storyboard = UIStoryboard(name: "Main", bundle: nil)
     guard let editEntryViewController = storyboard.instantiateViewController(withIdentifier: "EditEntryViewController") as? EditEntryViewController else { return }
-    editEntryViewController.modalPresentationStyle = .overFullScreen
     editEntryViewController.delegate = self
-    present(editEntryViewController, animated: true) {
-      UIApplication.shared.statusBarStyle = .lightContent
-    }
+    present(editEntryViewController, animated: true)
   }
 
   @objc func optionsButtonPressed() {
     let storyboard = UIStoryboard(name: "Main", bundle: nil)
     guard let optionsViewController = storyboard.instantiateViewController(withIdentifier: "OptionsViewController") as? OptionsViewController else { return }
-    optionsViewController.modalPresentationStyle = .overFullScreen
     optionsViewController.delegate = self
-    present(optionsViewController, animated: true) {
-      UIApplication.shared.statusBarStyle = .lightContent
-    }
+    present(optionsViewController, animated: true)
   }
 
   @objc func meditateButtonPressed() {
     let storyboard = UIStoryboard(name: "Main", bundle: nil)
     guard let meditateViewController = storyboard.instantiateViewController(withIdentifier: "MeditateViewController") as? MeditateViewController else { return }
-    meditateViewController.modalPresentationStyle = .overFullScreen
-    present(meditateViewController, animated: true) {
-      UIApplication.shared.statusBarStyle = .lightContent
-    }
+    present(meditateViewController, animated: true)
   }
 
   func getEntries() {

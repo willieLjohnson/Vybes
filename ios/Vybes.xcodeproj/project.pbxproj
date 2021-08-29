@@ -7,7 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		3D63FD712060781F0029F21F /* Entry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D63FD702060781F0029F21F /* Entry.swift */; };
+		3D63FD712060781F0029F21F /* EntryCodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D63FD702060781F0029F21F /* EntryCodable.swift */; };
+		3D6E62D626DB010F008FAD15 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D6E62D526DB010F008FAD15 /* CloudKit.framework */; };
 		3D806925206787830052D422 /* UIView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D806924206787830052D422 /* UIView+Extensions.swift */; };
 		3D806927206789820052D422 /* UITextField+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D806926206789820052D422 /* UITextField+Extensions.swift */; };
 		3D80692A20678A7C0052D422 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D80692920678A7C0052D422 /* LoginViewController.swift */; };
@@ -35,7 +36,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		3D63FD702060781F0029F21F /* Entry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Entry.swift; sourceTree = "<group>"; };
+		3D63FD702060781F0029F21F /* EntryCodable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryCodable.swift; sourceTree = "<group>"; };
+		3D6E62D326DB00D9008FAD15 /* Vybes.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Vybes.entitlements; sourceTree = "<group>"; };
+		3D6E62D526DB010F008FAD15 /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
 		3D806924206787830052D422 /* UIView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extensions.swift"; sourceTree = "<group>"; };
 		3D806926206789820052D422 /* UITextField+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField+Extensions.swift"; sourceTree = "<group>"; };
 		3D80692920678A7C0052D422 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -69,12 +72,21 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3D6E62D626DB010F008FAD15 /* CloudKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3D6E62D426DB010F008FAD15 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				3D6E62D526DB010F008FAD15 /* CloudKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		3D806923206785490052D422 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
@@ -113,7 +125,7 @@
 		3D8069362067C23D0052D422 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				3D63FD702060781F0029F21F /* Entry.swift */,
+				3D63FD702060781F0029F21F /* EntryCodable.swift */,
 				3D8069372067C2720052D422 /* User.swift */,
 			);
 			path = Models;
@@ -140,6 +152,7 @@
 			children = (
 				3DC075FD1F7B031700D1016F /* Vybes */,
 				3DC075FC1F7B031700D1016F /* Products */,
+				3D6E62D426DB010F008FAD15 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -154,6 +167,7 @@
 		3DC075FD1F7B031700D1016F /* Vybes */ = {
 			isa = PBXGroup;
 			children = (
+				3D6E62D326DB00D9008FAD15 /* Vybes.entitlements */,
 				3DA341F026DAF21E0078CA6C /* Cloud */,
 				3DA72573208404DB0021F741 /* Helper */,
 				3D80692820678A670052D422 /* Controllers */,
@@ -256,7 +270,7 @@
 				3D8069322067C12A0052D422 /* Resource.swift in Sources */,
 				3DD0B5FC2086AA8C006938E9 /* TimeInterval+Extensions.swift in Sources */,
 				3DD0B600208717CE006938E9 /* OptionsViewController.swift in Sources */,
-				3D63FD712060781F0029F21F /* Entry.swift in Sources */,
+				3D63FD712060781F0029F21F /* EntryCodable.swift in Sources */,
 				3D8069352067C1540052D422 /* NetworkManager.swift in Sources */,
 				3DA97C0B206C4D3D0012F444 /* UserResource.swift in Sources */,
 				3DC6D8F72077FF6500C9F6A9 /* Result.swift in Sources */,
@@ -411,6 +425,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Vybes/Vybes.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = RFQY6T2L4D;
@@ -430,6 +445,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Vybes/Vybes.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = RFQY6T2L4D;

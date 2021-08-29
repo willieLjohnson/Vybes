@@ -18,9 +18,9 @@ import Foundation
  */
 enum EntryResource: Resource {
   case getAll
-  case post(entry: Entry)
-  case edit(entry: Entry)
-  case delete(entry: Entry)
+  case post(entry: EntryCodable)
+  case edit(entry: EntryCodable)
+  case delete(entry: EntryCodable)
 
   func getHTTPMethod() -> HTTPMethod {
     switch self {

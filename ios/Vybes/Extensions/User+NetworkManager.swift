@@ -13,11 +13,11 @@ import Foundation
 extension User {
   func requestEntries(_ resource: EntryResource, completion: @escaping EntriesResult) {
     // Handle request
-    NetworkManager.shared.request([Entry].self, from: resource) { anyResult in
+    NetworkManager.shared.request([EntryCodable].self, from: resource) { anyResult in
       switch anyResult {
       case let .success(entries):
-        guard let entries = entries as? [Entry] else { return }
-        completion(Result<[Entry]>.success(entries))
+        guard let entries = entries as? [EntryCodable] else { return }
+        completion(Result<[EntryCodable]>.success(entries))
       case let .failure(error): break
         //        completion(Result<User>.failure(error))
       }
@@ -25,7 +25,7 @@ extension User {
   }
 
   /// Returns the entries created by this user.
-  func getEntries(_ completion: @escaping ([Entry]) -> Void) {
+  func getEntries(_ completion: @escaping ([EntryCodable]) -> Void) {
     let resource = EntryResource.getAll
     requestEntries(resource) { entriesResult in
       switch entriesResult {
@@ -37,23 +37,23 @@ extension User {
   }
 
   /// Sends network request to POST a new entry
-  func post(entry: Entry) {
+  func post(entry: EntryCodable) {
     let resource = EntryResource.post(entry: entry)
-    NetworkManager.shared.request(Entry.self, from: resource) { (result) in
+    NetworkManager.shared.request(EntryCodable.self, from: resource) { (result) in
     }
   }
 
   /// Deletes the given entry.
-  func delete(entry: Entry) {
+  func delete(entry: EntryCodable) {
     let resource = EntryResource.delete(entry: entry)
-    NetworkManager.shared.request(Entry.self, from: resource) { (result) in
+    NetworkManager.shared.request(EntryCodable.self, from: resource) { (result) in
     }
   }
 
   /// Updates the body of the entry.
-  func edit(entry: Entry) {
+  func edit(entry: EntryCodable) {
     let resource = EntryResource.edit(entry: entry)
-    NetworkManager.shared.request(Entry.self, from: resource) { (result) in
+    NetworkManager.shared.request(EntryCodable.self, from: resource) { (result) in
     }
   }
 }

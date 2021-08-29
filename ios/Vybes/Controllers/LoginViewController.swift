@@ -34,10 +34,8 @@ class LoginViewController: UIViewController {
       switch boolResult {
       case let .success(isSuccess):
         if isSuccess {
-          let storyboard = UIStoryboard(name: "Main", bundle: nil)
           DispatchQueue.main.async {
-            let viewController = storyboard.instantiateViewController(withIdentifier: "ViewController")
-            self.present(viewController, animated: true, completion: nil)
+            self.dismiss(animated: true)
           }
         }
       default:

@@ -11,6 +11,8 @@ import UIKit
 
 class OptionsViewController: UIViewController {
   @IBOutlet weak var logoutButton: UIButton!
+  weak var delegate: JournalViewDelegate?
+
 
   override func viewDidLoad() {
     if NetworkManager.shared.isLoggedIn {
@@ -22,6 +24,7 @@ class OptionsViewController: UIViewController {
   
   @IBAction func dismissedButtonPressed(_ sender: Any) {
     UIApplication.shared.statusBarStyle = .default
+    delegate?.updateData()
     dismiss(animated: true, completion: nil)
   }
 
@@ -41,7 +44,7 @@ class OptionsViewController: UIViewController {
   @IBAction func icloudSwitchChanged(_ sender: UISwitch) {
     let defaults = UserDefaults.standard
     defaults.set(sender.isOn, forKey: "isCloudEnabled")
-    print(defaults.bool(forKey: "isCloudEnabled"))
+    
   }
 
 }

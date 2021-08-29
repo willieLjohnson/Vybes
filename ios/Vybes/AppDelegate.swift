@@ -8,13 +8,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     window = UIWindow(frame: UIScreen.main.bounds)
     // Grab the initial view controller.
     let storyBoard = UIStoryboard(name: "Main", bundle: nil)
-    var initialViewController = storyBoard.instantiateInitialViewController()
-    // If there is login info for a user.
-//    if let email = UserDefaults.standard.string(forKey: "email"),
-//      let password = UserDefaults.standard.string(forKey: "password") {
-      // Make a login request and skip login screen
-    initialViewController = storyBoard.instantiateViewController(withIdentifier: "ViewController")
-//    }
+    let initialViewController = storyBoard.instantiateViewController(withIdentifier: "ViewController")
 
     // Present window with appropriate view controller
     window?.rootViewController = initialViewController

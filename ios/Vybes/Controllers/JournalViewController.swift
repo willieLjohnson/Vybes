@@ -5,6 +5,7 @@ protocol JournalViewDelegate: class {
   /// Creates or updates an existing entry
   func postEntry(_ entry: Entry)
   func updateEntry(_ entry: Entry, index: Int)
+  func updateData()
 }
 
 /// Main View of the app
@@ -61,6 +62,7 @@ class JournalViewController: UIViewController {
     let storyboard = UIStoryboard(name: "Main", bundle: nil)
     guard let optionsViewController = storyboard.instantiateViewController(withIdentifier: "OptionsViewController") as? OptionsViewController else { return }
     optionsViewController.modalPresentationStyle = .overFullScreen
+    optionsViewController.delegate = self
     present(optionsViewController, animated: true) {
       UIApplication.shared.statusBarStyle = .lightContent
     }
@@ -76,16 +78,17 @@ class JournalViewController: UIViewController {
   }
 
   func getEntries() {
-    let manager = NetworkManager.shared
-    guard let user = manager.user else {
-      manager.tryAgainAfterLogin { [unowned self] in
-        self.getEntries()
-      }
-      return
-    }
-    user.getEntries() { [unowned self] entries in
-      self.entries = entries
-    }
+    entries = CloudManager.instance.getEntries()
+//    let manager = NetworkManager.shared
+//    guard let user = manager.user else {
+//      manager.tryAgainAfterLogin { [unowned self] in
+//        self.getEntries()
+//      }
+//      return
+//    }
+//    user.getEntries() { [unowned self] entries in
+//      self.entries = entries
+//    }
   }
 }
 
@@ -108,28 +111,17 @@ extension JournalViewController: UITableViewDataSource {
 // MARK: JournalViewDelegate
 extension JournalViewController: JournalViewDelegate {
   func postEntry(_ entry: Entry) {
-    let manager = NetworkManager.shared
-    guard let user = manager.user else {
-      manager.tryAgainAfterLogin { [unowned self] in
-        self.postEntry(entry)
-      }
-      return
-    }
-    user.post(entry: entry)
+    CloudManager.instance.addNewEntry(entry)
     entries.append(entry)
     scrollToBottom()
   }
 
   func updateEntry(_ entry: Entry, index: Int) {
-    let manager = NetworkManager.shared
-    guard let user = manager.user else {
-      manager.tryAgainAfterLogin { [unowned self] in
-        self.updateEntry(entry, index: index)
-      }
-      return
-    }
-    user.edit(entry: entry)
-    entries[index] = entry
+
+  }
+
+  func updateData() {
+    getEntries()
   }
 }
 
@@ -173,8 +165,8 @@ extension JournalViewController: UITableViewDelegate {
 
   func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
     let deleteCellAction = UITableViewRowAction(style: .destructive, title: "Delete") { [unowned self] (action, index) in
-      guard let user = NetworkManager.shared.user else { return }
-      user.delete(entry: self.entries[indexPath.row])
+
+      CloudManager.instance.deleteEntry(entries[indexPath.row])
       self.entries.remove(at: indexPath.row)
       tableView.deleteRows(at: [indexPath], with: .automatic)
     }

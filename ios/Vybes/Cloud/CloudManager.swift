@@ -9,88 +9,139 @@
 import Foundation
 
 class CloudManager {
-    static let instance = CloudManager()
+  static let instance = CloudManager()
 
-    struct DocumentsDirectory {
-        static let localDocumentsURL = FileManager.default.urls(for: FileManager.SearchPathDirectory.documentDirectory, in: .userDomainMask).last!
-        static let iCloudDocumentsURL = FileManager.default.url(forUbiquityContainerIdentifier: nil)?.appendingPathComponent("Documents")
+  struct DocumentsDirectory {
+    static let localDocumentsURL = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
+    static let iCloudDocumentsURL = FileManager.default.url(forUbiquityContainerIdentifier: nil)?.appendingPathComponent("Documents")
+  }
+
+
+  // Return the Document directory (Cloud OR Local)
+  // To do in a background thread
+
+  func getDocumentDiretoryURL() -> URL {
+    if isCloudEnabled()  {
+      return DocumentsDirectory.iCloudDocumentsURL!
+    } else {
+      return DocumentsDirectory.localDocumentsURL
     }
+  }
 
+  // Return true if iCloud is enabled
 
-    // Return the Document directory (Cloud OR Local)
-    // To do in a background thread
+  func isCloudEnabled() -> Bool {
+    if DocumentsDirectory.iCloudDocumentsURL != nil { return true }
+    else { return false }
+  }
 
-    func getDocumentDiretoryURL() -> URL {
-        if isCloudEnabled()  {
-            return DocumentsDirectory.iCloudDocumentsURL!
-        } else {
-            return DocumentsDirectory.localDocumentsURL
+  // Delete All files at URL
+
+  func deleteFilesInDirectory(url: URL?) {
+    let fileManager = FileManager.default
+    let enumerator = fileManager.enumerator(atPath: url!.path)
+    while let file = enumerator?.nextObject() as? String {
+      do {
+        try fileManager.removeItem(at: url!.appendingPathComponent(file))
+        print("Files deleted")
+      } catch let error as NSError {
+        print("Failed deleting files : \(error)")
+      }
+    }
+  }
+
+  func deleteFile(url: URL) {
+    let fileManager = FileManager.default
+
+    do {
+      try fileManager.removeItem(at: url)
+    } catch let error as NSError {
+      print("Failed deleting files : \(error)")
+    }
+  }
+
+  // Copy local files to iCloud
+  // iCloud will be cleared before any operation
+  // No data merging
+
+  func copyFileToCloud() {
+    if isCloudEnabled() {
+      deleteFilesInDirectory(url: DocumentsDirectory.iCloudDocumentsURL!) // Clear all files in iCloud Doc Dir
+      let fileManager = FileManager.default
+      let enumerator = fileManager.enumerator(atPath: DocumentsDirectory.localDocumentsURL.path)
+      while let file = enumerator?.nextObject() as? String {
+
+        do {
+          try fileManager.copyItem(at: DocumentsDirectory.localDocumentsURL.appendingPathComponent(file), to: DocumentsDirectory.iCloudDocumentsURL!.appendingPathComponent(file))
+
+          print("Copied to iCloud")
+        } catch let error as NSError {
+          print("Failed to move file to Cloud : \(error)")
         }
+      }
     }
+  }
 
-    // Return true if iCloud is enabled
+  // Copy iCloud files to local directory
+  // Local dir will be cleared
+  // No data merging
 
-    func isCloudEnabled() -> Bool {
-        if DocumentsDirectory.iCloudDocumentsURL != nil { return true }
-        else { return false }
-    }
+  func copyFileToLocal() {
+    if isCloudEnabled() {
+      deleteFilesInDirectory(url: DocumentsDirectory.localDocumentsURL)
+      let fileManager = FileManager.default
+      let enumerator = fileManager.enumerator(atPath: DocumentsDirectory.iCloudDocumentsURL!.path)
+      while let file = enumerator?.nextObject() as? String {
 
-    // Delete All files at URL
-
-    func deleteFilesInDirectory(url: URL?) {
-        let fileManager = FileManager.default
-        let enumerator = fileManager.enumerator(atPath: url!.path)
-        while let file = enumerator?.nextObject() as? String {
-            do {
-                try fileManager.removeItem(at: url!.appendingPathComponent(file))
-                print("Files deleted")
-            } catch let error as NSError {
-                print("Failed deleting files : \(error)")
-            }
+        do {
+          try fileManager.copyItem(at: DocumentsDirectory.iCloudDocumentsURL!.appendingPathComponent(file), to: DocumentsDirectory.localDocumentsURL.appendingPathComponent(file))
+        } catch let error as NSError {
+          print("Failed to move file to local dir : \(error)")
         }
+      }
     }
+  }
+}
 
-    // Copy local files to iCloud
-    // iCloud will be cleared before any operation
-    // No data merging
+// MARK - Entry
+extension CloudManager {
+  func addNewEntry(_ entry: Entry) {
+    print("\(entry.formattedStringDate).md")
+    let fileURL = getDocumentDiretoryURL().appendingPathComponent("\(entry.formattedStringDate).md")
 
-    func copyFileToCloud() {
-        if isCloudEnabled() {
-            deleteFilesInDirectory(url: DocumentsDirectory.iCloudDocumentsURL!) // Clear all files in iCloud Doc Dir
-            let fileManager = FileManager.default
-            let enumerator = fileManager.enumerator(atPath: DocumentsDirectory.localDocumentsURL.path)
-            while let file = enumerator?.nextObject() as? String {
+    do {
+      try entry.content.write(to: fileURL, atomically: false, encoding: .utf8)
+    }
+    catch {
+      print("Unable to add this entry.")
+    }
+  }
 
-                do {
-                    try fileManager.copyItem(at: DocumentsDirectory.localDocumentsURL.appendingPathComponent(file), to: DocumentsDirectory.iCloudDocumentsURL!.appendingPathComponent(file))
+  func getEntries() -> [Entry] {
+    var entries = [Entry]()
+    do {
+      let files = try FileManager.default.contentsOfDirectory(at: getDocumentDiretoryURL(), includingPropertiesForKeys: nil)
+      let fileNames = files.map{ $0.deletingPathExtension().lastPathComponent }
 
-                    print("Copied to iCloud")
-                } catch let error as NSError {
-                    print("Failed to move file to Cloud : \(error)")
-                }
-            }
+      for (index, file) in files.enumerated() {
+        do {
+          let content = try String(contentsOf: file, encoding: .utf8)
+
+          let entry = Entry(date: "\(fileNames[index])", content: content)
+          entries.append(entry)
+        } catch {
+          print("Cant open this particulate file :/", file)
         }
+      }
+    } catch {
+      print("Unable to get entires from directory.")
     }
+    print(entries)
+    return entries
+  }
 
-    // Copy iCloud files to local directory
-    // Local dir will be cleared
-    // No data merging
-
-    func copyFileToLocal() {
-        if isCloudEnabled() {
-            deleteFilesInDirectory(url: DocumentsDirectory.localDocumentsURL)
-            let fileManager = FileManager.default
-            let enumerator = fileManager.enumerator(atPath: DocumentsDirectory.iCloudDocumentsURL!.path)
-            while let file = enumerator?.nextObject() as? String {
-
-                do {
-                    try fileManager.copyItem(at: DocumentsDirectory.iCloudDocumentsURL!.appendingPathComponent(file), to: DocumentsDirectory.localDocumentsURL.appendingPathComponent(file))
-
-                    print("Moved to local dir")
-                } catch let error as NSError {
-                    print("Failed to move file to local dir : \(error)")
-                }
-            }
-        }
-    }
+  func deleteEntry(_ entry: Entry) {
+    let fileURL = getDocumentDiretoryURL().appendingPathComponent("\(entry.formattedStringDate).md")
+    deleteFile(url: fileURL)
+  }
 }

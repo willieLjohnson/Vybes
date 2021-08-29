@@ -33,7 +33,7 @@ class EditEntryViewController: UIViewController {
     UIApplication.shared.statusBarStyle = .lightContent
     entryDateLabel.text = Date().formattedStringDate()
     guard let selectedEntry = selectedEntry else { return }
-    entryTextView.text = selectedEntry.body
+    entryTextView.text = selectedEntry.content
     entryDateLabel.text = selectedEntry.formattedStringDate
   }
 
@@ -51,11 +51,12 @@ class EditEntryViewController: UIViewController {
       return
     }
     if var selectedEntry = selectedEntry, let selectedEntryIndex = selectedEntryIndex {
-      selectedEntry.body = entryText
+      selectedEntry.content = entryText
       delegate.updateEntry(selectedEntry, index: selectedEntryIndex)
     } else {
-      let newEntry = Entry(date: Date().formattedEntryDate(), body: entryText)
+      let newEntry = Entry(date: Date(), content: entryText)
       delegate.postEntry(newEntry)
+      CloudManager.instance.addNewEntry(newEntry)
     }
     dismiss(animated: true, completion: nil)
   }

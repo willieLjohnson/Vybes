@@ -26,7 +26,7 @@ class EntryTableViewCell: UITableViewCell {
       /// Automatically update the labels when the cell's entry is sets
       dateLabel.text = entry.formattedStringDate
       bodyLabel.preferredMaxLayoutWidth = bodyLabel.frame.width
-      bodyLabel.text = entry.body
+      bodyLabel.text = entry.content
     }
   }
   

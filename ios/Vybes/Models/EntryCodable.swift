@@ -8,7 +8,33 @@
 
 import Foundation
 
-struct Entry: Codable {
+struct Entry {
+  /// The date the entry was entered.
+  var date: Date
+  /// The text that was entered by the user.
+  var content: String
+  /// The date formatted for use in app.
+  var formattedStringDate: String {
+    return date.formattedEntryDate()
+  }
+
+  init(date: Date, content: String) {
+    self.date = date
+    self.content = content
+  }
+
+  init(date: String, content: String) {
+    self.date = Date().formattedDateFrom(date) ?? Date()
+    self.content = content
+  }
+
+  init(entry: Entry, content: String) {
+    self = entry
+    self.content = content
+  }
+}
+
+struct EntryCodable: Codable {
   /// The id of the entry
   var id: Int?
   /// The date the entry was entered.
@@ -20,13 +46,10 @@ struct Entry: Codable {
   /// The date formatted for use in app.
   var formattedStringDate: String {
     get {
-      let dateFormatter = DateFormatter()
       guard let createdAt = created_at else {
         return Date().formattedStringDate()
       }
-      dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
-      guard let createdAtDate = dateFormatter.date(from: createdAt) else { return "" }
-      return createdAtDate.formattedStringDate()
+      return createdAt
     }
   }
 
@@ -35,8 +58,9 @@ struct Entry: Codable {
     self.body = body
   }
 
-  init(entry: Entry, body: String) {
+  init(entry: EntryCodable, body: String) {
     self = entry
     self.body = body
   }
+
 }

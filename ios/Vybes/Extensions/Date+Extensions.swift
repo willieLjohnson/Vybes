@@ -11,13 +11,19 @@ import Foundation
 extension Date {
   func formattedStringDate() -> String {
     let dateFormatter = DateFormatter()
-    dateFormatter.setLocalizedDateFormatFromTemplate("MMM d, h:mm a, yyyy")
+    dateFormatter.dateFormat = "yyyyMMdd-HHmmss-SSS"
     return dateFormatter.string(from: self)
   }
 
   func formattedEntryDate() -> String {
     let dateFormatter = DateFormatter()
-    dateFormatter.dateFormat = "yyyy-MM-dd"
+    dateFormatter.dateFormat = "yyyyMMdd-HHmmss-SSS"
     return dateFormatter.string(from: self)
+  }
+
+  func formattedDateFrom(_ text: String) -> Date? {
+    let dateFormatter = DateFormatter()
+    dateFormatter.dateFormat = "yyyyMMdd-HHmmss-SSS"
+    return dateFormatter.date(from: text)
   }
 }

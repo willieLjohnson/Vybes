@@ -31,10 +31,11 @@ class EditEntryViewController: UIViewController {
     view.addTapToDismissKeyboardGesture()
     entryTextView.addDoneButtonOnKeyboard()
     UIApplication.shared.statusBarStyle = .lightContent
-    entryDateLabel.text = Date().formattedStringDate()
+    entryDateLabel.text = Date().displayDate()
+    
     guard let selectedEntry = selectedEntry else { return }
     entryTextView.text = selectedEntry.content
-    entryDateLabel.text = selectedEntry.formattedStringDate
+    entryDateLabel.text = selectedEntry.date.displayDate()
   }
 
   override func didReceiveMemoryWarning() {

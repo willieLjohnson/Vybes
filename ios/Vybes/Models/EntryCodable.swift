@@ -15,7 +15,7 @@ struct Entry {
   var content: String
   /// The date formatted for use in app.
   var formattedStringDate: String {
-    return date.formattedEntryDate()
+    return date.formattedStringDate()
   }
 
   init(date: Date, content: String) {

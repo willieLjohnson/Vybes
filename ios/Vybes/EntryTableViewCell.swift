@@ -24,7 +24,7 @@ class EntryTableViewCell: UITableViewCell {
     didSet {
       guard let entry = entry else { return }
       /// Automatically update the labels when the cell's entry is sets
-      dateLabel.text = entry.formattedStringDate
+      dateLabel.text = entry.date.displayDate()
       bodyLabel.preferredMaxLayoutWidth = bodyLabel.frame.width
       bodyLabel.text = entry.content
     }

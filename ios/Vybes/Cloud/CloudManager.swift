@@ -28,6 +28,10 @@ class CloudManager {
     }
   }
 
+  func doesFileExist(_ url: URL) -> Bool {
+    return FileManager.default.fileExists(atPath: url.path)
+  }
+
   // Return true if iCloud is enabled
 
   func isCloudEnabled() -> Bool {
@@ -106,14 +110,26 @@ class CloudManager {
 // MARK - Entry
 extension CloudManager {
   func addNewEntry(_ entry: Entry) {
-    print("\(entry.formattedStringDate).md")
     let fileURL = getDocumentDiretoryURL().appendingPathComponent("\(entry.formattedStringDate).md")
 
     do {
-      try entry.content.write(to: fileURL, atomically: false, encoding: .utf8)
+      try entry.content.write(to: fileURL, atomically: true, encoding: .utf8)
     }
     catch {
       print("Unable to add this entry.")
+    }
+  }
+
+  func updateEntry(_ entry: Entry) {
+    let entryFile = getDocumentDiretoryURL().appendingPathComponent("\(entry.formattedStringDate).md")
+    if doesFileExist(entryFile) {
+      deleteFile(url: entryFile)
+    }
+    do {
+      try entry.content.write(to: entryFile, atomically: true, encoding: .utf8)
+    }
+    catch {
+      print("Unable to update this entry.")
     }
   }
 
@@ -136,7 +152,6 @@ extension CloudManager {
     } catch {
       print("Unable to get entires from directory.")
     }
-    print(entries)
     return entries
   }
 

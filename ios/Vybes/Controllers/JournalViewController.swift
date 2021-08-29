@@ -79,16 +79,6 @@ class JournalViewController: UIViewController {
 
   func getEntries() {
     entries = CloudManager.instance.getEntries()
-//    let manager = NetworkManager.shared
-//    guard let user = manager.user else {
-//      manager.tryAgainAfterLogin { [unowned self] in
-//        self.getEntries()
-//      }
-//      return
-//    }
-//    user.getEntries() { [unowned self] entries in
-//      self.entries = entries
-//    }
   }
 }
 
@@ -117,7 +107,8 @@ extension JournalViewController: JournalViewDelegate {
   }
 
   func updateEntry(_ entry: Entry, index: Int) {
-
+    entries[index] = entry
+    CloudManager.instance.updateEntry(entry)
   }
 
   func updateData() {

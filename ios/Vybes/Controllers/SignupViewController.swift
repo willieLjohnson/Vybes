@@ -41,7 +41,6 @@ class SignupViewController: UIViewController {
       case let .success(isSuccess):
         if isSuccess {
           DispatchQueue.main.async {
-            UIApplication.shared.statusBarStyle = .default
             self.dismiss(animated: true)
           }
         }

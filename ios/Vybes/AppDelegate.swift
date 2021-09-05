@@ -8,7 +8,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     window = UIWindow(frame: UIScreen.main.bounds)
     // Grab the initial view controller.
     let storyBoard = UIStoryboard(name: "Main", bundle: nil)
-    let initialViewController = storyBoard.instantiateViewController(withIdentifier: "ViewController")
+    let initialViewController = storyBoard.instantiateInitialViewController()
 
     // Present window with appropriate view controller
     window?.rootViewController = initialViewController

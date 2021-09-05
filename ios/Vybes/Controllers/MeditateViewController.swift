@@ -32,7 +32,6 @@ class MeditateViewController: UIViewController {
     super.viewDidLoad()
     timerLabel.transform = .init(scaleX: 0.001, y: 0.001)
     durationPicker.setValue(UIColor.white, forKey: "textColor")
-    UIApplication.shared.statusBarStyle = .lightContent
   }
 
   override func didReceiveMemoryWarning() {
@@ -73,7 +72,6 @@ class MeditateViewController: UIViewController {
   @IBAction func stopButtonPressed(_ sender: Any) {
     stopButton.animateTap()
     guard secCounter > 0 else {
-      UIApplication.shared.statusBarStyle = .default
       dismiss(animated: true, completion: nil)
       return
     }

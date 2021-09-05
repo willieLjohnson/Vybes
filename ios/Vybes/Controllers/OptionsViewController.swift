@@ -23,7 +23,6 @@ class OptionsViewController: UIViewController {
   }
   
   @IBAction func dismissedButtonPressed(_ sender: Any) {
-    UIApplication.shared.statusBarStyle = .default
     delegate?.updateData()
     dismiss(animated: true, completion: nil)
   }

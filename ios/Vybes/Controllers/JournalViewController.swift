@@ -57,6 +57,9 @@ class JournalViewController: UIViewController {
     optionsBarButton.target = self
     meditateBarButton.target = self
 
+    view.backgroundColor = Style.backgroundColor
+    entriesTableView.backgroundColor = Style.backgroundColor
+
     getEntries()
   }
 
